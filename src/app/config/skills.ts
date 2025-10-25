@@ -30,6 +30,7 @@ export const skills: Skill[] = [
   { icon: 'js', name: 'JavaScript', description: 'メインで使用している言語' },
   { icon: 'ts', name: 'TypeScript', description: '型安全な開発で愛用' },
   { icon: 'go', name: 'Go', description: 'システム開発やクラウドに使用' },
+  { icon: 'ruby', name:'Ruby', description: 'バックエンドの開発の愛用' },
   
   // フレームワーク・ライブラリ
   { icon: 'react', name: 'React', description: 'UIライブラリ' },
