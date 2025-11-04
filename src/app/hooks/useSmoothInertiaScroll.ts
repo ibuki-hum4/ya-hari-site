@@ -3,83 +3,81 @@
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
+const detectLowSpec = () => {
+  try {
+    const mem = (navigator as any).deviceMemory || 4;
+    const cores = (navigator as any).hardwareConcurrency || navigator.hardwareConcurrency || 4;
+    return (mem && mem <= 1.5) || (cores && cores <= 2);
+  } catch (e) {
+    return false;
+  }
+};
+
 export const useLenisScroll = () => {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // パフォーマンス最適化されたLenis設定
+    const lowSpec = detectLowSpec();
+
+    // Low-spec 環境では RAF を自動に任せ、multiplier を抑える
     const lenis = new Lenis({
-      lerp: 0.15, // さらに高速化
-      duration: 1.0, // レスポンス向上
-      easing: (t: number) => 1 - Math.pow(1 - t, 3), // シンプルなeaseOutCubic
+      lerp: lowSpec ? 0.08 : 0.15,
+      duration: lowSpec ? 1.4 : 1.0,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
       orientation: 'vertical',
-      gestureOrientation: 'vertical', 
-      smoothWheel: true,
-      wheelMultiplier: 1.2, // より素早いスクロール
-      touchMultiplier: 1.2, // タッチ最適化
+      gestureOrientation: 'vertical',
+      smoothWheel: !lowSpec, // 低スペックでは通常スクロール挙動を優先
+      wheelMultiplier: lowSpec ? 0.9 : 1.2,
+      touchMultiplier: lowSpec ? 0.9 : 1.2,
       infinite: false,
       autoResize: true,
-      autoRaf: false, // 手動RAF制御でパフォーマンス向上
+      autoRaf: lowSpec ? true : false, // 低スペでは Lenis に RAF を任せて負荷を抑制
       syncTouch: false,
-      syncTouchLerp: 0.08, // 最適化
-      touchInertiaExponent: 1.0, // 軽量化
-      overscroll: false, // 無効化でパフォーマンス向上
+      syncTouchLerp: 0.08,
+      touchInertiaExponent: 1.0,
+      overscroll: false,
     });
 
     lenisRef.current = lenis;
 
-    // 手動RAFでパフォーマンス制御
-    let rafId: number;
-    const raf = (time: number) => {
-      lenis.raf(time);
+    // 手動 RAF を使う場合のみフレームループを実行
+    let rafId: number | undefined;
+    if (!lenis.options.autoRaf) {
+      const raf = (time: number) => {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
       rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
+    }
 
-    // スクロールイベントの型定義
     interface ScrollEvent {
       scroll: number;
       direction: number;
       velocity: number;
     }
 
-    // スロットル化されたスクロールハンドラー
-    let scrollTimeout: NodeJS.Timeout | null = null;
+    // スロットル間隔は低スペで広めにする
+    const throttleMs = lowSpec ? 120 : 16;
+    let scrollTimeout: any = null;
     const throttledScrollHandler = ({ scroll, direction, velocity }: ScrollEvent) => {
-      // スロットル処理でパフォーマンス向上
       if (scrollTimeout) return;
-      
       scrollTimeout = setTimeout(() => {
-        // ヘッダーの表示/非表示制御（最小限の処理）
         const header = document.querySelector('nav');
         if (header && Math.abs(velocity) > 1.5) {
           const shouldHide = direction === 1 && scroll > 100;
-          header.style.transform = shouldHide ? 'translateY(-100%)' : 'translateY(0)';
+          (header as HTMLElement).style.transform = shouldHide ? 'translateY(-100%)' : 'translateY(0)';
         }
-        
         scrollTimeout = null;
-      }, 16); // 60fps制限
+      }, throttleMs);
     };
 
-    // 軽量なスクロールイベント
     lenis.on('scroll', throttledScrollHandler);
 
-    // グローバルにLenisインスタンスを公開（最小限）
     (window as unknown as { lenis: Lenis }).lenis = lenis;
 
-    // クリーンアップ
     return () => {
-      // RAF停止
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-      
-      // タイムアウトクリア
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
-      
-      // Lenisインスタンスを破棄
+      if (rafId) cancelAnimationFrame(rafId);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
       lenis.destroy();
       (window as unknown as { lenis: Lenis | null }).lenis = null;
     };

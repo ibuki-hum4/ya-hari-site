@@ -19,9 +19,9 @@ export function ProjectsSection() {
             className="fade-in group"
             style={{ transitionDelay: `${index * 200}ms` }}
           >
-            <div className="bg-white dark:bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 border border-gray-200 dark:border-slate-600">
+            <div className="bg-white dark:bg-slate-700 rounded-lg p-6 shadow-sm transition-transform duration-150 border border-gray-200 dark:border-slate-600">
               {/* グラデーションヘッダー */}
-              <div className={`h-32 rounded-xl bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                <div className={`h-28 rounded-lg bg-gradient-to-br ${project.gradient} mb-6 flex items-center justify-center transition-transform duration-150`}>
                 <div className="text-white text-center">
                   <div className="text-2xl font-bold mb-1">{project.title}</div>
                   <div className="text-sm opacity-90">{project.subtitle}</div>
@@ -39,7 +39,7 @@ export function ProjectsSection() {
                   href={project.link}
                   target={project.target || '_self'}
                   rel={project.target === '_blank' ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 transform group"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-150"
                 >
                   詳細を見る
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@ export function ProjectsSection() {
       </div>
 
       {/* 小さなプロジェクト */}
-      <div className="fade-in">
+              <div className="fade-in">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
           その他のプロジェクト
         </h3>
@@ -65,7 +65,7 @@ export function ProjectsSection() {
           {smallProjects.map((project, index) => (
             <div
               key={project.name}
-              className="bg-white dark:bg-slate-700 rounded-xl p-6 shadow-md hover:shadow-lg transform transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-slate-600 group"
+                      className="bg-white dark:bg-slate-700 rounded-lg p-4 shadow-sm transition-colors duration-150 border border-gray-200 dark:border-slate-600 group"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">

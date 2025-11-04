@@ -18,7 +18,7 @@ export function SkillIcons() {
         <img 
           src={skillIconUrl}
           alt="技術スキル"
-          className="max-w-full h-auto hover:scale-105 transition-transform duration-300"
+          className="max-w-full h-auto transition-transform duration-150"
           loading="lazy"
         />
       </div>
