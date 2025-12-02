@@ -3,7 +3,7 @@
 import { IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
 import { useEffect, useRef, memo } from "react";
-import type { WebGLRenderer } from "three";
+import type { WebGLRenderer, Mesh } from "three";
 
 // Three.jsを動的に読み込み
 const Hero = memo(function Hero() {
@@ -55,7 +55,7 @@ const Hero = memo(function Hero() {
             scene.add(particlesMesh);
 
             // Floating geometric shapes (数を削減)
-            const shapes: THREE.Mesh[] = [];
+            const shapes: Mesh[] = [];
             const geometries = [
                 new THREE.IcosahedronGeometry(0.3, 0),
                 new THREE.OctahedronGeometry(0.25, 0),
