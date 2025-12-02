@@ -1,8 +1,10 @@
 "use client";
 
 import { useTheme } from "./ThemeProvider";
+import { useTranslations } from "next-intl";
 
 export default function Skills() {
+    const t = useTranslations("skills");
     const { resolvedTheme } = useTheme();
     const iconTheme = resolvedTheme === "dark" ? "dark" : "light";
 
@@ -18,12 +20,12 @@ export default function Skills() {
     return (
         <section id="skills" className="py-20 px-8">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">Skills</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">{t("title")}</h2>
                 
                 <div className="flex flex-col gap-10">
                     {/* 言語 */}
                     <div className="text-center select-none">
-                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Languages</h3>
+                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{t("languages")}</h3>
                         <div className="flex justify-center">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img 
@@ -38,7 +40,7 @@ export default function Skills() {
 
                     {/* フレームワーク */}
                     <div className="text-center select-none">
-                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Frameworks</h3>
+                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{t("frameworks")}</h3>
                         <div className="flex justify-center">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img 
@@ -53,7 +55,7 @@ export default function Skills() {
 
                     {/* ツール */}
                     <div className="text-center select-none">
-                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Tools</h3>
+                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{t("tools")}</h3>
                         <div className="flex justify-center">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img 

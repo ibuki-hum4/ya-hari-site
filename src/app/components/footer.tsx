@@ -34,7 +34,7 @@ export default function Footer() {
             className="group flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             <FiSettings size={20} className="flex-shrink-0 transition-transform duration-300 group-hover:-translate-x-2" />
-            <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[150px] group-hover:ml-2 transition-all duration-300 ease-out">Cookie設定</span>
+            <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[150px] group-hover:ml-2 transition-all duration-300 ease-out">Cookie Settings</span>
           </button>
         </div>
 

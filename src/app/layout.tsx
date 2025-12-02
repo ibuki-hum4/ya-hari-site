@@ -4,6 +4,8 @@ import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import CookieConsent from "./components/CookieConsent";
 import ThemeProvider from "./components/ThemeProvider";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,13 +31,16 @@ export const metadata: Metadata = {
   description: "やーはりのポートフォリオサイト。",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         {/* Priority Hints: 重要なリソースの優先読み込み */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,11 +66,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors`}
       >
-        <ThemeProvider>
-          <GoogleAnalytics />
-          {children}
-          <CookieConsent />
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <GoogleAnalytics />
+            {children}
+            <CookieConsent />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

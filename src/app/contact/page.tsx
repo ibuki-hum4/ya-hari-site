@@ -7,10 +7,12 @@ import { FaXTwitter } from "react-icons/fa6";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Turnstile from "../components/Turnstile";
+import { useTranslations } from "next-intl";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 
 export default function ContactPage() {
+    const t = useTranslations("contact");
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -31,33 +33,33 @@ export default function ContactPage() {
             icon: <IoMailOutline size={24} />,
             title: "EMAIL",
             subtitle: "yahari@mail.skyia.jp",
-            description: "プロジェクトのご相談、お仕事のご依頼はメールでお気軽にどうぞ。",
+            description: t("methods.email.description"),
             link: "mailto:yahari@mail.skyia.jp",
-            linkText: "送信する →",
+            linkText: t("methods.email.linkText"),
         },
         {
             icon: <FiGithub size={24} />,
             title: "GITHUB",
             subtitle: "@ibuki-hum4",
-            description: "オープンソースプロジェクトやコード作品をご覧いただけます。",
+            description: t("methods.github.description"),
             link: "https://github.com/ibuki-hum4",
-            linkText: "アクセスする →",
+            linkText: t("methods.github.linkText"),
         },
         {
             icon: <FaXTwitter size={24} />,
             title: "X",
             subtitle: "@Yaaaaahari",
-            description: "日々の活動や技術に関する情報を発信しています。",
+            description: t("methods.x.description"),
             link: "https://x.com/Yaaaaahari",
-            linkText: "アクセスする →",
+            linkText: t("methods.x.linkText"),
         },
     ];
 
     const inquiryTypes = [
-        { value: "project", label: "プロジェクトの相談" },
-        { value: "collaboration", label: "コラボレーション" },
-        { value: "technical", label: "技術的な質問" },
-        { value: "other", label: "その他" },
+        { value: "project", label: t("form.typeProject") },
+        { value: "collaboration", label: t("form.typeCollaboration") },
+        { value: "technical", label: t("form.typeTechnical") },
+        { value: "other", label: t("form.typeOther") },
     ];
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -103,11 +105,10 @@ export default function ContactPage() {
                         <div className="text-center mb-16">
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 tracking-widest">CONTACT</p>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                                その想像は世界を変える
+                                {t("heading")}
                             </h1>
-                            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                                新しいプロジェクト、技術的な相談、ただの雑談でも。
-                                お気軽にご相談ください。
+                            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto whitespace-pre-line">
+                                {t("description")}
                             </p>
                         </div>
 
@@ -115,24 +116,24 @@ export default function ContactPage() {
                         <div className="flex flex-wrap justify-center gap-6 mb-16">
                             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                                <span>3-4日で返信</span>
+                                <span>{t("responseTime")}</span>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                                 <FiMessageCircle size={16} />
-                                <span>日本語</span>
+                                <span>{t("language")}</span>
                             </div>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12">
                             {/* フォーム */}
                             <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">メッセージを送る</h2>
+                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t("sendMessage")}</h2>
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     {/* 名前 */}
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                             <FiUser size={16} />
-                                            お名前 <span className="text-red-500">*</span>
+                                            {t("form.name")} <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -140,7 +141,7 @@ export default function ContactPage() {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors"
-                                            placeholder="山田 太郎"
+                                            placeholder={t("form.namePlaceholder")}
                                         />
                                     </div>
 
@@ -148,7 +149,7 @@ export default function ContactPage() {
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                             <FiMail size={16} />
-                                            メールアドレス <span className="text-red-500">*</span>
+                                            {t("form.email")} <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="email"
@@ -156,21 +157,21 @@ export default function ContactPage() {
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors"
-                                            placeholder="example@email.com"
+                                            placeholder={t("form.emailPlaceholder")}
                                         />
                                     </div>
 
                                     {/* お問い合わせの種類 */}
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                            お問い合わせの種類
+                                            {t("form.type")}
                                         </label>
                                         <select
                                             value={formData.type}
                                             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors bg-white dark:bg-gray-700"
                                         >
-                                            <option value="">選択してください</option>
+                                            <option value="">{t("form.typeSelect")}</option>
                                             {inquiryTypes.map((type) => (
                                                 <option key={type.value} value={type.value}>
                                                     {type.label}
@@ -183,7 +184,7 @@ export default function ContactPage() {
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                             <FiFileText size={16} />
-                                            件名 <span className="text-red-500">*</span>
+                                            {t("form.subject")} <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -191,14 +192,14 @@ export default function ContactPage() {
                                             value={formData.subject}
                                             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors"
-                                            placeholder="お問い合わせの件名"
+                                            placeholder={t("form.subjectPlaceholder")}
                                         />
                                     </div>
 
                                     {/* メッセージ */}
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                            メッセージ <span className="text-red-500">*</span>
+                                            {t("form.message")} <span className="text-red-500">*</span>
                                         </label>
                                         <textarea
                                             required
@@ -206,7 +207,7 @@ export default function ContactPage() {
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors resize-none"
-                                            placeholder="お問い合わせ内容をご記入ください"
+                                            placeholder={t("form.messagePlaceholder")}
                                         />
                                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-right">
                                             {formData.message.length} / 5000
@@ -230,22 +231,22 @@ export default function ContactPage() {
                                         className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         <IoSendOutline size={20} />
-                                        {isSubmitting ? "送信中..." : "送信する"}
+                                        {isSubmitting ? t("form.submitting") : t("form.submit")}
                                     </button>
 
                                     {/* ステータスメッセージ */}
                                     {submitStatus === "success" && (
-                                        <p className="text-green-600 text-center">送信完了！ありがとうございます。</p>
+                                        <p className="text-green-600 text-center">{t("form.success")}</p>
                                     )}
                                     {submitStatus === "error" && (
-                                        <p className="text-red-600 text-center">送信に失敗しました。もう一度お試しください。</p>
+                                        <p className="text-red-600 text-center">{t("form.error")}</p>
                                     )}
                                 </form>
                             </div>
 
                             {/* 連絡方法 */}
                             <div className="space-y-6">
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">その他の方法</h2>
+                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t("otherMethods")}</h2>
                                 {contactMethods.map((method) => (
                                     <a
                                         key={method.title}

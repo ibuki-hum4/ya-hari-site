@@ -2,6 +2,7 @@
 
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { FaDiscord } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 type Project = {
     title: string;
@@ -15,10 +16,12 @@ type Project = {
 };
 
 export default function Projects() {
+    const t = useTranslations("projects");
+    
     const projects: Project[] = [
         {
-            title: "BlueArchive API",
-            description: "ブルーアーカイブのデータを提供する非公式API",
+            title: t("items.bluearchive.title"),
+            description: t("items.bluearchive.description"),
             status: "completed",
             links: {
                 demo: "https://bluearchive-api.skyia.jp/",
@@ -26,16 +29,16 @@ export default function Projects() {
             },
         },
         {
-            title: "Discord Bot",
-            description: "多機能なDiscord Bot",
+            title: t("items.discord.title"),
+            description: t("items.discord.description"),
             status: "in-progress",
             links: {
                 invite: "https://discord.com/oauth2/authorize?client_id=1419869519475900426"
             },
         },
         {
-            title: "学校向けSNS・LMS",
-            description: "学校向けのSNSと学習管理システム",
+            title: t("items.school.title"),
+            description: t("items.school.description"),
             status: "in-progress",
         },
     ];
@@ -43,7 +46,7 @@ export default function Projects() {
     return (
         <section id="projects" className="py-20 px-8 bg-gray-50 dark:bg-gray-800">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">Projects</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">{t("title")}</h2>
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project) => (

@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@types/three": "^0.181.0",
+    "critters": "^0.0.25",
     "next": "16.0.6",
+    "next-intl": "^4.5.7",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-icons": "^5.5.0",

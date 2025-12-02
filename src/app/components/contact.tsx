@@ -4,13 +4,17 @@ import { IoMailOutline, IoArrowForward } from "react-icons/io5";
 import { FiGithub, FiClock, FiGlobe } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
+    const t = useTranslations("contact");
+    
     const contactMethods = [
         {
             icon: <IoMailOutline size={28} />,
             title: "EMAIL",
             subtitle: "yahari@mail.skyia.jp",
+            description: t("methods.email.description"),
             link: "mailto:yahari@mail.skyia.jp",
             color: "from-blue-500/10 to-blue-600/10",
             hoverColor: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
@@ -19,6 +23,7 @@ export default function ContactSection() {
             icon: <FiGithub size={28} />,
             title: "GITHUB",
             subtitle: "@ibuki-hum4",
+            description: t("methods.github.description"),
             link: "https://github.com/ibuki-hum4",
             color: "from-gray-500/10 to-gray-600/10",
             hoverColor: "group-hover:text-gray-900 dark:group-hover:text-white",
@@ -27,6 +32,7 @@ export default function ContactSection() {
             icon: <FaXTwitter size={28} />,
             title: "X",
             subtitle: "@Yaaaaahari",
+            description: t("methods.x.description"),
             link: "https://x.com/Yaaaaahari",
             color: "from-slate-500/10 to-slate-600/10",
             hoverColor: "group-hover:text-slate-900 dark:group-hover:text-white",
@@ -49,12 +55,10 @@ export default function ContactSection() {
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600" />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-6">
-                        その想像は世界を変える
+                        {t("heading")}
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto leading-relaxed">
-                        新しいプロジェクト、技術的な相談、ただの雑談でも。
-                        <br className="hidden md:block" />
-                        お気軽にご相談ください。
+                    <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto leading-relaxed whitespace-pre-line">
+                        {t("description")}
                     </p>
                 </div>
 
@@ -65,15 +69,15 @@ export default function ContactSection() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                         </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-300">オープン</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("open")}</span>
                     </div>
                     <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
                         <FiClock size={14} className="text-gray-400" />
-                        <span className="text-sm text-gray-600 dark:text-gray-300">3-4日で返信</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("responseTime")}</span>
                     </div>
                     <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
                         <FiGlobe size={14} className="text-gray-400" />
-                        <span className="text-sm text-gray-600 dark:text-gray-300">日本語</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("language")}</span>
                     </div>
                 </div>
 
@@ -113,10 +117,10 @@ export default function ContactSection() {
                         className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:shadow-xl hover:shadow-gray-900/20 dark:hover:shadow-white/20"
                     >
                         <IoMailOutline size={22} />
-                        <span className="font-medium">フォームで問い合わせる</span>
+                        <span className="font-medium">{t("cta")}</span>
                         <IoArrowForward size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
-                    <p className="mt-4 text-sm text-gray-400">または上のリンクから直接連絡できます</p>
+                    <p className="mt-4 text-sm text-gray-400">{t("ctaNote")}</p>
                 </div>
             </div>
         </section>

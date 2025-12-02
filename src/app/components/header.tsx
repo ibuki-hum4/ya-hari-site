@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
   { href: "/#about", label: "About" },
@@ -11,6 +13,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const locale = useLocale();
   const [isVisible, setIsVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -54,6 +57,7 @@ export default function Header() {
               {label}
             </a>
           ))}
+          <LanguageSwitcher currentLocale={locale} />
           <ThemeToggle />
         </nav>
       </div>

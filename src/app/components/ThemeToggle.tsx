@@ -3,8 +3,10 @@
 import { FiSun, FiMoon, FiMonitor } from "react-icons/fi";
 import { useTheme } from "./ThemeProvider";
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ThemeToggle() {
+    const t = useTranslations("theme");
     const { theme, setTheme, resolvedTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -24,11 +26,11 @@ export default function ThemeToggle() {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-
+    
     const options = [
-        { value: "light" as const, icon: <FiSun size={16} />, label: "ライト" },
-        { value: "dark" as const, icon: <FiMoon size={16} />, label: "ダーク" },
-        { value: "system" as const, icon: <FiMonitor size={16} />, label: "システム" },
+        { value: "light" as const, icon: <FiSun size={16} />, label: t("light") },
+        { value: "dark" as const, icon: <FiMoon size={16} />, label: t("dark") },
+        { value: "system" as const, icon: <FiMonitor size={16} />, label: t("system") },
     ];
 
     // マウント前はプレースホルダーを表示

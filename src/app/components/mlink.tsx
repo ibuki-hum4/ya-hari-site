@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type FriendLink = {
   name?: string; // サイト名（省略でサイトから自動取得）
@@ -27,6 +28,7 @@ const friendLinks: FriendLink[] = [
 type LinkWithOGP = FriendLink & { fetchedName?: string; fetchedDescription?: string };
 
 export default function MutualLinks() {
+  const t = useTranslations("links");
   const [links, setLinks] = useState<LinkWithOGP[]>(friendLinks);
 
   useEffect(() => {
@@ -67,10 +69,10 @@ export default function MutualLinks() {
         <div className="text-center mb-12">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 tracking-widest">LINKS</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            相互リンク
+            {t("title")}
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
-            仲間たちのサイトをご紹介します
+            {t("description")}
           </p>
         </div>
 
@@ -128,11 +130,11 @@ export default function MutualLinks() {
         {/* リンク申請 */}
         <div className="mt-10 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            相互リンクをご希望の方は{" "}
+            {t("request")}{" "}
             <a href="/#contact" className="text-gray-700 dark:text-gray-300 underline hover:text-gray-900 dark:hover:text-white transition-colors">
-              お問い合わせ
+              {t("contactLink")}
             </a>
-            {" "}からご連絡ください
+            {" "}{t("requestEnd")}
           </p>
         </div>
       </div>

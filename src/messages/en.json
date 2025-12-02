@@ -1,0 +1,174 @@
+{
+    "meta": {
+        "title": "Yahari | Portfolio",
+        "description": "Yahari's portfolio website."
+    },
+    "header": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "links": "Links",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "14 y/o / 8th Grade / Developer",
+        "contact": "Contact"
+    },
+    "about": {
+        "title": "About",
+        "name": "Yahari",
+        "age": "14 years old",
+        "school": "8th Grade",
+        "location": "Japan",
+        "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day."
+    },
+    "skills": {
+        "title": "Skills",
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "tools": "Tools"
+    },
+    "projects": {
+        "title": "Projects",
+        "viewProject": "View Project",
+        "items": {
+            "bluearchive": {
+                "title": "BlueArchive Unofficial API",
+                "description": "RESTful API providing Blue Archive game data. Access character info, stats, skill data and more."
+            },
+            "discord": {
+                "title": "Discord Bot",
+                "description": "Multi-functional Discord Bot with moderation, music playback, custom commands and various features."
+            },
+            "school": {
+                "title": "School SNS/LMS",
+                "description": "Social network and learning management system for schools. Supports communication between students and teachers."
+            }
+        }
+    },
+    "links": {
+        "title": "Mutual Links",
+        "description": "Introducing my friends' websites",
+        "request": "If you'd like a mutual link, please",
+        "contactLink": "contact me",
+        "requestEnd": ""
+    },
+    "contact": {
+        "title": "Contact",
+        "heading": "Your imagination can change the world",
+        "description": "New projects, technical consultations, or just a chat.\nFeel free to reach out.",
+        "open": "Open",
+        "responseTime": "Reply in 3-4 days",
+        "language": "Japanese / English",
+        "cta": "Contact via Form",
+        "ctaNote": "Or contact me directly via the links above",
+        "methods": {
+            "email": {
+                "description": "Feel free to email me for project consultations or work inquiries.",
+                "linkText": "Send Email →"
+            },
+            "github": {
+                "description": "Check out my open source projects and code works.",
+                "linkText": "Visit →"
+            },
+            "x": {
+                "description": "I share daily activities and tech-related information.",
+                "linkText": "Visit →"
+            }
+        },
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "John Doe",
+            "email": "Email",
+            "emailPlaceholder": "example@email.com",
+            "type": "Inquiry Type",
+            "typeSelect": "Select an option",
+            "typeProject": "Project Consultation",
+            "typeCollaboration": "Collaboration",
+            "typeTechnical": "Technical Question",
+            "typeOther": "Other",
+            "subject": "Subject",
+            "subjectPlaceholder": "Subject of your inquiry",
+            "message": "Message",
+            "messagePlaceholder": "Please enter your message",
+            "submit": "Send",
+            "submitting": "Sending...",
+            "success": "Sent successfully! Thank you.",
+            "error": "Failed to send. Please try again."
+        },
+        "otherMethods": "Other Methods",
+        "sendMessage": "Send a Message"
+    },
+    "footer": {
+        "copyright": "© 2024 Yahari. All rights reserved.",
+        "cookieSettings": "Cookie Settings"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "cookie": {
+        "message": "This site uses cookies for a better user experience.",
+        "learnMore": "Learn More",
+        "accept": "Accept",
+        "decline": "Decline"
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "intro": "Yahari (hereinafter referred to as \"this site\") establishes the following privacy policy regarding the handling of user's personal information.",
+        "section1": {
+            "title": "1. Information We Collect",
+            "description": "This site may collect the following information:",
+            "items": [
+                "Name, email address, and inquiry content provided through the contact form",
+                "Access analysis data by Google Analytics (anonymized IP address, browser information, pages viewed, etc.)",
+                "Site usage through cookies"
+            ]
+        },
+        "section2": {
+            "title": "2. Use of Cookies",
+            "description": "This site uses cookies to improve user experience and for access analysis.",
+            "gaTitle": "Google Analytics",
+            "gaDescription": "This site uses Google Analytics, an access analysis tool by Google. Google Analytics uses cookies to collect data. This data is collected anonymously and does not identify individuals.",
+            "gaDisable": "You can refuse collection by disabling cookies in your browser settings. For more information, please see",
+            "gaLink": "Google's Policies and Terms",
+            "gaEnd": "."
+        },
+        "section3": {
+            "title": "3. Purpose of Information Use",
+            "description": "Collected information is used for the following purposes:",
+            "items": [
+                "Responding to inquiries",
+                "Site improvement and service enhancement",
+                "Access analysis"
+            ]
+        },
+        "section4": {
+            "title": "4. Disclosure to Third Parties",
+            "description": "This site will not provide personal information to third parties without user consent, except as required by law."
+        },
+        "section5": {
+            "title": "5. Security",
+            "description": "This site takes necessary and appropriate measures for the safe management of personal information, including prevention of leakage, loss, and damage."
+        },
+        "section6": {
+            "title": "6. Cloudflare Turnstile",
+            "description": "The contact form on this site uses Cloudflare Turnstile for spam prevention. This verifies that users are human. For more information, please see",
+            "link": "Cloudflare's Privacy Policy",
+            "end": "."
+        },
+        "section7": {
+            "title": "7. Changes to Privacy Policy",
+            "description": "This site may change this privacy policy as necessary. The revised privacy policy shall take effect from the time it is posted on this site."
+        },
+        "section8": {
+            "title": "8. Contact",
+            "description": "For inquiries regarding this privacy policy, please contact us through the",
+            "link": "Contact Page",
+            "end": "."
+        },
+        "effectiveDate": "Effective Date: December 2, 2024"
+    }
+}

@@ -1,0 +1,174 @@
+{
+    "meta": {
+        "title": "やーはり | ポートフォリオ",
+        "description": "やーはりのポートフォリオサイト。"
+    },
+    "header": {
+        "home": "ホーム",
+        "about": "自己紹介",
+        "skills": "スキル",
+        "projects": "プロジェクト",
+        "links": "リンク",
+        "contact": "お問い合わせ"
+    },
+    "hero": {
+        "subtitle": "14歳 / 中学2年生 / 開発者",
+        "contact": "お問い合わせ"
+    },
+    "about": {
+        "title": "About",
+        "name": "やーはり",
+        "age": "14歳",
+        "school": "中学2年生",
+        "location": "日本",
+        "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。"
+    },
+    "skills": {
+        "title": "Skills",
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "tools": "Tools"
+    },
+    "projects": {
+        "title": "Projects",
+        "viewProject": "プロジェクトを見る",
+        "items": {
+            "bluearchive": {
+                "title": "BlueArchive 非公式API",
+                "description": "ブルーアーカイブのゲームデータを提供するRESTful API。キャラクター情報、ステータス、スキルデータなどを取得可能。"
+            },
+            "discord": {
+                "title": "Discord Bot",
+                "description": "多機能なDiscord Bot。モデレーション、音楽再生、カスタムコマンドなど様々な機能を搭載。"
+            },
+            "school": {
+                "title": "学校向けSNS/LMS",
+                "description": "学校内で使用するソーシャルネットワーク・学習管理システム。生徒と教師のコミュニケーションを支援。"
+            }
+        }
+    },
+    "links": {
+        "title": "相互リンク",
+        "description": "仲間たちのサイトをご紹介します",
+        "request": "相互リンクをご希望の方は",
+        "contactLink": "お問い合わせ",
+        "requestEnd": "からご連絡ください"
+    },
+    "contact": {
+        "title": "Contact",
+        "heading": "その想像は世界を変える",
+        "description": "新しいプロジェクト、技術的な相談、ただの雑談でも。\nお気軽にご相談ください。",
+        "open": "オープン",
+        "responseTime": "3-4日で返信",
+        "language": "日本語",
+        "cta": "フォームで問い合わせる",
+        "ctaNote": "または上のリンクから直接連絡できます",
+        "methods": {
+            "email": {
+                "description": "プロジェクトのご相談、お仕事のご依頼はメールでお気軽にどうぞ。",
+                "linkText": "送信する →"
+            },
+            "github": {
+                "description": "オープンソースプロジェクトやコード作品をご覧いただけます。",
+                "linkText": "アクセスする →"
+            },
+            "x": {
+                "description": "日々の活動や技術に関する情報を発信しています。",
+                "linkText": "アクセスする →"
+            }
+        },
+        "form": {
+            "name": "お名前",
+            "namePlaceholder": "山田 太郎",
+            "email": "メールアドレス",
+            "emailPlaceholder": "example@email.com",
+            "type": "お問い合わせの種類",
+            "typeSelect": "選択してください",
+            "typeProject": "プロジェクトの相談",
+            "typeCollaboration": "コラボレーション",
+            "typeTechnical": "技術的な質問",
+            "typeOther": "その他",
+            "subject": "件名",
+            "subjectPlaceholder": "お問い合わせの件名",
+            "message": "メッセージ",
+            "messagePlaceholder": "お問い合わせ内容をご記入ください",
+            "submit": "送信する",
+            "submitting": "送信中...",
+            "success": "送信完了！ありがとうございます。",
+            "error": "送信に失敗しました。もう一度お試しください。"
+        },
+        "otherMethods": "その他の方法",
+        "sendMessage": "メッセージを送る"
+    },
+    "footer": {
+        "copyright": "© 2024 やーはり. All rights reserved.",
+        "cookieSettings": "Cookie設定"
+    },
+    "theme": {
+        "light": "ライト",
+        "dark": "ダーク",
+        "system": "システム"
+    },
+    "cookie": {
+        "message": "このサイトでは、より良いユーザー体験のためにCookieを使用しています。",
+        "learnMore": "詳細",
+        "accept": "同意する",
+        "decline": "拒否"
+    },
+    "privacy": {
+        "title": "プライバシーポリシー",
+        "intro": "やーはり（以下「当サイト」といいます）は、ユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。",
+        "section1": {
+            "title": "1. 収集する情報",
+            "description": "当サイトでは、以下の情報を収集することがあります：",
+            "items": [
+                "お問い合わせフォームからご提供いただくお名前、メールアドレス、お問い合わせ内容",
+                "Google Analyticsによるアクセス解析データ（匿名化されたIPアドレス、ブラウザ情報、閲覧ページなど）",
+                "Cookieによるサイト利用状況"
+            ]
+        },
+        "section2": {
+            "title": "2. Cookieの使用について",
+            "description": "当サイトでは、ユーザー体験の向上およびアクセス解析のためにCookieを使用しています。",
+            "gaTitle": "Google Analytics",
+            "gaDescription": "当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を使用しています。Google Analyticsはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。",
+            "gaDisable": "Cookieを無効にすることで収集を拒否することができますので、お使いのブラウザの設定をご確認ください。詳しくは",
+            "gaLink": "Googleのポリシーと規約",
+            "gaEnd": "をご覧ください。"
+        },
+        "section3": {
+            "title": "3. 情報の利用目的",
+            "description": "収集した情報は、以下の目的で利用します：",
+            "items": [
+                "お問い合わせへの対応",
+                "サイトの改善およびサービス向上",
+                "アクセス状況の分析"
+            ]
+        },
+        "section4": {
+            "title": "4. 情報の第三者提供",
+            "description": "当サイトは、法令に基づく場合を除き、ユーザーの同意なく個人情報を第三者に提供することはありません。"
+        },
+        "section5": {
+            "title": "5. セキュリティ",
+            "description": "当サイトは、個人情報の漏洩、滅失、毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。"
+        },
+        "section6": {
+            "title": "6. Cloudflare Turnstile",
+            "description": "当サイトのお問い合わせフォームでは、スパム防止のためにCloudflare Turnstileを使用しています。これにより、ユーザーが人間であることを確認しています。詳しくは",
+            "link": "Cloudflareのプライバシーポリシー",
+            "end": "をご覧ください。"
+        },
+        "section7": {
+            "title": "7. プライバシーポリシーの変更",
+            "description": "当サイトは、必要に応じて本プライバシーポリシーを変更することがあります。変更後のプライバシーポリシーは、当サイトに掲載した時点から効力を生じるものとします。"
+        },
+        "section8": {
+            "title": "8. お問い合わせ",
+            "description": "本プライバシーポリシーに関するお問い合わせは、",
+            "link": "お問い合わせページ",
+            "end": "よりご連絡ください。"
+        },
+        "effectiveDate": "制定日：2024年12月2日"
+    }
+}
