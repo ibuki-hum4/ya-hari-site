@@ -159,11 +159,11 @@ const Hero = memo(function Hero() {
                 <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
                     {/* 左側: 名前・サブタイトル・ボタン */}
                     <div className="flex-1 flex flex-col items-start gap-4">
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900">やーはり</h1>
-                        <p className="text-xl md:text-2xl text-gray-600">Full-Stack / Infra Developer</p>
+                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white">やーはり</h1>
+                        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">Full-Stack / Infra Developer</p>
                         <a 
                             href="mailto:yahari@mail.skyia.jp" 
-                            className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition-colors"
+                            className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors"
                         >
                             <IoMailOutline size={20} />
                             Contact
@@ -172,7 +172,7 @@ const Hero = memo(function Hero() {
 
                     {/* 右側: アイコン */}
                     <div className="flex-1 flex justify-center md:justify-end">
-                        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-gray-200 to-gray-400">
+                        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-600 dark:to-gray-800">
                             <Image 
                                 src={profileImage}
                                 alt="プロフィール画像"
