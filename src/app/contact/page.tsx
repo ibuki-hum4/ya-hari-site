@@ -227,7 +227,7 @@ export default function ContactPage() {
                                     {/* 送信ボタン */}
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting || (TURNSTILE_SITE_KEY && !turnstileToken)}
+                                        disabled={isSubmitting || !!(TURNSTILE_SITE_KEY && !turnstileToken)}
                                         className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         <IoSendOutline size={20} />
