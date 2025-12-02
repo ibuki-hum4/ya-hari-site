@@ -3,6 +3,7 @@
 import { IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
 import { useEffect, useRef, memo } from "react";
+import type { WebGLRenderer } from "three";
 
 // Three.jsを動的に読み込み
 const Hero = memo(function Hero() {
@@ -13,7 +14,7 @@ const Hero = memo(function Hero() {
         if (!canvasRef.current) return;
 
         let animationId: number;
-        let renderer: THREE.WebGLRenderer | null = null;
+        let renderer: WebGLRenderer | null = null;
 
         // Three.jsを動的インポート
         import("three").then((THREE) => {
