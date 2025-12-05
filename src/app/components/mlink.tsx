@@ -76,30 +76,30 @@ export default function MutualLinks() {
           </p>
         </div>
 
-        {/* リンク一覧 */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5">
+        {/* リンク一覧 - スマホ: 縦並び、デスクトップ: 横並びカード */}
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-4 md:gap-6">
           {links.map((link) => (
             <a
               key={link.url}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group flex items-center gap-4 p-3 md:p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 md:w-auto"
             >
-              {/* 画像エリア */}
-              <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center overflow-hidden p-2 sm:p-4">
+              {/* 画像エリア - 画像のアスペクト比を維持 */}
+              <div className="flex-shrink-0 h-16 md:h-20 flex items-center justify-center">
                 {link.avatar ? (
                   <Image
                     src={link.avatar}
                     alt={link.name || link.fetchedName || ""}
                     width={200}
-                    height={200}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    height={80}
+                    className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                     unoptimized
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-4xl sm:text-6xl font-bold text-gray-300 dark:text-gray-600">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-bold text-gray-300 dark:text-gray-600">
                       {(link.name || link.fetchedName || "?").charAt(0)}
                     </span>
                   </div>
@@ -107,22 +107,18 @@ export default function MutualLinks() {
               </div>
 
               {/* 情報 */}
-              <div className="p-3 sm:p-4">
-                <div className="flex items-center justify-between gap-1 sm:gap-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-bold text-sm sm:text-base text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors truncate">
-                      {link.name || link.fetchedName || new URL(link.url).hostname}
-                    </p>
-                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">
-                      {link.description || link.fetchedDescription || ""}
-                    </p>
-                  </div>
-                  <FiExternalLink 
-                    size={14} 
-                    className="text-gray-300 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-all flex-shrink-0 hidden sm:block" 
-                  />
-                </div>
+              <div className="min-w-0 flex-1">
+                <p className="font-bold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors truncate">
+                  {link.name || link.fetchedName || new URL(link.url).hostname}
+                </p>
+                <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate">
+                  {link.description || link.fetchedDescription || ""}
+                </p>
               </div>
+              <FiExternalLink 
+                size={16} 
+                className="text-gray-300 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-all flex-shrink-0" 
+              />
             </a>
           ))}
         </div>
