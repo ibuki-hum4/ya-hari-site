@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -25,6 +26,12 @@ body {
   font-family: var(--font-noto-sans-jp), var(--font-geist-sans), sans-serif;
 }
 
+/* パフォーマンス最適化: コンテンツ可視性 */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 /* Cookie Consent アニメーション */
 @keyframes slide-up {
   from {
@@ -39,4 +46,10 @@ body {
 
 .animate-slide-up {
   animation: slide-up 0.4s ease-out forwards;
+}
+
+/* GPU アクセラレーション */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
 }

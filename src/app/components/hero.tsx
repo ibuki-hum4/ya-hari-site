@@ -31,11 +31,11 @@ const Hero = memo(function Hero() {
             });
             
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // 最大1.5に制限
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // 最大2に制限
 
             // Particles (数を削減)
             const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 100; // 200→100に削減
+            const particlesCount = 80; // 100→80に削減
             const posArray = new Float32Array(particlesCount * 3);
 
             for (let i = 0; i < particlesCount * 3; i++) {
@@ -62,7 +62,7 @@ const Hero = memo(function Hero() {
                 new THREE.TetrahedronGeometry(0.3, 0),
             ];
 
-            for (let i = 0; i < 8; i++) { // 8→5に削減
+            for (let i = 0; i < 8; i++) { // 8に削減
                 const geometry = geometries[i % geometries.length];
                 const material = new THREE.MeshBasicMaterial({
                     color: 0xcccccc,
@@ -96,7 +96,7 @@ const Hero = memo(function Hero() {
 
             // Animation (フレームレートを制限)
             let lastTime = 0;
-            const fps = 60; // 60fps→30fpsに制限
+            const fps = 60; // 60fpsに設定
             const interval = 1000 / fps;
 
             const animate = (time: number) => {
@@ -159,11 +159,11 @@ const Hero = memo(function Hero() {
                 <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
                     {/* 左側: 名前・サブタイトル・ボタン */}
                     <div className="flex-1 flex flex-col items-start gap-4">
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white">やーはり</h1>
-                        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">Full-Stack / Infra Developer</p>
+                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white select-none">やーはり</h1>
+                        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 select-none">Full-Stack / Infra Developer</p>
                         <a 
                             href="mailto:yahari@mail.skyia.jp" 
-                            className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors"
+                            className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors duration-300 select-none"
                         >
                             <IoMailOutline size={20} />
                             Contact

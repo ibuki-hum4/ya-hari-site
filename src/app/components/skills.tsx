@@ -31,7 +31,9 @@ export default function Skills() {
                             <img 
                                 src={languagesUrl}
                                 alt="Languages"
-                                className="max-w-full"
+                                width={240}
+                                height={48}
+                                className="max-w-full h-auto"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -46,7 +48,9 @@ export default function Skills() {
                             <img 
                                 src={frameworksUrl}
                                 alt="Frameworks"
-                                className="max-w-full"
+                                width={240}
+                                height={48}
+                                className="max-w-full h-auto"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -61,7 +65,9 @@ export default function Skills() {
                             <img 
                                 src={toolsUrl}
                                 alt="Tools"
-                                className="max-w-full"
+                                width={240}
+                                height={48}
+                                className="max-w-full h-auto"
                                 loading="lazy"
                                 decoding="async"
                             />

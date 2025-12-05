@@ -47,8 +47,12 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://skillicons.dev" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* 重要なCSSのプリロード */}
+        {/* RSS フィード */}
+        <link rel="alternate" type="application/rss+xml" title="やーはり Blog" href="/feed.xml" />
+        {/* LCP改善: プロフィール画像のプリロード */}
         <link rel="preload" as="image" href="/icon.png" fetchPriority="high" />
+        {/* Critical CSSのインライン化ヒント */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* ダークモードのフラッシュ防止 */}
         <script
           dangerouslySetInnerHTML={{

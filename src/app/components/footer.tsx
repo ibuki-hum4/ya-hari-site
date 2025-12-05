@@ -1,12 +1,43 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { FiAlignLeft } from "react-icons/fi";
 import { FiGrid } from "react-icons/fi";
-import { IoMailOutline } from "react-icons/io5";
+import { IoMailOutline, IoEyeOutline } from "react-icons/io5";
 import { FiBox } from "react-icons/fi";
 import { FiShield, FiSettings } from "react-icons/fi";
 
 export default function Footer() {
+  const [visitors, setVisitors] = useState<number | null>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const trackVisitor = async () => {
+      try {
+        // ホームページの場合のみカウントアップ
+        if (pathname === "/") {
+          const res = await fetch("/api/views", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ type: "site" }),
+          });
+          const data = await res.json();
+          setVisitors(data.count);
+        } else {
+          // 他のページでは取得のみ
+          const res = await fetch("/api/views?type=site");
+          const data = await res.json();
+          setVisitors(data.count);
+        }
+      } catch (error) {
+        console.error("Failed to track visitor:", error);
+      }
+    };
+
+    trackVisitor();
+  }, [pathname]);
+
   const handleCookieSettings = () => {
     // Cookie同意をリセットして再表示
     localStorage.removeItem("cookie-consent");
@@ -21,6 +52,11 @@ export default function Footer() {
           <p className="font-bold text-lg text-gray-900 dark:text-white select-none">やーはり</p>
           <p className="text-sm text-gray-700 dark:text-gray-300 select-none"><a href="mailto:yahari@mail.skyia.jp">yahari@mail.skyia.jp</a></p>
           <p className="text-xs mt-2 text-gray-600 dark:text-gray-400 select-none">&copy; {new Date().getFullYear()} やーはり. All rights reserved.</p>
+          {/* 訪問者数 */}
+          <p className="text-xs mt-2 text-gray-500 dark:text-gray-500 select-none flex items-center gap-1">
+            <IoEyeOutline size={14} />
+            <span>{visitors !== null ? `${visitors.toLocaleString()} visitors` : "..."}</span>
+          </p>
         </div>
 
         {/* 中央カラム */}

@@ -1,16 +1,25 @@
 import dynamic from "next/dynamic";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Hero from "./components/hero";
+import Contributions from "./components/contributions";
 
-// 重いコンポーネントを遅延読み込み
-const Hero = dynamic(() => import("./components/hero"), {
-  loading: () => <div className="min-h-screen" />,
+// Above-the-fold以外のコンポーネントを遅延読み込み
+const About = dynamic(() => import("./components/about"), {
+  loading: () => <div className="min-h-[400px]" />,
 });
-const About = dynamic(() => import("./components/about"));
-const Projects = dynamic(() => import("./components/projects"));
-const Skills = dynamic(() => import("./components/skills"));
-const MutualLinks = dynamic(() => import("./components/mlink"));
-const Contact = dynamic(() => import("./components/contact"));
+const Projects = dynamic(() => import("./components/projects"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const Skills = dynamic(() => import("./components/skills"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const MutualLinks = dynamic(() => import("./components/mlink"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const Contact = dynamic(() => import("./components/contact"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
 
 export default function Home() {
   return (
@@ -18,6 +27,7 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Contributions />
       <Projects />
       <Skills />
       <MutualLinks />
