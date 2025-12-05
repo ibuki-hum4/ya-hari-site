@@ -10,13 +10,13 @@ export default function About() {
     const abilities = ["バリトンサックス", "インフラ", "k8s"];
 
     return (
-        <section id="about" className="py-20 px-8 bg-gray-50 dark:bg-gray-800">
+        <section id="about" className="py-12 sm:py-20 px-4 sm:px-8 bg-gray-50 dark:bg-gray-800">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">{t("title")}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">{t("title")}</h2>
                 
-                <div className="grid md:grid-cols-2 gap-12">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
                     {/* プロフィール */}
-                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-sm">
+                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 sm:p-8 shadow-sm">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t("name")}</h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-6">{t("age")} / {t("school")}</p>
                         
@@ -29,7 +29,7 @@ export default function About() {
                     </div>
 
                     {/* できること */}
-                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-sm">
+                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 sm:p-8 shadow-sm">
                         <div className="flex items-center gap-2 mb-4">
                             <FiServer size={20} className="text-gray-700 dark:text-gray-300" />
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">Abilities</h3>

@@ -71,7 +71,7 @@ export default async function BlogDetailPage({ params }: Props) {
             <Header />
 
             <main className="pt-20 flex-1">
-                <article className="py-12 px-8">
+                <article className="py-8 sm:py-12 px-4 sm:px-8">
                     <div className="max-w-3xl mx-auto">
                         {/* 戻るリンク */}
                         <Link
@@ -92,7 +92,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             )}
 
                             {/* タイトル */}
-                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
                                 {blog.title}
                             </h1>
 

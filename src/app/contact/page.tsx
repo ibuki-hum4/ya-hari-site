@@ -99,12 +99,12 @@ export default function ContactPage() {
             <Header />
             
             <main className="pt-20">
-                <section className="py-20 px-8">
+                <section className="py-12 sm:py-20 px-4 sm:px-8">
                     <div className="max-w-6xl mx-auto">
                         {/* ヘッダー */}
-                        <div className="text-center mb-16">
+                        <div className="text-center mb-10 sm:mb-16">
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 tracking-widest">CONTACT</p>
-                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
                                 {t("heading")}
                             </h1>
                             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto whitespace-pre-line">
@@ -113,7 +113,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* ステータス */}
-                        <div className="flex flex-wrap justify-center gap-6 mb-16">
+                        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 sm:mb-16">
                             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                                 <span>{t("responseTime")}</span>
@@ -124,9 +124,9 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        <div className="grid lg:grid-cols-2 gap-12">
+                        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
                             {/* フォーム */}
-                            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+                            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 sm:p-8">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t("sendMessage")}</h2>
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     {/* 名前 */}

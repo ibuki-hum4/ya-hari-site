@@ -18,9 +18,9 @@ export default function Skills() {
     const toolsUrl = `https://skillicons.dev/icons?i=${tools.join(",")}&theme=${iconTheme}`;
 
     return (
-        <section id="skills" className="py-20 px-8">
+        <section id="skills" className="py-12 sm:py-20 px-4 sm:px-8">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">{t("title")}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">{t("title")}</h2>
                 
                 <div className="flex flex-col gap-10">
                     {/* 言語 */}

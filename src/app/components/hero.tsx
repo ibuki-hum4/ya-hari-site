@@ -155,12 +155,12 @@ const Hero = memo(function Hero() {
                 ref={canvasRef} 
                 className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
             />
-            <section className="min-h-screen flex items-center justify-center px-8">
-                <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+            <section className="min-h-screen flex items-center justify-center px-4 sm:px-8">
+                <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-12">
                     {/* 左側: 名前・サブタイトル・ボタン */}
-                    <div className="flex-1 flex flex-col items-start gap-4">
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white select-none">やーはり</h1>
-                        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 select-none">Full-Stack / Infra Developer</p>
+                    <div className="flex-1 flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white select-none">やーはり</h1>
+                        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 select-none">Full-Stack / Infra Developer</p>
                         <a 
                             href="mailto:yahari@mail.skyia.jp" 
                             className="mt-4 inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors duration-300 select-none"
@@ -172,7 +172,7 @@ const Hero = memo(function Hero() {
 
                     {/* 右側: アイコン */}
                     <div className="flex-1 flex justify-center md:justify-end">
-                        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-600 dark:to-gray-800">
+                        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-600 dark:to-gray-800">
                             <Image 
                                 src={profileImage}
                                 alt="プロフィール画像"

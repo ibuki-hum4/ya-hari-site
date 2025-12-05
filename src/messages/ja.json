@@ -185,5 +185,16 @@
             "retry": "もう一度試す",
             "backHome": "ホームに戻る"
         }
+    },
+    "contributions": {
+        "label": "CONTRIBUTIONS",
+        "title": "GitHub Activity",
+        "totalContributions": "{year}年の contributions",
+        "tooltip": {
+            "contributions": "contributions",
+            "noContributions": "コントリビューションなし"
+        },
+        "less": "少ない",
+        "more": "多い"
     }
 }

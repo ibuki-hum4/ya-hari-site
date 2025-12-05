@@ -40,7 +40,7 @@ export default function ContactSection() {
     ];
 
     return (
-        <section id="contact" className="py-24 px-8 relative overflow-hidden">
+        <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 relative overflow-hidden">
             {/* 背景装飾 */}
             <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
             <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl -z-10" />
@@ -48,13 +48,13 @@ export default function ContactSection() {
 
             <div className="max-w-5xl mx-auto">
                 {/* ヘッダー */}
-                <div className="mb-16">
+                <div className="mb-10 sm:mb-16">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600" />
                         <span className="text-xs font-medium text-gray-400 tracking-[0.3em]">CONTACT</span>
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-4 sm:mb-6">
                         {t("heading")}
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto leading-relaxed whitespace-pre-line">
@@ -63,26 +63,26 @@ export default function ContactSection() {
                 </div>
 
                 {/* ステータスバッジ */}
-                <div className="flex justify-center gap-4 mb-14">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 sm:mb-14">
+                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                         </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("open")}</span>
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("open")}</span>
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
                         <FiClock size={14} className="text-gray-400" />
-                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("responseTime")}</span>
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("responseTime")}</span>
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
                         <FiGlobe size={14} className="text-gray-400" />
-                        <span className="text-sm text-gray-600 dark:text-gray-300">{t("language")}</span>
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("language")}</span>
                     </div>
                 </div>
 
                 {/* 連絡方法カード */}
-                <div className="grid md:grid-cols-3 gap-5 mb-14">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-14">
                     {contactMethods.map((method) => (
                         <a
                             key={method.title}

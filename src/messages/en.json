@@ -185,5 +185,16 @@
             "retry": "Try Again",
             "backHome": "Back to Home"
         }
+    },
+    "contributions": {
+        "label": "CONTRIBUTIONS",
+        "title": "GitHub Activity",
+        "totalContributions": "contributions in {year}",
+        "tooltip": {
+            "contributions": "contributions",
+            "noContributions": "No contributions"
+        },
+        "less": "Less",
+        "more": "More"
     }
 }
