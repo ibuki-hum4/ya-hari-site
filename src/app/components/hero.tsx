@@ -2,13 +2,53 @@
 
 import { IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
-import { useEffect, useRef, memo } from "react";
-import type { WebGLRenderer, Mesh } from "three";
+import { useEffect, useRef, memo, useState, useCallback } from "react";
+import type { WebGLRenderer, Mesh, PointsMaterial, MeshBasicMaterial } from "three";
+
+// コナミコマンドのシーケンス
+const KONAMI_CODE = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'KeyB', 'KeyA'
+];
+
+// HSLからRGBに変換するヘルパー関数
+function hslToHex(h: number, s: number, l: number): number {
+    s /= 100;
+    l /= 100;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n: number) => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color);
+    };
+    return (f(0) << 16) | (f(8) << 8) | f(4);
+}
 
 // Three.jsを動的に読み込み
 const Hero = memo(function Hero() {
     const profileImage = "/icon.png";
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [rainbowMode, setRainbowMode] = useState(false);
+    const konamiIndexRef = useRef(0);
+
+    // コナミコマンドの検出
+    const handleKonamiCode = useCallback((event: KeyboardEvent) => {
+        if (event.code === KONAMI_CODE[konamiIndexRef.current]) {
+            konamiIndexRef.current++;
+            if (konamiIndexRef.current === KONAMI_CODE.length) {
+                setRainbowMode(prev => !prev);
+                konamiIndexRef.current = 0;
+            }
+        } else {
+            konamiIndexRef.current = 0;
+        }
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKonamiCode);
+        return () => window.removeEventListener('keydown', handleKonamiCode);
+    }, [handleKonamiCode]);
 
     useEffect(() => {
         if (!canvasRef.current) return;
@@ -49,13 +89,14 @@ const Hero = memo(function Hero() {
                 color: 0x888888,
                 transparent: true,
                 opacity: 0.6,
-            });
+            }) as PointsMaterial;
 
             const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particlesMesh);
 
             // Floating geometric shapes (数を削減)
             const shapes: Mesh[] = [];
+            const shapeMaterials: MeshBasicMaterial[] = [];
             const geometries = [
                 new THREE.IcosahedronGeometry(0.3, 0),
                 new THREE.OctahedronGeometry(0.25, 0),
@@ -70,6 +111,7 @@ const Hero = memo(function Hero() {
                     transparent: true,
                     opacity: 0.3,
                 });
+                shapeMaterials.push(material);
                 const mesh = new THREE.Mesh(geometry, material);
                 mesh.position.set(
                     (Math.random() - 0.5) * 8,
@@ -105,6 +147,29 @@ const Hero = memo(function Hero() {
                 const delta = time - lastTime;
                 if (delta < interval) return;
                 lastTime = time - (delta % interval);
+
+                // 虹色モードの処理
+                if (rainbowMode) {
+                    const hue = (time * 0.05) % 360;
+                    // パーティクルの色を虹色に（薄め）
+                    particlesMaterial.color.setHex(hslToHex(hue, 70, 60));
+                    particlesMaterial.opacity = 0.4;
+                    
+                    // 各シェイプの色を虹色に（オフセット付き、薄め）
+                    shapeMaterials.forEach((mat, i) => {
+                        const shapeHue = (hue + i * 45) % 360;
+                        mat.color.setHex(hslToHex(shapeHue, 60, 70));
+                        mat.opacity = 0.25;
+                    });
+                } else {
+                    // 通常モードに戻す
+                    particlesMaterial.color.setHex(0x888888);
+                    particlesMaterial.opacity = 0.6;
+                    shapeMaterials.forEach((mat) => {
+                        mat.color.setHex(0xcccccc);
+                        mat.opacity = 0.3;
+                    });
+                }
 
                 particlesMesh.rotation.y += 0.001;
                 particlesMesh.rotation.x += 0.0005;
@@ -147,7 +212,7 @@ const Hero = memo(function Hero() {
             if (animationId) cancelAnimationFrame(animationId);
             renderer?.dispose();
         };
-    }, []);
+    }, [rainbowMode]);
 
     return (
         <div className="relative overflow-hidden">
