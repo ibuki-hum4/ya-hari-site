@@ -184,6 +184,31 @@
             "description": "申し訳ございません。一時的な問題が発生しています。しばらくしてから再度お試しください。",
             "retry": "もう一度試す",
             "backHome": "ホームに戻る"
+        },
+        "teapot": {
+            "title": "私はティーポットです",
+            "description": "このサーバーはティーポットなので、コーヒーを淹れることを拒否します。",
+            "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
+            "backHome": "ホームに戻る",
+            "learnMore": "詳しく見る"
+        },
+        "forbidden": {
+            "title": "アクセスが拒否されました",
+            "description": "このページにアクセスする権限がありません。ログイン状態やURLをご確認ください。",
+            "backHome": "ホームに戻る",
+            "contact": "お問い合わせ"
+        },
+        "badGateway": {
+            "title": "ゲートウェイエラー",
+            "description": "上流サーバーから無効な応答を受信しました。しばらくしてから再度お試しください。",
+            "backHome": "ホームに戻る",
+            "retry": "もう一度試す"
+        },
+        "serviceUnavailable": {
+            "title": "サービス利用不可",
+            "description": "現在サーバーはメンテナンス中か、一時的に過負荷状態です。しばらくお待ちください。",
+            "backHome": "ホームに戻る",
+            "retry": "もう一度試す"
         }
     },
     "contributions": {

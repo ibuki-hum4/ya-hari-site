@@ -184,6 +184,31 @@
             "description": "Sorry, a temporary problem has occurred. Please try again in a few moments.",
             "retry": "Try Again",
             "backHome": "Back to Home"
+        },
+        "teapot": {
+            "title": "I'm a teapot",
+            "description": "The server refuses to brew coffee because it is, permanently, a teapot.",
+            "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
+            "backHome": "Back to Home",
+            "learnMore": "Learn More"
+        },
+        "forbidden": {
+            "title": "Access Denied",
+            "description": "You don't have permission to access this page. Please check your login status or the URL.",
+            "backHome": "Back to Home",
+            "contact": "Contact"
+        },
+        "badGateway": {
+            "title": "Bad Gateway",
+            "description": "The server received an invalid response from the upstream server. Please try again later.",
+            "backHome": "Back to Home",
+            "retry": "Try Again"
+        },
+        "serviceUnavailable": {
+            "title": "Service Unavailable",
+            "description": "The server is currently under maintenance or temporarily overloaded. Please wait a moment.",
+            "backHome": "Back to Home",
+            "retry": "Try Again"
         }
     },
     "contributions": {
