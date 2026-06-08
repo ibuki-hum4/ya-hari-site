@@ -1,15 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion, type Target, type Transition } from "motion/react";
-import {
-    createContext,
-    useCallback,
-    useContext,
-    useRef,
-    useState,
-    type ReactElement,
-    type ReactNode,
-} from "react";
+import { useCallback, useRef, useState, type ReactElement, type ReactNode } from "react";
+import { LoadingOverlayContext } from "./context";
+import { NavigationLoadingListener } from "./navigation-listener";
 
 // ロードが終わってからもこの時間だけ画面に留まり、唐突に消えないようにする
 const HOLD_DURATION_MS = 500;
@@ -53,38 +47,29 @@ function pickExitTransition(): ExitTransition {
     return EXIT_TRANSITIONS[Math.floor(Math.random() * EXIT_TRANSITIONS.length)];
 }
 
-interface LoadingOverlayContextValue {
-    showLoadingOverlay: (screen: ReactElement) => void;
-    scheduleHideLoadingOverlay: () => void;
-}
-
-const LoadingOverlayContext = createContext<LoadingOverlayContextValue | null>(null);
-
-export function useLoadingOverlay() {
-    const ctx = useContext(LoadingOverlayContext);
-    if (!ctx) throw new Error("useLoadingOverlay must be used within LoadingOverlayProvider");
-    return ctx;
-}
-
-// `loading.tsx`(Suspenseフォールバック)が表示・消滅するタイミングを合図として受け取り、
-// 実際のオーバーレイはSuspenseの外側(常駐コンポーネント)で表示することで、
-// 消える瞬間に好きなだけ退場アニメーションを再生できるようにする
+// 実際のオーバーレイは常駐コンポーネントとして持たせ、ページ遷移の開始・終了の合図を
+// 受け取るたびに表示/退場アニメーションを切り替える（詳細は navigation-listener.tsx を参照）
 export function LoadingOverlayProvider({ children }: { children: ReactNode }) {
     const [screen, setScreen] = useState<ReactElement | null>(null);
     const [exitTransition, setExitTransition] = useState<ExitTransition>(EXIT_TRANSITIONS[0]);
     const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const visible = useRef(false);
 
     const showLoadingOverlay = useCallback((next: ReactElement) => {
         if (hideTimer.current) {
             clearTimeout(hideTimer.current);
             hideTimer.current = null;
         }
+        // 表示中に連続で遷移が始まっても、表示中の画面・退場演出を最後まで維持する（途中差し替えによるチラつき防止）
+        if (visible.current) return;
+        visible.current = true;
         setExitTransition(pickExitTransition());
         setScreen(next);
     }, []);
 
     const scheduleHideLoadingOverlay = useCallback(() => {
         hideTimer.current = setTimeout(() => {
+            visible.current = false;
             setScreen(null);
             hideTimer.current = null;
         }, HOLD_DURATION_MS);
@@ -92,6 +77,7 @@ export function LoadingOverlayProvider({ children }: { children: ReactNode }) {
 
     return (
         <LoadingOverlayContext.Provider value={{ showLoadingOverlay, scheduleHideLoadingOverlay }}>
+            <NavigationLoadingListener />
             {children}
             <AnimatePresence>
                 {screen && (
