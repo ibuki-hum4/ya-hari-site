@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import Image from "next/image";
 import { IoEyeOutline } from "react-icons/io5";
 import { PiNoteLight } from "react-icons/pi";
+import { cardClass } from "./ui/card";
 
 interface Blog {
     id: string;
@@ -27,28 +28,23 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ blog }: BlogCardProps) {
-    const [views, setViews] = useState<number | null>(null);
-
-    useEffect(() => {
-        const fetchViews = async () => {
-            try {
-                const res = await fetch(`/api/views?slug=${blog.id}`);
-                const data = await res.json();
-                setViews(data.count);
-            } catch (error) {
-                console.error("Failed to fetch views:", error);
-            }
-        };
-        fetchViews();
-    }, [blog.id]);
+    const { data: views = null } = useQuery({
+        queryKey: ["views", blog.id],
+        queryFn: async (): Promise<number> => {
+            const res = await fetch(`/api/views?slug=${blog.id}`);
+            const data = await res.json();
+            return data.count;
+        },
+        staleTime: 60_000,
+    });
 
     return (
         <Link
             href={`/blog/${blog.id}`}
-            className="group block bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            className={`group block ${cardClass} overflow-hidden`}
         >
             {/* アイキャッチ */}
-            <div className="relative aspect-video bg-gray-200 dark:bg-gray-700 overflow-hidden">
+            <div className="relative aspect-video bg-ink/5 overflow-hidden">
                 {blog.eyecatch ? (
                     <Image
                         src={blog.eyecatch.url}
@@ -58,7 +54,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl">
+                    <div className="absolute inset-0 flex items-center justify-center text-4xl text-muted">
                         <PiNoteLight />
                     </div>
                 )}
@@ -68,18 +64,18 @@ export default function BlogCard({ blog }: BlogCardProps) {
             <div className="p-6">
                 {/* カテゴリ */}
                 {blog.category && (
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 text-xs font-medium border border-line text-muted rounded-full mb-3">
                         {blog.category.name}
                     </span>
                 )}
 
                 {/* タイトル */}
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
+                <h2 className="text-lg font-bold text-ink mb-2 line-clamp-2 group-hover:text-muted transition-colors">
                     {blog.title}
                 </h2>
 
                 {/* 日付とビュー数 */}
-                <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center gap-3 text-sm text-muted">
                     <time>
                         {new Date(blog.publishedAt).toLocaleDateString("ja-JP", {
                             year: "numeric",
@@ -99,7 +95,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
                         {blog.tags.slice(0, 3).map((tag) => (
                             <span
                                 key={tag.id}
-                                className="text-xs text-gray-500 dark:text-gray-400"
+                                className="text-xs text-muted"
                             >
                                 #{tag.name}
                             </span>

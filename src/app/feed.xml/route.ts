@@ -7,7 +7,7 @@ export async function GET() {
     
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
     const siteName = "やーはり Blog";
-    const siteDescription = "やーはりの技術ブログ";
+    const siteDescription = "やーはりのブログ";
 
     const rssItems = blogs
         .map((blog) => {

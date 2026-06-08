@@ -3,50 +3,57 @@
 import { FiMusic, FiServer } from "react-icons/fi";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { useTranslations } from "next-intl";
+import Section from "./ui/section";
+import Card from "./ui/card";
+import Reveal from "./ui/reveal";
 
 export default function About() {
     const t = useTranslations("about");
     const hobbies = ["音楽", "ゲーム"];
-    const abilities = ["バリトンサックス", "インフラ", "k8s"];
+    const abilities = ["バリトンサックス", "ギター", "インフラ", "k8s"];
 
     return (
-        <section id="about" className="py-12 sm:py-20 px-4 sm:px-8 bg-gray-50 dark:bg-gray-800">
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12 text-center">{t("title")}</h2>
-                
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
-                    {/* プロフィール */}
-                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 sm:p-8 shadow-sm">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t("name")}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-6">{t("age")} / {t("school")}</p>
-                        
+        <Section id="about">
+            <Reveal>
+                <h2 className="text-heading font-bold text-ink mb-8 sm:mb-12 text-center">{t("title")}</h2>
+            </Reveal>
+
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-12">
+                {/* プロフィール */}
+                <Reveal>
+                    <Card className="p-6 sm:p-8">
+                        <h3 className="text-2xl font-bold text-ink mb-4">{t("name")}</h3>
+                        <p className="text-muted mb-6">{t("age")} / {t("school")}</p>
+
                         {/* 趣味 */}
                         <div className="flex items-center gap-2 mb-4">
-                            <IoGameControllerOutline size={20} className="text-gray-700 dark:text-gray-300" />
-                            <FiMusic size={20} className="text-gray-700 dark:text-gray-300" />
-                            <span className="text-gray-600 dark:text-gray-300">{hobbies.join("、")}</span>
+                            <IoGameControllerOutline size={20} className="text-muted" />
+                            <FiMusic size={20} className="text-muted" />
+                            <span className="text-muted">{hobbies.join("、")}</span>
                         </div>
-                    </div>
+                    </Card>
+                </Reveal>
 
-                    {/* できること */}
-                    <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 sm:p-8 shadow-sm">
+                {/* できること */}
+                <Reveal delay={0.1}>
+                    <Card className="p-6 sm:p-8">
                         <div className="flex items-center gap-2 mb-4">
-                            <FiServer size={20} className="text-gray-700 dark:text-gray-300" />
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Abilities</h3>
+                            <FiServer size={20} className="text-muted" />
+                            <h3 className="text-xl font-bold text-ink">Abilities</h3>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {abilities.map((ability) => (
-                                <span 
+                                <span
                                     key={ability}
-                                    className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-full text-sm"
+                                    className="px-3 py-1 border border-line text-muted rounded-full text-sm"
                                 >
                                     {ability}
                                 </span>
                             ))}
                         </div>
-                    </div>
-                </div>
+                    </Card>
+                </Reveal>
             </div>
-        </section>
+        </Section>
     );
 }

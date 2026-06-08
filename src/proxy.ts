@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 // ロケールプレフィックスを使わない設定
 // 言語切り替えはCookieベースで行う
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     // /ja や /en へのアクセスをルートにリダイレクト
     const pathname = request.nextUrl.pathname;
     if (pathname === "/ja" || pathname === "/en") {

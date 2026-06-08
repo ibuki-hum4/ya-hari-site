@@ -5,24 +5,31 @@
   "scripts": {
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
+    "postbuild": "next-sitemap",
     "start": "bun --bun next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.16",
     "@tailwindcss/typography": "^0.5.19",
+    "@tanstack/react-query": "^5.101.0",
     "@types/three": "^0.181.0",
     "@upstash/redis": "^1.35.7",
     "critters": "^0.0.25",
-    "graphql-request": "^7.3.5",
+    "lucide-react": "^1.17.0",
     "marked": "^17.0.1",
     "microcms-js-sdk": "^3.2.0",
-    "next": "16.0.7",
+    "motion": "^12.40.0",
+    "next": "16.2.7",
     "next-intl": "^4.5.8",
+    "next-sitemap": "^4.2.3",
     "react": "^19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
     "react-intl": "^7.1.14",
-    "three": "^0.181.2"
+    "sonner": "^2.0.7",
+    "three": "^0.181.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
@@ -30,7 +37,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.6",
+    "eslint-config-next": "16.2.7",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   }

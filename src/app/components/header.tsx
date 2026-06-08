@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
+import { AnimatePresence, motion } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -52,16 +53,16 @@ export default function Header() {
   };
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 w-full backdrop-blur-md p-4 z-50 transition-all duration-300 ease-out
         ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
-        ${isScrolled 
-          ? "bg-white/80 dark:bg-gray-900/80 shadow-md" 
-          : "bg-white/50 dark:bg-gray-900/50 shadow-sm"}`}
+        ${isScrolled
+          ? "bg-surface-alt/80 shadow-md"
+          : "bg-surface-alt/50 shadow-sm"}`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <a href="/" className="text-xl sm:text-2xl font-bold select-none hover:opacity-80 transition-opacity text-gray-900 dark:text-white">やーはり</a>
-        
+        <a href="/" className="text-xl sm:text-2xl font-bold select-none hover:opacity-80 transition-opacity text-ink">やーはり</a>
+
         {/* デスクトップナビゲーション */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(({ href, label }) => (
@@ -69,8 +70,7 @@ export default function Header() {
               key={href}
               href={href}
               onClick={(e) => handleNavClick(e, href)}
-              className="relative text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gray-600 dark:after:bg-gray-300 after:transition-all after:duration-200 hover:after:w-full"
-              style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
+              className="relative text-ink transition-opacity duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-200 hover:after:w-full"
             >
               {label}
             </a>
@@ -85,7 +85,7 @@ export default function Header() {
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 text-ink hover:bg-ink/5 rounded-lg transition-colors"
             aria-label="メニューを開く"
           >
             {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -94,28 +94,34 @@ export default function Header() {
       </div>
 
       {/* モバイルメニュー */}
-      <div 
-        className={`md:hidden fixed left-0 right-0 bg-white dark:bg-gray-900 z-[9999] overflow-y-auto shadow-lg transition-all duration-300 ${
-          isMobileMenuOpen 
-            ? "opacity-100 visible translate-y-0" 
-            : "opacity-0 invisible -translate-y-2"
-        }`}
-        style={{ top: "60px", maxHeight: "calc(100vh - 60px)" }}
-      >
-        <nav className="flex flex-col py-4 border-t border-gray-200 dark:border-gray-700">
-          {navLinks.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              onClick={(e) => handleNavClick(e, href)}
-              className="px-6 py-4 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border-b border-gray-100 dark:border-gray-800"
-              style={{ fontFamily: '"Noto Sans JP", sans-serif' }}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden fixed left-0 right-0 bg-surface-alt z-[9999] overflow-y-auto shadow-lg"
+            style={{ top: "60px", maxHeight: "calc(100vh - 60px)" }}
+          >
+            <nav className="flex flex-col py-4 border-t border-line">
+              {navLinks.map(({ href, label }, index) => (
+                <motion.a
+                  key={href}
+                  href={href}
+                  onClick={(e) => handleNavClick(e, href)}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: index * 0.04 }}
+                  className="px-6 py-4 text-lg font-medium text-ink hover:bg-ink/5 transition-colors border-b border-line"
+                >
+                  {label}
+                </motion.a>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

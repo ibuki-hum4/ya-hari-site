@@ -4,26 +4,63 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-surface: #fdfdfd;
+  --color-surface-alt: #ededed;
+  --color-ink: #1a1a1a;
+  --color-muted: #757575;
+  --color-line: #dcdcdc;
+  --color-accent: #2e2e2e;
+
+  /* clamp() による流体タイポグラフィ・スケール */
+  --text-display: clamp(2.75rem, 8vw, 6rem);
+  --text-heading: clamp(1.5rem, 4vw, 2.5rem);
+  --text-subheading: clamp(1.125rem, 2vw, 1.375rem);
+
+  /* vh単位の縦方向リズム */
+  --space-sm: 4vh;
+  --space-md: 8vh;
+  --space-lg: 12vh;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --color-surface: #121212;
+  --color-surface-alt: #1c1c1c;
+  --color-ink: #f2f2f2;
+  --color-muted: #a3a3a3;
+  --color-line: #333333;
+  --color-accent: #e5e5e5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-accent: var(--color-accent);
+  --font-sans: var(--font-line-seed-jp);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-noto-sans-jp), var(--font-geist-sans), sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-line-seed-jp), var(--font-noto-sans-jp), sans-serif;
+}
+
+.text-display {
+  font-size: var(--text-display);
+  line-height: 1.05;
+}
+
+.text-heading {
+  font-size: var(--text-heading);
+  line-height: 1.2;
+}
+
+.text-subheading {
+  font-size: var(--text-subheading);
+  line-height: 1.4;
 }
 
 /* パフォーマンス最適化: コンテンツ可視性 */
@@ -52,4 +89,227 @@ body {
 .gpu-accelerated {
   transform: translateZ(0);
   will-change: transform;
+}
+
+/* ローディング画面バリエーション */
+@keyframes loading-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(420%);
+  }
+}
+
+.animate-loading-sweep {
+  animation: loading-sweep 1.4s ease-in-out infinite;
+}
+
+@keyframes loading-equalize {
+  0%,
+  100% {
+    height: 25%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.animate-loading-equalize {
+  animation: loading-equalize 1s ease-in-out infinite;
+}
+
+@keyframes loading-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-loading-blink {
+  animation: loading-blink 1s step-end infinite;
+}
+
+/* Netflix風オープニングズーム */
+@keyframes loading-netflix {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+    letter-spacing: 0.5em;
+  }
+  35%,
+  75% {
+    transform: scale(1);
+    opacity: 1;
+    letter-spacing: 0.3em;
+  }
+  100% {
+    transform: scale(1.06);
+    opacity: 0;
+    letter-spacing: 0.4em;
+  }
+}
+
+.animate-loading-netflix {
+  animation: loading-netflix 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* 小刻みに震える */
+@keyframes loading-tremble {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-1.5px, 1px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(1.5px, -1px) rotate(2deg);
+  }
+  60% {
+    transform: translate(-1px, -1.5px) rotate(0deg);
+  }
+  80% {
+    transform: translate(1px, 1.5px) rotate(2deg);
+  }
+}
+
+.animate-loading-tremble {
+  animation: loading-tremble 0.35s ease-in-out infinite;
+}
+
+/* TikTok風の色ズレ・グリッチ */
+@keyframes loading-glitch-1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  20% {
+    transform: translate(-3px, 1px);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translate(2px, -1px);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(-2px, 0);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translate(3px, 1px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes loading-glitch-2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  20% {
+    transform: translate(3px, -1px);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translate(-2px, 1px);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(2px, 0);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translate(-3px, -1px);
+    opacity: 0.6;
+  }
+}
+
+.animate-loading-glitch-1 {
+  animation: loading-glitch-1 0.6s steps(2) infinite;
+}
+
+.animate-loading-glitch-2 {
+  animation: loading-glitch-2 0.6s steps(2) infinite reverse;
+}
+
+/* 蒸発するように消える */
+@keyframes loading-evaporate {
+  0%,
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-20px);
+  }
+}
+
+.animate-loading-evaporate {
+  animation: loading-evaporate 2.2s ease-in-out infinite;
+}
+
+/* 粒子のように飛び散る */
+@keyframes loading-scatter {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--scatter-x), var(--scatter-y)) rotate(var(--scatter-r));
+    opacity: 0;
+  }
+}
+
+.animate-loading-scatter {
+  animation: loading-scatter 1.8s ease-in-out infinite;
+}
+
+/* タイプライター風の入力 */
+@keyframes loading-typewriter {
+  0%,
+  10% {
+    width: 0;
+  }
+  50%,
+  90% {
+    width: 6.5ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.animate-loading-typewriter {
+  animation: loading-typewriter 3s steps(6, end) infinite;
+}
+
+/* 崩れ落ちて積み上がる */
+@keyframes loading-crumble {
+  0%,
+  30% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(28px) rotate(var(--crumble-r));
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-loading-crumble {
+  animation: loading-crumble 2s ease-in infinite;
 }

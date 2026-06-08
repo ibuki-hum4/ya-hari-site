@@ -13,19 +13,19 @@
         "contact": "Contact"
     },
     "hero": {
-        "subtitle": "14 y/o / 8th Grade / Developer",
+        "subtitle": "14 y/o / 9th Grade / Developer",
         "contact": "Contact"
     },
     "about": {
         "title": "About",
         "name": "Yahari",
         "age": "14 years old",
-        "school": "8th Grade",
+        "school": "9th Grade",
         "location": "Japan",
         "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day."
     },
     "skills": {
-        "title": "Skills",
+        "title": "Favorite Tools & framework",
         "languages": "Languages",
         "frameworks": "Frameworks",
         "tools": "Tools"
@@ -96,7 +96,15 @@
             "submit": "Send",
             "submitting": "Sending...",
             "success": "Sent successfully! Thank you.",
-            "error": "Failed to send. Please try again."
+            "error": "Failed to send. Please try again.",
+            "validation": {
+                "nameRequired": "Please enter your name",
+                "emailRequired": "Please enter your email address",
+                "emailInvalid": "Please enter a valid email address",
+                "subjectRequired": "Please enter a subject",
+                "messageRequired": "Please enter a message",
+                "messageTooLong": "Message must be 5000 characters or fewer"
+            }
         },
         "otherMethods": "Other Methods",
         "sendMessage": "Send a Message"
@@ -114,7 +122,16 @@
         "message": "This site uses cookies for a better user experience.",
         "learnMore": "Learn More",
         "accept": "Accept",
-        "decline": "Decline"
+        "decline": "Decline",
+        "settingsTitle": "Settings",
+        "currentStatus": "Current setting",
+        "settingsAccepted": "You accepted the use of cookies",
+        "settingsRejected": "You declined the use of cookies",
+        "status": {
+            "pending": "Not set",
+            "accepted": "Accepted",
+            "rejected": "Declined"
+        }
     },
     "privacy": {
         "title": "Privacy Policy",
@@ -185,30 +202,17 @@
             "retry": "Try Again",
             "backHome": "Back to Home"
         },
+        "badRequest": {
+            "title": "Bad Request",
+            "description": "The server could not understand the request due to invalid syntax. Please check the URL and request content.",
+            "backHome": "Back to Home"
+        },
         "teapot": {
             "title": "I'm a teapot",
             "description": "The server refuses to brew coffee because it is, permanently, a teapot.",
             "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
             "backHome": "Back to Home",
             "learnMore": "Learn More"
-        },
-        "forbidden": {
-            "title": "Access Denied",
-            "description": "You don't have permission to access this page. Please check your login status or the URL.",
-            "backHome": "Back to Home",
-            "contact": "Contact"
-        },
-        "badGateway": {
-            "title": "Bad Gateway",
-            "description": "The server received an invalid response from the upstream server. Please try again later.",
-            "backHome": "Back to Home",
-            "retry": "Try Again"
-        },
-        "serviceUnavailable": {
-            "title": "Service Unavailable",
-            "description": "The server is currently under maintenance or temporarily overloaded. Please wait a moment.",
-            "backHome": "Back to Home",
-            "retry": "Try Again"
         }
     },
     "contributions": {
@@ -221,5 +225,51 @@
         },
         "less": "Less",
         "more": "More"
+    },
+    "designSystem": {
+        "label": "DESIGN SYSTEM",
+        "title": "Design System",
+        "description": "An overview of the design tokens and UI primitives that make up this site — colors, typography, spacing, and components, all in one place.",
+        "sections": {
+            "colors": {
+                "title": "Colors",
+                "description": "A grayscale-based palette that adapts between light and dark mode."
+            },
+            "typography": {
+                "title": "Typography",
+                "description": "Fluid typography powered by clamp(), scaling smoothly with the viewport width."
+            },
+            "spacing": {
+                "title": "Spacing",
+                "description": "Section spacing tokens measured in vh, keeping a consistent rhythm relative to viewport height."
+            },
+            "buttons": {
+                "title": "Buttons",
+                "description": "Two systems: pill-shaped for primary actions, compact for secondary controls."
+            },
+            "cards": {
+                "title": "Cards",
+                "description": "Opaque cards that lift on hover."
+            },
+            "forms": {
+                "title": "Form Fields",
+                "description": "Minimal underline-only inputs that change color on focus."
+            },
+            "badges": {
+                "title": "Badges & Status",
+                "description": "Small badges and indicators for status display."
+            }
+        },
+        "sampleCard": {
+            "title": "Sample card",
+            "description": "Lifts up and gains a shadow on hover."
+        },
+        "sampleField": {
+            "label": "Sample field",
+            "placeholder": "Type something here",
+            "error": "This is a sample error message"
+        },
+        "badgeOpen": "Available",
+        "badgeProgress": "In progress"
     }
 }

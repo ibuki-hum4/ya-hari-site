@@ -5,19 +5,21 @@ import { FiGithub, FiClock, FiGlobe } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import Section from "./ui/section";
+import { cardClass } from "./ui/card";
+import { primaryButtonClass } from "./ui/button";
+import Reveal from "./ui/reveal";
 
 export default function ContactSection() {
     const t = useTranslations("contact");
-    
+
     const contactMethods = [
         {
             icon: <IoMailOutline size={28} />,
             title: "EMAIL",
-            subtitle: "yahari@mail.skyia.jp",
+            subtitle: "yahari@skyia.jp",
             description: t("methods.email.description"),
-            link: "mailto:yahari@mail.skyia.jp",
-            color: "from-blue-500/10 to-blue-600/10",
-            hoverColor: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
+            link: "mailto:yahari@skyia.jp",
         },
         {
             icon: <FiGithub size={28} />,
@@ -25,8 +27,6 @@ export default function ContactSection() {
             subtitle: "@ibuki-hum4",
             description: t("methods.github.description"),
             link: "https://github.com/ibuki-hum4",
-            color: "from-gray-500/10 to-gray-600/10",
-            hoverColor: "group-hover:text-gray-900 dark:group-hover:text-white",
         },
         {
             icon: <FaXTwitter size={28} />,
@@ -34,95 +34,85 @@ export default function ContactSection() {
             subtitle: "@Yaaaaahari",
             description: t("methods.x.description"),
             link: "https://x.com/Yaaaaahari",
-            color: "from-slate-500/10 to-slate-600/10",
-            hoverColor: "group-hover:text-slate-900 dark:group-hover:text-white",
         },
     ];
 
     return (
-        <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 relative overflow-hidden">
-            {/* 背景装飾 */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-            <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-100/20 dark:bg-purple-900/20 rounded-full blur-3xl -z-10" />
-
-            <div className="max-w-5xl mx-auto">
-                {/* ヘッダー */}
+        <Section id="contact" containerClassName="max-w-5xl mx-auto">
+            {/* ヘッダー */}
+            <Reveal>
                 <div className="mb-10 sm:mb-16">
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600" />
-                        <span className="text-xs font-medium text-gray-400 tracking-[0.3em]">CONTACT</span>
-                        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600" />
+                        <div className="h-px flex-1 bg-line" />
+                        <span className="text-xs font-medium text-muted tracking-[0.3em]">CONTACT</span>
+                        <div className="h-px flex-1 bg-line" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-4 sm:mb-6">
+                    <h2 className="text-heading font-bold text-ink text-center mb-4 sm:mb-6">
                         {t("heading")}
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto leading-relaxed whitespace-pre-line">
+                    <p className="text-muted text-center max-w-xl mx-auto leading-relaxed whitespace-pre-line">
                         {t("description")}
                     </p>
                 </div>
+            </Reveal>
 
-                {/* ステータスバッジ */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 sm:mb-14">
-                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("open")}</span>
-                    </div>
-                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
-                        <FiClock size={14} className="text-gray-400" />
-                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("responseTime")}</span>
-                    </div>
-                    <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
-                        <FiGlobe size={14} className="text-gray-400" />
-                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{t("language")}</span>
-                    </div>
+            {/* ステータスバッジ */}
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 sm:mb-14">
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-line">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span className="text-xs sm:text-sm text-muted">{t("open")}</span>
                 </div>
-
-                {/* 連絡方法カード */}
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-14">
-                    {contactMethods.map((method) => (
-                        <a
-                            key={method.title}
-                            href={method.link}
-                            target={method.link.startsWith("mailto") ? undefined : "_blank"}
-                            rel="noopener noreferrer"
-                            className={`group relative bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden`}
-                        >
-                            {/* グラデーション背景 */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                            
-                            <div className="relative">
-                                <div className={`mb-4 text-gray-600 dark:text-gray-400 transition-colors duration-300 ${method.hoverColor}`}>
-                                    {method.icon}
-                                </div>
-                                <p className="text-xs font-semibold tracking-wider text-gray-400 mb-1">{method.title}</p>
-                                <p className="text-gray-900 dark:text-white font-medium text-lg">{method.subtitle}</p>
-                                
-                                {/* ホバー時の矢印 */}
-                                <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                                    <IoArrowForward size={20} className="text-gray-400" />
-                                </div>
-                            </div>
-                        </a>
-                    ))}
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-line">
+                    <FiClock size={14} className="text-muted" />
+                    <span className="text-xs sm:text-sm text-muted">{t("responseTime")}</span>
                 </div>
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-line">
+                    <FiGlobe size={14} className="text-muted" />
+                    <span className="text-xs sm:text-sm text-muted">{t("language")}</span>
+                </div>
+            </div>
 
-                {/* CTA */}
-                <div className="text-center">
-                    <Link
-                        href="/contact"
-                        className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:shadow-xl hover:shadow-gray-900/20 dark:hover:shadow-white/20"
+            {/* 連絡方法カード */}
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-14">
+                {contactMethods.map((method, index) => (
+                    <Reveal key={method.title} delay={Math.min(index, 2) * 0.1}>
+                    <a
+                        href={method.link}
+                        target={method.link.startsWith("mailto") ? undefined : "_blank"}
+                        rel="noopener noreferrer"
+                        className={`group relative ${cardClass} p-6 overflow-hidden block`}
                     >
+                        <div className="relative">
+                            <div className="mb-4 text-muted transition-colors duration-300 group-hover:text-ink">
+                                {method.icon}
+                            </div>
+                            <p className="text-xs font-semibold tracking-wider text-muted mb-1">{method.title}</p>
+                            <p className="text-ink font-medium text-lg">{method.subtitle}</p>
+
+                            {/* ホバー時の矢印 */}
+                            <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                                <IoArrowForward size={20} className="text-muted" />
+                            </div>
+                        </div>
+                    </a>
+                    </Reveal>
+                ))}
+            </div>
+
+            {/* CTA */}
+            <Reveal>
+                <div className="text-center">
+                    <Link href="/contact" className={`group ${primaryButtonClass} px-8 py-4`}>
                         <IoMailOutline size={22} />
                         <span className="font-medium">{t("cta")}</span>
                         <IoArrowForward size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
-                    <p className="mt-4 text-sm text-gray-400">{t("ctaNote")}</p>
+                    <p className="mt-4 text-sm text-muted">{t("ctaNote")}</p>
                 </div>
-            </div>
-        </section>
+            </Reveal>
+        </Section>
     );
 }

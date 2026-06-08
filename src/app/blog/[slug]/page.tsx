@@ -5,6 +5,7 @@ import { getBlogDetail, getAllBlogIds } from "@/lib/microcms";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import ViewCounter from "../../components/ViewCounter";
+import { secondaryButtonClass } from "../../components/ui/button";
 import { IoArrowBack, IoTimeOutline, IoCalendarOutline } from "react-icons/io5";
 import { marked } from "marked";
 
@@ -67,7 +68,7 @@ export default async function BlogDetailPage({ params }: Props) {
     const htmlContent = isHtml ? blog.content : await marked.parse(blog.content);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
+        <div className="min-h-screen flex flex-col">
             <Header />
 
             <main className="pt-20 flex-1">
@@ -76,7 +77,7 @@ export default async function BlogDetailPage({ params }: Props) {
                         {/* 戻るリンク */}
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors mb-8"
+                            className="inline-flex items-center gap-2 text-muted hover:text-ink transition-colors mb-8"
                         >
                             <IoArrowBack size={18} />
                             <span>記事一覧に戻る</span>
@@ -86,18 +87,18 @@ export default async function BlogDetailPage({ params }: Props) {
                         <header className="mb-10">
                             {/* カテゴリ */}
                             {blog.category && (
-                                <span className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full mb-4">
+                                <span className="inline-block px-3 py-1 text-sm font-medium border border-line text-muted rounded-full mb-4">
                                     {blog.category.name}
                                 </span>
                             )}
 
                             {/* タイトル */}
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-ink mb-4 sm:mb-6 leading-tight">
                                 {blog.title}
                             </h1>
 
                             {/* メタ情報 */}
-                            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                            <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
                                 <div className="flex items-center gap-1">
                                     <IoCalendarOutline size={16} />
                                     <time>
@@ -121,7 +122,7 @@ export default async function BlogDetailPage({ params }: Props) {
                                     {blog.tags.map((tag) => (
                                         <span
                                             key={tag.id}
-                                            className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full"
+                                            className="px-3 py-1 text-sm border border-line text-muted rounded-full"
                                         >
                                             #{tag.name}
                                         </span>
@@ -132,7 +133,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
                         {/* アイキャッチ */}
                         {blog.eyecatch && (
-                            <div className="relative aspect-video rounded-2xl overflow-hidden mb-10">
+                            <div className="relative aspect-video rounded-2xl overflow-hidden mb-10 border border-line">
                                 <Image
                                     src={blog.eyecatch.url}
                                     alt={blog.title}
@@ -147,23 +148,25 @@ export default async function BlogDetailPage({ params }: Props) {
                         {/* 本文 */}
                         <div
                             className="prose prose-lg dark:prose-invert max-w-none
-                                prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
-                                prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed
-                                prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                                prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-                                prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:rounded-xl
+                                prose-headings:font-bold prose-headings:text-ink
+                                prose-p:text-muted prose-p:leading-relaxed
+                                prose-a:text-ink prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-muted
+                                prose-strong:text-ink
+                                prose-code:bg-ink/5 prose-code:text-ink prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+                                prose-pre:bg-ink prose-pre:text-surface prose-pre:rounded-xl
                                 prose-img:rounded-xl
-                                prose-blockquote:border-l-gray-300 dark:prose-blockquote:border-l-gray-600
-                                prose-ul:text-gray-600 dark:prose-ul:text-gray-300
-                                prose-ol:text-gray-600 dark:prose-ol:text-gray-300"
+                                prose-hr:border-line
+                                prose-blockquote:border-l-line prose-blockquote:text-muted
+                                prose-ul:text-muted prose-ol:text-muted
+                                prose-th:text-ink prose-td:text-muted prose-thead:border-line prose-tr:border-line"
                             dangerouslySetInnerHTML={{ __html: htmlContent }}
                         />
 
                         {/* フッター */}
-                        <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <footer className="mt-16 pt-8 border-t border-line">
                             <Link
                                 href="/blog"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                className={secondaryButtonClass}
                             >
                                 <IoArrowBack size={18} />
                                 <span>記事一覧に戻る</span>

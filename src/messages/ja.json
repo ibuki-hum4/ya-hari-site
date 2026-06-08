@@ -13,19 +13,19 @@
         "contact": "お問い合わせ"
     },
     "hero": {
-        "subtitle": "14歳 / 中学2年生 / 開発者",
+        "subtitle": "14歳 / 中学3年生 / 開発者",
         "contact": "お問い合わせ"
     },
     "about": {
         "title": "About",
         "name": "やーはり",
         "age": "14歳",
-        "school": "中学2年生",
+        "school": "中学3年生",
         "location": "日本",
         "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。"
     },
     "skills": {
-        "title": "Skills",
+        "title": "Favorite Tools & framework",
         "languages": "Languages",
         "frameworks": "Frameworks",
         "tools": "Tools"
@@ -96,7 +96,15 @@
             "submit": "送信する",
             "submitting": "送信中...",
             "success": "送信完了！ありがとうございます。",
-            "error": "送信に失敗しました。もう一度お試しください。"
+            "error": "送信に失敗しました。もう一度お試しください。",
+            "validation": {
+                "nameRequired": "お名前を入力してください",
+                "emailRequired": "メールアドレスを入力してください",
+                "emailInvalid": "正しいメールアドレスを入力してください",
+                "subjectRequired": "件名を入力してください",
+                "messageRequired": "メッセージを入力してください",
+                "messageTooLong": "メッセージは5000文字以内で入力してください"
+            }
         },
         "otherMethods": "その他の方法",
         "sendMessage": "メッセージを送る"
@@ -114,7 +122,16 @@
         "message": "このサイトでは、より良いユーザー体験のためにCookieを使用しています。",
         "learnMore": "詳細",
         "accept": "同意する",
-        "decline": "拒否"
+        "decline": "拒否",
+        "settingsTitle": "設定",
+        "currentStatus": "現在の設定",
+        "settingsAccepted": "Cookieの利用に同意しました",
+        "settingsRejected": "Cookieの利用を拒否しました",
+        "status": {
+            "pending": "未設定",
+            "accepted": "同意済み",
+            "rejected": "拒否済み"
+        }
     },
     "privacy": {
         "title": "プライバシーポリシー",
@@ -185,30 +202,17 @@
             "retry": "もう一度試す",
             "backHome": "ホームに戻る"
         },
+        "badRequest": {
+            "title": "不正なリクエスト",
+            "description": "サーバーはリクエストの構文が不正であるため理解できません。URLやリクエスト内容をご確認ください。",
+            "backHome": "ホームに戻る"
+        },
         "teapot": {
             "title": "私はティーポットです",
             "description": "このサーバーはティーポットなので、コーヒーを淹れることを拒否します。",
             "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
             "backHome": "ホームに戻る",
             "learnMore": "詳しく見る"
-        },
-        "forbidden": {
-            "title": "アクセスが拒否されました",
-            "description": "このページにアクセスする権限がありません。ログイン状態やURLをご確認ください。",
-            "backHome": "ホームに戻る",
-            "contact": "お問い合わせ"
-        },
-        "badGateway": {
-            "title": "ゲートウェイエラー",
-            "description": "上流サーバーから無効な応答を受信しました。しばらくしてから再度お試しください。",
-            "backHome": "ホームに戻る",
-            "retry": "もう一度試す"
-        },
-        "serviceUnavailable": {
-            "title": "サービス利用不可",
-            "description": "現在サーバーはメンテナンス中か、一時的に過負荷状態です。しばらくお待ちください。",
-            "backHome": "ホームに戻る",
-            "retry": "もう一度試す"
         }
     },
     "contributions": {
@@ -221,5 +225,51 @@
         },
         "less": "少ない",
         "more": "多い"
+    },
+    "designSystem": {
+        "label": "DESIGN SYSTEM",
+        "title": "Design System",
+        "description": "このサイトを構成しているデザイントークンとUIプリミティブの一覧です。配色・タイポグラフィ・余白・コンポーネントを一箇所にまとめています。",
+        "sections": {
+            "colors": {
+                "title": "Colors",
+                "description": "ライト/ダークモードで切り替わるグレースケース基調のカラートークン。"
+            },
+            "typography": {
+                "title": "Typography",
+                "description": "clamp() による流体タイポグラフィで、画面幅に応じて滑らかにスケールします。"
+            },
+            "spacing": {
+                "title": "Spacing",
+                "description": "vh単位のセクション余白トークンで、画面の高さに対して一定のリズムを保ちます。"
+            },
+            "buttons": {
+                "title": "Buttons",
+                "description": "主要導線用のピル型と、操作系コンパクトの2系統。"
+            },
+            "cards": {
+                "title": "Cards",
+                "description": "ホバーで浮き上がる、不透明な背景のカード。"
+            },
+            "forms": {
+                "title": "Form Fields",
+                "description": "下線のみのミニマルな入力欄。フォーカス時に下線色が変化します。"
+            },
+            "badges": {
+                "title": "Badges & Status",
+                "description": "ステータス表示用の小さなバッジとインジケーター。"
+            }
+        },
+        "sampleCard": {
+            "title": "サンプルカード",
+            "description": "ホバーすると浮き上がり、影が表示されます。"
+        },
+        "sampleField": {
+            "label": "サンプル入力欄",
+            "placeholder": "ここに入力してください",
+            "error": "これはエラーメッセージのサンプルです"
+        },
+        "badgeOpen": "対応可能",
+        "badgeProgress": "開発中"
     }
 }

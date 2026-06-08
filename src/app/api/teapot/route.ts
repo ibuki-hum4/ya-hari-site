@@ -1,17 +1,10 @@
-import { NextResponse } from "next/server";
+import { jsonErrorResponse } from "@/lib/api-error";
 
 export async function GET() {
-    return new NextResponse(
-        JSON.stringify({
-            error: "I'm a teapot",
-            message: "The server refuses to brew coffee because it is, permanently, a teapot.",
-            code: 418,
-            rfc: "RFC 2324",
-        }),
-        {
-            status: 418,
-            statusText: "I'm a teapot",
-            headers: { "Content-Type": "application/json" },
-        }
+    return jsonErrorResponse(
+        418,
+        "I'm a teapot",
+        "The server refuses to brew coffee because it is, permanently, a teapot.",
+        { rfc: "RFC 2324" }
     );
 }

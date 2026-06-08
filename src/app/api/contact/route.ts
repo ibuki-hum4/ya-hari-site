@@ -1,13 +1,5 @@
 import { NextResponse } from "next/server";
-
-interface ContactFormData {
-    name: string;
-    email: string;
-    type: string;
-    subject: string;
-    message: string;
-    turnstileToken: string;
-}
+import { contactFormSchema } from "@/lib/contact-schema";
 
 // Cloudflare Turnstile検証
 async function verifyTurnstile(token: string): Promise<boolean> {
@@ -36,8 +28,18 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 
 export async function POST(request: Request) {
     try {
-        const data: ContactFormData = await request.json();
-        const { turnstileToken, ...formData } = data;
+        const json = await request.json();
+
+        // 入力値の検証（クライアント側の検証を信用せず、境界で再検証する）
+        const parsed = contactFormSchema.safeParse(json);
+        if (!parsed.success) {
+            return NextResponse.json(
+                { error: "入力内容を確認してください" },
+                { status: 400 }
+            );
+        }
+
+        const { turnstileToken, ...formData } = parsed.data;
 
         // Turnstile検証
         const isHuman = await verifyTurnstile(turnstileToken);

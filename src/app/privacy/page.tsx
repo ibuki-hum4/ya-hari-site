@@ -2,6 +2,7 @@
 
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Reveal from "../components/ui/reveal";
 import { useTranslations } from "next-intl";
 
 export default function PrivacyPage() {
@@ -10,29 +11,29 @@ export default function PrivacyPage() {
     const items3 = t.raw("section3.items") as string[];
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900">
+        <div className="min-h-screen">
             <Header />
             
             <main className="pt-20">
                 <section className="py-20 px-8">
-                    <div className="max-w-3xl mx-auto">
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+                    <Reveal className="max-w-3xl mx-auto">
+                        <h1 className="text-4xl font-bold text-ink mb-8">
                             {t("title")}
                         </h1>
-                        
+
                         <div className="prose prose-gray dark:prose-invert max-w-none space-y-8">
-                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <p className="text-muted leading-relaxed">
                                 {t("intro")}
                             </p>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section1.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                <p className="text-muted leading-relaxed mb-4">
                                     {t("section1.description")}
                                 </p>
-                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                                <ul className="list-disc list-inside text-muted space-y-2">
                                     {items1.map((item, index) => (
                                         <li key={index}>{item}</li>
                                     ))}
@@ -40,25 +41,25 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section2.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                <p className="text-muted leading-relaxed mb-4">
                                     {t("section2.description")}
                                 </p>
-                                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                                <h3 className="text-lg font-semibold text-ink mb-2">
                                     {t("section2.gaTitle")}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                <p className="text-muted leading-relaxed mb-4">
                                     {t("section2.gaDescription")}
                                 </p>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section2.gaDisable")}
                                     <a 
                                         href="https://policies.google.com/technologies/partner-sites" 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                                        className="text-ink underline underline-offset-2 transition-opacity hover:opacity-70"
                                     >
                                         {t("section2.gaLink")}
                                     </a>
@@ -67,13 +68,13 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section3.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                <p className="text-muted leading-relaxed mb-4">
                                     {t("section3.description")}
                                 </p>
-                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                                <ul className="list-disc list-inside text-muted space-y-2">
                                     {items3.map((item, index) => (
                                         <li key={index}>{item}</li>
                                     ))}
@@ -81,34 +82,34 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section4.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section4.description")}
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section5.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section5.description")}
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section6.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section6.description")}
                                     <a 
                                         href="https://www.cloudflare.com/ja-jp/privacypolicy/" 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                                        className="text-ink underline underline-offset-2 transition-opacity hover:opacity-70"
                                     >
                                         {t("section6.link")}
                                     </a>
@@ -117,23 +118,23 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section7.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section7.description")}
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                                <h2 className="text-2xl font-bold text-ink mb-4">
                                     {t("section8.title")}
                                 </h2>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-muted leading-relaxed">
                                     {t("section8.description")}
                                     <a 
                                         href="/contact" 
-                                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                                        className="text-ink underline underline-offset-2 transition-opacity hover:opacity-70"
                                     >
                                         {t("section8.link")}
                                     </a>
@@ -141,13 +142,13 @@ export default function PrivacyPage() {
                                 </p>
                             </section>
 
-                            <div className="pt-8 border-t border-gray-200 dark:border-gray-700">
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <div className="pt-8 border-t border-line">
+                                <p className="text-sm text-muted">
                                     {t("effectiveDate")}
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
                 </section>
             </main>
 
