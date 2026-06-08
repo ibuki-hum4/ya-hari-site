@@ -11,6 +11,7 @@ import AppToaster from "./components/AppToaster";
 import { LoadingOverlayProvider } from "./components/loading/overlay";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // メインフォント: LINE Seed JP（常用漢字+かな+記号でサブセット済みWOFF2、2ウェイトのみ）
 const lineSeedJP = localFont({
@@ -175,6 +176,7 @@ export default async function RootLayout({
             </ThemeProvider>
           </NextIntlClientProvider>
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
