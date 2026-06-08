@@ -5,15 +5,42 @@ import { useLocale } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiAlignLeft, FiGrid, FiBox, FiFileText, FiTool } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
 
 const navLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/about", label: "About", icon: FiAlignLeft },
+  { href: "/projects", label: "Projects", icon: FiGrid },
+  { href: "/skills", label: "Skills", icon: FiBox },
+  { href: "/tools", label: "Tools", icon: FiTool },
+  { href: "/blog", label: "Blog", icon: FiFileText },
+  { href: "/#contact", label: "Contact", icon: IoMailOutline },
 ];
+
+// 三本線 ⇄ ✕ にモーフィングするハンバーガーアイコン
+function HamburgerIcon({ open }: { open: boolean }) {
+  const lineClass = "absolute left-0 h-[2px] w-6 rounded-full bg-ink";
+  return (
+    <span className="relative block w-6 h-6">
+      <motion.span
+        className={lineClass}
+        animate={open ? { top: "50%", rotate: 45, translateY: "-50%" } : { top: "25%", rotate: 0, translateY: "-50%" }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.span
+        className={lineClass}
+        style={{ top: "50%", translateY: "-50%" }}
+        animate={open ? { opacity: 0, x: -8 } : { opacity: 1, x: 0 }}
+        transition={{ duration: 0.15 }}
+      />
+      <motion.span
+        className={lineClass}
+        animate={open ? { top: "50%", rotate: -45, translateY: "-50%" } : { top: "75%", rotate: 0, translateY: "-50%" }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      />
+    </span>
+  );
+}
 
 export default function Header() {
   const locale = useLocale();
@@ -41,6 +68,25 @@ export default function Header() {
     }
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Escキーでメニューを閉じる、デスクトップ幅にリサイズされたら自動で閉じる
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isMobileMenuOpen]);
 
@@ -83,43 +129,60 @@ export default function Header() {
         <div className="flex md:hidden items-center gap-2">
           <LanguageSwitcher currentLocale={locale} />
           <ThemeToggle />
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
             className="p-2 text-ink hover:bg-ink/5 rounded-lg transition-colors"
-            aria-label="メニューを開く"
+            aria-label={isMobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+            <HamburgerIcon open={isMobileMenuOpen} />
+          </motion.button>
         </div>
       </div>
 
       {/* モバイルメニュー */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden fixed left-0 right-0 bg-surface-alt z-[9999] overflow-y-auto shadow-lg"
-            style={{ top: "60px", maxHeight: "calc(100vh - 60px)" }}
-          >
-            <nav className="flex flex-col py-4 border-t border-line">
-              {navLinks.map(({ href, label }, index) => (
-                <motion.a
-                  key={href}
-                  href={href}
-                  onClick={(e) => handleNavClick(e, href)}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.04 }}
-                  className="px-6 py-4 text-lg font-medium text-ink hover:bg-ink/5 transition-colors border-b border-line"
-                >
-                  {label}
-                </motion.a>
-              ))}
-            </nav>
-          </motion.div>
+          <>
+            {/* 背景オーバーレイ: タップで閉じる */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="md:hidden fixed inset-0 bg-ink/30 z-[9998]"
+              style={{ top: "60px" }}
+              aria-hidden
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="md:hidden fixed left-0 right-0 bg-surface-alt z-[9999] overflow-y-auto shadow-lg rounded-b-2xl"
+              style={{ top: "60px", maxHeight: "calc(100vh - 60px)" }}
+            >
+              <nav className="flex flex-col py-2 border-t border-line">
+                {navLinks.map(({ href, label, icon: Icon }, index) => (
+                  <motion.a
+                    key={href}
+                    href={href}
+                    onClick={(e) => handleNavClick(e, href)}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-4 px-6 py-4 text-lg font-medium text-ink active:bg-ink/5 transition-colors border-b border-line"
+                  >
+                    <Icon size={20} className="text-muted" />
+                    {label}
+                  </motion.a>
+                ))}
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

@@ -3,6 +3,10 @@
         "title": "Yahari | Portfolio",
         "description": "Yahari's portfolio website."
     },
+    "common": {
+        "viewMore": "View More",
+        "backToHome": "Back to Home"
+    },
     "header": {
         "home": "Home",
         "about": "About",
@@ -22,29 +26,68 @@
         "age": "14 years old",
         "school": "9th Grade",
         "location": "Japan",
-        "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day."
+        "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day.",
+        "now": "Right now I'm building a school SNS/LMS while deepening my knowledge of infrastructure and Kubernetes. If something looks interesting, I just try it out."
     },
     "skills": {
         "title": "Favorite Tools & framework",
         "languages": "Languages",
         "frameworks": "Frameworks",
-        "tools": "Tools"
+        "tools": "Tools",
+        "pageIntro": "The languages, frameworks, and tools I work with day to day — each with a one-line note on what it's for."
+    },
+    "tools": {
+        "title": "Tools",
+        "backToTools": "Back to Tools",
+        "pageIntro": "A small collection of browser-only tools. Nothing you type or generate is ever sent to a server — everything runs right where you are. More will be added over time.",
+        "openTool": "Open tool",
+        "comingSoon": "Coming soon",
+        "items": {
+            "passwordGenerator": {
+                "title": "Password Generator",
+                "description": "Generate a random password by choosing a length and character types. Runs entirely in your browser — nothing is ever sent anywhere."
+            }
+        },
+        "passwordGenerator": {
+            "title": "Password Generator",
+            "intro": "Pick a length and the character types you want, and a password is generated using the Web Crypto API's secure randomness. Generation and copying happen entirely in your browser — nothing is ever sent to a server.",
+            "length": "Length",
+            "count": "Count",
+            "characterTypes": "Character types",
+            "charsets": {
+                "lowercase": "Lowercase (a-z)",
+                "uppercase": "Uppercase (A-Z)",
+                "numbers": "Numbers (0-9)",
+                "symbols": "Symbols (!@#...)"
+            },
+            "generate": "Generate",
+            "regenerate": "Regenerate",
+            "copy": "Copy",
+            "copied": "Copied",
+            "copyAll": "Copy all",
+            "strength": {
+                "weak": "Strength: Weak",
+                "medium": "Strength: Medium",
+                "strong": "Strength: Strong"
+            }
+        }
     },
     "projects": {
         "title": "Projects",
         "viewProject": "View Project",
+        "pageIntro": "Projects I've built while learning along the way. From personal experiments to school tools, I follow my curiosity and build things.",
         "items": {
             "bluearchive": {
                 "title": "BlueArchive Unofficial API",
                 "description": "RESTful API providing Blue Archive game data. Access character info, stats, skill data and more."
             },
-            "discord": {
-                "title": "Discord Bot",
-                "description": "Multi-functional Discord Bot with moderation, music playback, custom commands and various features."
-            },
             "school": {
                 "title": "School SNS/LMS",
                 "description": "Social network and learning management system for schools. Supports communication between students and teachers."
+            },
+            "alt": {
+                "title": "Discord Bot \"ALT\"",
+                "description": "A Discord bot packed with a wide range of server-management essentials, plus a custom-built economy system."
             }
         }
     },
@@ -53,7 +96,7 @@
         "description": "Introducing my friends' websites",
         "request": "If you'd like a mutual link, please",
         "contactLink": "contact me",
-        "requestEnd": ""
+        "requestEnd": "."
     },
     "contact": {
         "title": "Contact",

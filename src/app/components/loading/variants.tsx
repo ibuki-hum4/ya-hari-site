@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactElement, ReactNode } from "react";
 
 const BRAND = "YAHARI";
 
@@ -241,17 +241,128 @@ function CrumbleLoading() {
     );
 }
 
-export const loadingScreens = [
-    <SpinnerLoading key="spinner" />,
-    <DotsLoading key="dots" />,
-    <SweepLoading key="sweep" />,
-    <EqualizerLoading key="equalizer" />,
-    <TypingLoading key="typing" />,
-    <NetflixLoading key="netflix" />,
-    <TrembleLoading key="tremble" />,
-    <TikTokLoading key="tiktok" />,
-    <EvaporateLoading key="evaporate" />,
-    <ScatterLoading key="scatter" />,
-    <CodingLoading key="coding" />,
-    <CrumbleLoading key="crumble" />,
+// 文字がベルトコンベアのように、左から現れて右へ抜けていく
+function ConveyorLoading() {
+    return (
+        <LoadingShell>
+            <p className="text-5xl sm:text-6xl font-bold tracking-widest text-ink select-none mb-4 overflow-hidden">
+                {BRAND.split("").map((char, i) => (
+                    <span
+                        key={i}
+                        className="inline-block animate-loading-conveyor"
+                        style={{ animationDelay: `${i * 0.18}s` }}
+                    >
+                        {char}
+                    </span>
+                ))}
+            </p>
+            <LoadingLabel>LOADING...</LoadingLabel>
+        </LoadingShell>
+    );
+}
+
+// 猫: 丸くなってゆらゆら弾む
+function CatLoading() {
+    return (
+        <LoadingShell>
+            <p className="text-6xl sm:text-7xl mb-6 inline-block select-none animate-loading-cat-bounce" aria-hidden>
+                🐱
+            </p>
+            <LoadingLabel>ごろごろ...</LoadingLabel>
+        </LoadingShell>
+    );
+}
+
+// 犬: しっぽを振るように楽しげに弾む
+function DogLoading() {
+    return (
+        <LoadingShell>
+            <p className="text-6xl sm:text-7xl mb-6 inline-block select-none animate-loading-dog-wag" aria-hidden>
+                🐶
+            </p>
+            <LoadingLabel>わんわん...</LoadingLabel>
+        </LoadingShell>
+    );
+}
+
+// くじら: 泡を立てながら、ゆったり海面を泳ぐ
+function WhaleLoading() {
+    return (
+        <LoadingShell>
+            <div className="relative inline-block mb-6">
+                <p className="text-6xl sm:text-7xl select-none animate-loading-whale-swim" aria-hidden>
+                    🐳
+                </p>
+                <div className="absolute -top-1 -right-1 flex items-end gap-1" aria-hidden>
+                    {[0, 1, 2].map((i) => (
+                        <span
+                            key={i}
+                            className="w-1.5 h-1.5 rounded-full bg-ink/30 animate-loading-bubble-rise"
+                            style={{ animationDelay: `${i * 0.5}s` }}
+                        />
+                    ))}
+                </div>
+            </div>
+            <LoadingLabel>ぷかぷか...</LoadingLabel>
+        </LoadingShell>
+    );
+}
+
+// 52Hzのくじら: 「世界でいちばん孤独なクジラ」と呼ばれる、誰にも届かない周波数で鳴き続けるクジラへのオマージュ
+function Whale52HzLoading() {
+    return (
+        <LoadingShell>
+            <p
+                className="text-6xl sm:text-7xl mb-6 inline-block select-none opacity-40 grayscale animate-loading-whale-swim [animation-duration:6s]"
+                aria-hidden
+            >
+                🐳
+            </p>
+            <div className="flex items-end justify-center gap-1.5 h-6 mb-4" aria-hidden>
+                {[0, 1, 2, 3, 4].map((i) => (
+                    <span
+                        key={i}
+                        className="w-1 bg-muted/50 rounded-full animate-loading-52hz-pulse"
+                        style={{ animationDelay: `${i * 0.3}s` }}
+                    />
+                ))}
+            </div>
+            <p className="font-mono text-xs text-muted tracking-[0.2em] mb-2">52 Hz</p>
+            <LoadingLabel>誰にも届かない声で、今日も歌っている。</LoadingLabel>
+        </LoadingShell>
+    );
+}
+
+interface LoadingScreenEntry {
+    id: string;
+    element: ReactElement;
+}
+
+// id を指定すると `?load=<id>` でそのローディング画面を強制表示できる
+export const loadingScreens: LoadingScreenEntry[] = [
+    { id: "spinner", element: <SpinnerLoading key="spinner" /> },
+    { id: "dots", element: <DotsLoading key="dots" /> },
+    { id: "sweep", element: <SweepLoading key="sweep" /> },
+    { id: "equalizer", element: <EqualizerLoading key="equalizer" /> },
+    { id: "typing", element: <TypingLoading key="typing" /> },
+    { id: "netflix", element: <NetflixLoading key="netflix" /> },
+    { id: "tremble", element: <TrembleLoading key="tremble" /> },
+    { id: "tiktok", element: <TikTokLoading key="tiktok" /> },
+    { id: "evaporate", element: <EvaporateLoading key="evaporate" /> },
+    { id: "scatter", element: <ScatterLoading key="scatter" /> },
+    { id: "coding", element: <CodingLoading key="coding" /> },
+    { id: "crumble", element: <CrumbleLoading key="crumble" /> },
+    { id: "conveyor", element: <ConveyorLoading key="conveyor" /> },
+    { id: "cat", element: <CatLoading key="cat" /> },
+    { id: "dog", element: <DogLoading key="dog" /> },
+    { id: "whale", element: <WhaleLoading key="whale" /> },
+    { id: "52hz-whale", element: <Whale52HzLoading key="52hz-whale" /> },
 ];
+
+export function pickLoadingScreen(): ReactElement {
+    return loadingScreens[Math.floor(Math.random() * loadingScreens.length)].element;
+}
+
+export function getLoadingScreenById(id: string | null): ReactElement | undefined {
+    return loadingScreens.find((screen) => screen.id === id)?.element;
+}

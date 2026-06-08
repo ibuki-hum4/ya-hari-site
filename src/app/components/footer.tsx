@@ -7,9 +7,9 @@ import { IoMailOutline, IoEyeOutline } from "react-icons/io5";
 import CookieSettingsDialog from "./CookieSettingsDialog";
 
 const navLinks = [
-  { href: "/#about", label: "About", icon: FiAlignLeft },
-  { href: "/#projects", label: "Projects", icon: FiGrid },
-  { href: "/#skills", label: "Skills", icon: FiBox },
+  { href: "/about", label: "About", icon: FiAlignLeft },
+  { href: "/projects", label: "Projects", icon: FiGrid },
+  { href: "/skills", label: "Skills", icon: FiBox },
   { href: "/blog", label: "Blog", icon: FiFileText },
   { href: "/#contact", label: "Contact", icon: IoMailOutline },
 ];

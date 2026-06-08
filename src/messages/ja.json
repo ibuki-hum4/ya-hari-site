@@ -3,6 +3,10 @@
         "title": "やーはり | ポートフォリオ",
         "description": "やーはりのポートフォリオサイト。"
     },
+    "common": {
+        "viewMore": "もっと詳しく見る",
+        "backToHome": "ホームに戻る"
+    },
     "header": {
         "home": "ホーム",
         "about": "自己紹介",
@@ -22,29 +26,68 @@
         "age": "14歳",
         "school": "中学3年生",
         "location": "日本",
-        "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。"
+        "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。",
+        "now": "今は学校向けのSNS/LMSを開発しながら、インフラやKubernetesまわりの知識を広げています。気になる技術は、ひとまず触ってみる派です。"
     },
     "skills": {
         "title": "Favorite Tools & framework",
         "languages": "Languages",
         "frameworks": "Frameworks",
-        "tools": "Tools"
+        "tools": "Tools",
+        "pageIntro": "ふだん触れている言語・フレームワーク・ツールたち。それぞれが「何のためにあるのか」を一言で添えました。"
+    },
+    "tools": {
+        "title": "Tools",
+        "backToTools": "Toolsに戻る",
+        "pageIntro": "ブラウザだけで完結する小さなツール集です。入力した内容や生成結果はサーバーへ送信されず、すべてその場で処理されます。今後も少しずつ追加していく予定です。",
+        "openTool": "ツールを開く",
+        "comingSoon": "準備中",
+        "items": {
+            "passwordGenerator": {
+                "title": "Password Generator",
+                "description": "長さと文字種を選ぶだけで、安全な乱数からパスワードを生成します。すべてブラウザ内で完結し、外部には一切送信されません。"
+            }
+        },
+        "passwordGenerator": {
+            "title": "Password Generator",
+            "intro": "長さと文字種を選ぶだけで、Web Crypto APIの安全な乱数からパスワードを生成します。生成・コピーはすべてブラウザ内で完結し、サーバーには一切送信されません。",
+            "length": "長さ",
+            "count": "生成数",
+            "characterTypes": "使用する文字種",
+            "charsets": {
+                "lowercase": "小文字 (a-z)",
+                "uppercase": "大文字 (A-Z)",
+                "numbers": "数字 (0-9)",
+                "symbols": "記号 (!@#...)"
+            },
+            "generate": "生成する",
+            "regenerate": "再生成する",
+            "copy": "コピー",
+            "copied": "コピーしました",
+            "copyAll": "すべてコピー",
+            "strength": {
+                "weak": "強度: 弱い",
+                "medium": "強度: ふつう",
+                "strong": "強度: 強い"
+            }
+        }
     },
     "projects": {
         "title": "Projects",
         "viewProject": "プロジェクトを見る",
+        "pageIntro": "技術を学びながら作ってきたプロジェクトたち。個人開発から学校向けのツールまで、興味の赴くままに手を動かしています。",
         "items": {
             "bluearchive": {
                 "title": "BlueArchive 非公式API",
                 "description": "ブルーアーカイブのゲームデータを提供するRESTful API。キャラクター情報、ステータス、スキルデータなどを取得可能。"
             },
-            "discord": {
-                "title": "Discord Bot",
-                "description": "多機能なDiscord Bot。モデレーション、音楽再生、カスタムコマンドなど様々な機能を搭載。"
-            },
             "school": {
                 "title": "学校向けSNS/LMS",
                 "description": "学校内で使用するソーシャルネットワーク・学習管理システム。生徒と教師のコミュニケーションを支援。"
+            },
+            "alt": {
+                "title": "Discord Bot「ALT」",
+                "description": "サーバー運営に役立つ様々な基本機能に加えて、独自の経済システムを実装したDiscord Bot。"
             }
         }
     },

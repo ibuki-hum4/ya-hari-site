@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 import { useTranslations } from "next-intl";
 import Section from "./ui/section";
 import Reveal from "./ui/reveal";
+import SplitTitle from "./ui/split-title";
 import {
     SiReact,
     SiNextdotjs,
@@ -18,6 +21,7 @@ import {
 
 export default function Skills() {
     const t = useTranslations("skills");
+    const tc = useTranslations("common");
 
     const favoriteIcons = [
         { name: "React", Icon: SiReact, className: "text-sky-500" },
@@ -34,11 +38,9 @@ export default function Skills() {
 
     return (
         <Section id="skills">
-            <Reveal>
-                <h2 className="text-heading font-bold text-ink mb-8 sm:mb-12 text-center">
-                    {t("title")}
-                </h2>
-            </Reveal>
+            <h2 className="text-heading font-bold text-ink mb-8 sm:mb-12 text-left">
+                <SplitTitle text={t("title")} />
+            </h2>
 
             <div className="relative select-none">
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-6 sm:w-8 bg-gradient-to-r from-surface to-transparent backdrop-blur-sm" />
@@ -58,6 +60,18 @@ export default function Skills() {
                     </div>
                 </div>
             </div>
+
+            <Reveal delay={0.2}>
+                <div className="mt-8 sm:mt-12 text-center">
+                    <Link
+                        href="/skills"
+                        className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors group"
+                    >
+                        {tc("viewMore")}
+                        <FiArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                </div>
+            </Reveal>
             <style jsx>{`
                 @keyframes marquee {
                     0% {

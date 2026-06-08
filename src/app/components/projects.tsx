@@ -1,11 +1,13 @@
 "use client";
 
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import Link from "next/link";
+import { FiExternalLink, FiGithub, FiArrowRight } from "react-icons/fi";
 import { FaDiscord } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Section from "./ui/section";
 import Card from "./ui/card";
 import Reveal from "./ui/reveal";
+import SplitTitle from "./ui/split-title";
 
 type Project = {
     title: string;
@@ -20,7 +22,8 @@ type Project = {
 
 export default function Projects() {
     const t = useTranslations("projects");
-    
+    const tc = useTranslations("common");
+
     const projects: Project[] = [
         {
             title: t("items.bluearchive.title"),
@@ -32,25 +35,22 @@ export default function Projects() {
             },
         },
         {
-            title: t("items.discord.title"),
-            description: t("items.discord.description"),
-            status: "in-progress",
-            links: {
-                invite: "https://discord.com/oauth2/authorize?client_id=1419869519475900426"
-            },
-        },
-        {
             title: t("items.school.title"),
             description: t("items.school.description"),
             status: "in-progress",
+        },
+        {
+            title: t("items.alt.title"),
+            description: t("items.alt.description"),
+            status: "completed",
         },
     ];
 
     return (
         <Section id="projects">
-            <Reveal>
-                <h2 className="text-heading font-bold text-ink mb-8 sm:mb-12 text-center">{t("title")}</h2>
-            </Reveal>
+            <h2 className="text-heading font-bold text-ink mb-8 sm:mb-12 text-right">
+                <SplitTitle text={t("title")} />
+            </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {projects.map((project, index) => (
@@ -107,6 +107,18 @@ export default function Projects() {
                     </Reveal>
                 ))}
             </div>
+
+            <Reveal delay={0.2}>
+                <div className="mt-8 sm:mt-12 text-center">
+                    <Link
+                        href="/projects"
+                        className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors group"
+                    >
+                        {tc("viewMore")}
+                        <FiArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                </div>
+            </Reveal>
         </Section>
     );
 }

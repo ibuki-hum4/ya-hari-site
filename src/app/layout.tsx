@@ -8,6 +8,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import ThreeBackground from "./components/three-background";
 import QueryProvider from "./components/QueryProvider";
 import AppToaster from "./components/AppToaster";
+import { LoadingOverlayProvider } from "./components/loading/overlay";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -82,7 +83,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.png",
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: "/icon.png",
     apple: "/icon.png",
   },
 };
@@ -163,10 +165,12 @@ export default async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider>
               <QueryProvider>
-                <GoogleAnalytics />
-                {children}
-                <CookieConsent />
-                <AppToaster />
+                <LoadingOverlayProvider>
+                  <GoogleAnalytics />
+                  {children}
+                  <CookieConsent />
+                  <AppToaster />
+                </LoadingOverlayProvider>
               </QueryProvider>
             </ThemeProvider>
           </NextIntlClientProvider>

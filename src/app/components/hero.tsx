@@ -4,6 +4,7 @@ import { IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
 import { memo } from "react";
 import { primaryButtonClass } from "./ui/button";
+import SplitTitle from "./ui/split-title";
 
 const Hero = memo(function Hero() {
     const profileImage = "/icon.png";
@@ -13,7 +14,9 @@ const Hero = memo(function Hero() {
             <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-12">
                 {/* 左側: 名前・サブタイトル・ボタン */}
                 <div className="flex-1 flex flex-col items-center md:items-start gap-4 text-center md:text-left">
-                    <h1 className="text-display font-bold text-ink select-none">やーはり</h1>
+                    <h1 className="text-display font-bold text-ink select-none">
+                        <SplitTitle text="やーはり" />
+                    </h1>
                     <p className="text-subheading text-muted select-none">Full-Stack / Infra Developer</p>
                     <a
                         href="mailto:yahari@skyia.jp"

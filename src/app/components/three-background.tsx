@@ -102,6 +102,45 @@ const ThreeBackground = memo(function ThreeBackground() {
             const gathered = new Float32Array(PARTICLE_COUNT * 3);
             const drift = new Float32Array(PARTICLE_COUNT); // 個々の漂うような動きの位相
 
+            // 集合時の図形: 正二十面体(12頂点・30辺)を採用し、粒子を頂点へ寄せて辺を線でつなぐことで
+            // 「散らばっていた点が集まり、輪郭のはっきりした図形になる」演出を実現する
+            const PHI = (1 + Math.sqrt(5)) / 2;
+            const rawVertices: [number, number, number][] = [
+                [-1, PHI, 0], [1, PHI, 0], [-1, -PHI, 0], [1, -PHI, 0],
+                [0, -1, PHI], [0, 1, PHI], [0, -1, -PHI], [0, 1, -PHI],
+                [PHI, 0, -1], [PHI, 0, 1], [-PHI, 0, -1], [-PHI, 0, 1],
+            ];
+            const vertexScale = GATHER_RADIUS / Math.sqrt(1 + PHI * PHI);
+            const shapeVertices = rawVertices.map(
+                ([x, y, z]) => [x * vertexScale, y * vertexScale, z * vertexScale] as const
+            );
+
+            // 頂点間の最短距離(=辺の長さ)に一致するペアだけを辺として抽出する(12頂点から30辺が求まる)
+            let edgeLength = Infinity;
+            for (let i = 0; i < shapeVertices.length; i++) {
+                for (let j = i + 1; j < shapeVertices.length; j++) {
+                    const [ax, ay, az] = shapeVertices[i];
+                    const [bx, by, bz] = shapeVertices[j];
+                    edgeLength = Math.min(edgeLength, Math.hypot(ax - bx, ay - by, az - bz));
+                }
+            }
+            const shapeEdges: [number, number][] = [];
+            for (let i = 0; i < shapeVertices.length; i++) {
+                for (let j = i + 1; j < shapeVertices.length; j++) {
+                    const [ax, ay, az] = shapeVertices[i];
+                    const [bx, by, bz] = shapeVertices[j];
+                    if (Math.abs(Math.hypot(ax - bx, ay - by, az - bz) - edgeLength) < edgeLength * 0.05) {
+                        shapeEdges.push([i, j]);
+                    }
+                }
+            }
+
+            // 集合時: 粒子を「頂点グループ」と「辺グループ」に振り分け、図形の輪郭全体に粒子を並べる
+            // (頂点1つあたり5粒子・辺1本あたり12粒子で 12*5 + 30*12 = 420 個ちょうど埋まる)
+            const PARTICLES_PER_VERTEX = 5;
+            const PARTICLES_PER_EDGE = 12;
+            const vertexParticleTotal = shapeVertices.length * PARTICLES_PER_VERTEX;
+
             for (let i = 0; i < PARTICLE_COUNT; i++) {
                 const i3 = i * 3;
 
@@ -110,12 +149,29 @@ const ThreeBackground = memo(function ThreeBackground() {
                 scattered[i3 + 1] = (Math.random() - 0.5) * SCATTER_RADIUS * 2;
                 scattered[i3 + 2] = (Math.random() - 0.5) * SCATTER_RADIUS * 2;
 
-                // 集合時: 球面上に均一分布させる
-                const theta = Math.random() * Math.PI * 2;
-                const phi = Math.acos(2 * Math.random() - 1);
-                gathered[i3] = GATHER_RADIUS * Math.sin(phi) * Math.cos(theta);
-                gathered[i3 + 1] = GATHER_RADIUS * Math.sin(phi) * Math.sin(theta);
-                gathered[i3 + 2] = GATHER_RADIUS * Math.cos(phi);
+                if (i < vertexParticleTotal) {
+                    // 頂点グループ: indexを頂点数で割った余りを頂点番号とする
+                    // → i = 0..11 がそれぞれ頂点0..11の「代表粒子」になり、線の描画(後述)とインデックスが一致する
+                    const vertexIndex = i % shapeVertices.length;
+                    const [vx, vy, vz] = shapeVertices[vertexIndex];
+                    const jitter = 0.1;
+                    gathered[i3] = vx + (Math.random() - 0.5) * jitter;
+                    gathered[i3 + 1] = vy + (Math.random() - 0.5) * jitter;
+                    gathered[i3 + 2] = vz + (Math.random() - 0.5) * jitter;
+                } else {
+                    // 辺グループ: 頂点間を等間隔に結ぶ位置に並べ、図形の輪郭(ワイヤーフレーム)を粒子そのもので描く
+                    const edgeParticleIndex = i - vertexParticleTotal;
+                    const edgeIndex = Math.floor(edgeParticleIndex / PARTICLES_PER_EDGE) % shapeEdges.length;
+                    const positionOnEdge = edgeParticleIndex % PARTICLES_PER_EDGE;
+                    const t = (positionOnEdge + 0.5) / PARTICLES_PER_EDGE;
+                    const [a, b] = shapeEdges[edgeIndex];
+                    const [ax, ay, az] = shapeVertices[a];
+                    const [bx, by, bz] = shapeVertices[b];
+                    const jitter = 0.05;
+                    gathered[i3] = THREE.MathUtils.lerp(ax, bx, t) + (Math.random() - 0.5) * jitter;
+                    gathered[i3 + 1] = THREE.MathUtils.lerp(ay, by, t) + (Math.random() - 0.5) * jitter;
+                    gathered[i3 + 2] = THREE.MathUtils.lerp(az, bz, t) + (Math.random() - 0.5) * jitter;
+                }
 
                 drift[i] = Math.random() * Math.PI * 2;
 
@@ -136,6 +192,19 @@ const ThreeBackground = memo(function ThreeBackground() {
 
             const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particlesMesh);
+
+            // 各頂点を代表する粒子(インデックス = 頂点番号)同士を辺で結ぶ線を用意しておく。
+            // 集合が進むほど不透明度を上げ、図形の輪郭が浮かび上がるようにする
+            const linePositions = new Float32Array(shapeEdges.length * 2 * 3);
+            const linesGeometry = new THREE.BufferGeometry();
+            linesGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+            const linesMaterial = new THREE.LineBasicMaterial({
+                color: 0x999999,
+                transparent: true,
+                opacity: 0,
+            });
+            const linesMesh = new THREE.LineSegments(linesGeometry, linesMaterial);
+            scene.add(linesMesh);
 
             camera.position.z = 5;
 
@@ -192,8 +261,29 @@ const ThreeBackground = memo(function ThreeBackground() {
                 }
                 positionAttr.needsUpdate = true;
 
+                // 図形の頂点を代表する粒子(インデックス = 頂点番号)の現在位置を辺としてつなぎ直し、
+                // 集合が進むほど線をはっきり浮かび上がらせる(散開中はほぼ見えないようにして雑然とした印象を避ける)
+                const linePosArray = linesGeometry.getAttribute('position').array as Float32Array;
+                for (let e = 0; e < shapeEdges.length; e++) {
+                    const [a, b] = shapeEdges[e];
+                    const ai = a * 3;
+                    const bi = b * 3;
+                    const ei = e * 6;
+                    linePosArray[ei] = array[ai];
+                    linePosArray[ei + 1] = array[ai + 1];
+                    linePosArray[ei + 2] = array[ai + 2];
+                    linePosArray[ei + 3] = array[bi];
+                    linePosArray[ei + 4] = array[bi + 1];
+                    linePosArray[ei + 5] = array[bi + 2];
+                }
+                linesGeometry.getAttribute('position').needsUpdate = true;
+                linesMaterial.color.copy(particlesMaterial.color);
+                linesMaterial.opacity = Math.max(0, morph - 0.5) * 1.1 * (rainbowMode ? 0.7 : 0.5);
+
                 particlesMesh.rotation.y += 0.0009;
                 particlesMesh.rotation.x += 0.0004;
+                linesMesh.rotation.y += 0.0009;
+                linesMesh.rotation.x += 0.0004;
 
                 camera.position.x += (mouseX * 0.4 - camera.position.x) * 0.05;
                 camera.position.y += (mouseY * 0.25 - camera.position.y) * 0.05;

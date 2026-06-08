@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getBlogDetail, getAllBlogIds } from "@/lib/microcms";
+import { withMinDuration } from "@/lib/with-min-duration";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import ViewCounter from "../../components/ViewCounter";
@@ -30,13 +31,28 @@ export async function generateMetadata({ params }: Props) {
     const { slug } = await params;
     try {
         const blog = await getBlogDetail(slug);
+        const description = blog.content.replace(/<[^>]*>/g, "").slice(0, 160);
+        const images = blog.eyecatch ? [{ url: blog.eyecatch.url, width: blog.eyecatch.width, height: blog.eyecatch.height }] : undefined;
         return {
-            title: `${blog.title} | やーはり Blog`,
-            description: blog.content.replace(/<[^>]*>/g, "").slice(0, 160),
+            title: blog.title,
+            description,
+            alternates: {
+                canonical: `/blog/${slug}`,
+            },
             openGraph: {
+                type: "article",
                 title: blog.title,
-                description: blog.content.replace(/<[^>]*>/g, "").slice(0, 160),
-                images: blog.eyecatch ? [blog.eyecatch.url] : [],
+                description,
+                publishedTime: blog.publishedAt,
+                modifiedTime: blog.updatedAt,
+                tags: blog.tags?.map((tag) => tag.name),
+                images,
+            },
+            twitter: {
+                card: blog.eyecatch ? "summary_large_image" : "summary",
+                title: blog.title,
+                description,
+                images: blog.eyecatch ? [blog.eyecatch.url] : undefined,
             },
         };
     } catch {
@@ -54,7 +70,7 @@ export default async function BlogDetailPage({ params }: Props) {
     
     let blog;
     try {
-        blog = await getBlogDetail(slug);
+        blog = await withMinDuration(getBlogDetail(slug));
     } catch {
         notFound();
     }
@@ -67,8 +83,28 @@ export default async function BlogDetailPage({ params }: Props) {
     const isHtml = /<[a-z][\s\S]*>/i.test(blog.content);
     const htmlContent = isHtml ? blog.content : await marked.parse(blog.content);
 
+    // 構造化データ: BlogPosting
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: blog.title,
+        description: textContent.slice(0, 160),
+        url: `${siteUrl}/blog/${slug}`,
+        datePublished: blog.publishedAt,
+        dateModified: blog.updatedAt,
+        image: blog.eyecatch ? [blog.eyecatch.url] : undefined,
+        author: { "@type": "Person", name: "やーはり", url: siteUrl },
+        publisher: { "@type": "Person", name: "やーはり", url: siteUrl },
+        keywords: blog.tags?.map((tag) => tag.name).join(", "),
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Header />
 
             <main className="pt-20 flex-1">
