@@ -38,7 +38,9 @@ export function NavigationLoadingListener() {
         }
 
         function handleClick(event: MouseEvent) {
-            if (event.defaultPrevented || event.button !== 0) return;
+            // next/link は client-side routing のため preventDefault() を呼ぶので、
+            // defaultPrevented では弾かない（弾くとLinkのクリックを全て無視してしまう）
+            if (event.button !== 0) return;
             if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             const anchor = findInternalAnchor(event.target);
             if (!anchor) return;
