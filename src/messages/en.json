@@ -1,345 +1,454 @@
 {
-    "meta": {
-        "title": "Yahari | Portfolio",
-        "description": "Yahari's portfolio website."
+  "meta": {
+    "title": "Yahari | Portfolio",
+    "description": "Yahari's portfolio website."
+  },
+  "common": {
+    "viewMore": "View More",
+    "backToHome": "Back to Home"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "blog": "Blog",
+    "links": "Links",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "14 y/o / 9th Grade / Developer",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About",
+    "name": "Yahari",
+    "age": "14 years old",
+    "school": "9th Grade",
+    "location": "Japan",
+    "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day.",
+    "now": "Right now I'm building a school SNS/LMS while deepening my knowledge of infrastructure and Kubernetes. If something looks interesting, I just try it out."
+  },
+  "skills": {
+    "title": "Favorite Tools & framework",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "tools": "Tools",
+    "pageIntro": "The languages, frameworks, and tools I work with day to day — each with a one-line note on what it's for."
+  },
+  "tools": {
+    "title": "Tools",
+    "backToTools": "Back to Tools",
+    "pageIntro": "A small collection of browser-only tools. Nothing you type or generate is ever sent to a server — everything runs right where you are.",
+    "openTool": "Open tool",
+    "comingSoon": "Coming soon",
+    "items": {
+      "passwordGenerator": {
+        "title": "Password Generator",
+        "description": "Generate a random password by choosing length and character types. Runs entirely in your browser."
+      },
+      "jsonFormatter": {
+        "title": "JSON Formatter / Diff",
+        "description": "Format and validate JSON. Compare two JSON objects and see a diff."
+      },
+      "base64Url": {
+        "title": "Base64 / URL Encoder",
+        "description": "Encode and decode text or files using Base64 or URL encoding."
+      },
+      "colorPalette": {
+        "title": "Color Palette Generator",
+        "description": "Pick one color and generate complementary, analogous, and triadic palettes."
+      },
+      "typographyPreview": {
+        "title": "Typography Preview",
+        "description": "Adjust font, size, weight, and spacing to preview text rendering in real time."
+      },
+      "markdownHtml": {
+        "title": "Markdown ↔ HTML Converter",
+        "description": "Write Markdown and see it rendered or converted to HTML in real time."
+      },
+      "textCounter": {
+        "title": "Text Counter",
+        "description": "Count characters, words, lines, bytes, and reading time all at once."
+      },
+      "memeGenerator": {
+        "title": "Meme Generator",
+        "description": "Upload an image, add top and bottom text, and download your meme."
+      },
+      "yamlJson": {
+        "title": "YAML ↔ JSON Converter",
+        "description": "Convert between YAML and JSON. Useful for config file transformations."
+      },
+      "imageColor": {
+        "title": "Image Color Analyzer",
+        "description": "Upload an image to extract its dominant colors with hex codes and percentages."
+      },
+      "excuseGenerator": {
+        "title": "Excuse Generator",
+        "description": "Generates random excuses for various situations. Use at your own risk."
+      },
+      "cookieClicker": {
+        "title": "Cookie Clicker",
+        "description": "Click cookies, buy upgrades, and automate production in this idle game."
+      },
+      "typingSpeed": {
+        "title": "Typing Speed Test",
+        "description": "Measure your typing speed (WPM / CPM) and accuracy in English or Japanese."
+      },
+      "yardle": {
+        "title": "Yardle",
+        "description": "A Wordle clone — guess the 5-letter word in 6 tries. Yahari edition."
+      },
+      "mouseMusic": {
+        "title": "Mouse Music",
+        "description": "Move your cursor to make music — X is pitch, Y is octave. Powered by Web Audio API."
+      },
+      "noneAI": {
+        "title": "NoneAI Image Generator",
+        "description": "Algorithmic image generation with zero AI — just math and code."
+      },
+      "httpStatus": {
+        "title": "HTTP Status Code Dictionary",
+        "description": "All status codes explained in one sentence. Real-time search by code, name, or description."
+      },
+      "commitMessage": {
+        "title": "Commit Message Generator",
+        "description": "Generate Conventional Commits messages in seconds. Supports gitmoji."
+      }
     },
-    "common": {
-        "viewMore": "View More",
-        "backToHome": "Back to Home"
+    "passwordGenerator": {
+      "title": "Password Generator",
+      "intro": "Pick a length and the character types you want, and a password is generated using the Web Crypto API's secure randomness. Generation and copying happen entirely in your browser — nothing is ever sent to a server.",
+      "length": "Length",
+      "count": "Count",
+      "characterTypes": "Character types",
+      "charsets": {
+        "lowercase": "Lowercase (a-z)",
+        "uppercase": "Uppercase (A-Z)",
+        "numbers": "Numbers (0-9)",
+        "symbols": "Symbols (!@#...)"
+      },
+      "generate": "Generate",
+      "regenerate": "Regenerate",
+      "copy": "Copy",
+      "copied": "Copied",
+      "copyAll": "Copy all",
+      "strength": {
+        "weak": "Strength: Weak",
+        "medium": "Strength: Medium",
+        "strong": "Strength: Strong"
+      }
     },
-    "header": {
-        "home": "Home",
-        "about": "About",
-        "skills": "Skills",
-        "projects": "Projects",
-        "blog": "Blog",
-        "links": "Links",
-        "contact": "Contact"
+    "jsonFormatter": {
+      "title": "JSON Formatter / Diff",
+      "intro": "Format and validate JSON with configurable indentation. In Diff mode, compare two JSON objects and highlight what changed."
     },
-    "hero": {
-        "subtitle": "14 y/o / 9th Grade / Developer",
-        "contact": "Contact"
+    "base64Url": {
+      "title": "Base64 / URL Encoder",
+      "intro": "Encode or decode text using Base64 or URL (percent) encoding. File-to-Base64 conversion is also supported."
     },
-    "about": {
-        "title": "About",
-        "name": "Yahari",
-        "age": "14 years old",
-        "school": "9th Grade",
-        "location": "Japan",
-        "description": "I'm a middle school student who loves programming and technology. I'm mainly focused on web development and working on various projects. I enjoy learning new technologies and strive to grow every day.",
-        "now": "Right now I'm building a school SNS/LMS while deepening my knowledge of infrastructure and Kubernetes. If something looks interesting, I just try it out."
+    "colorPalette": {
+      "title": "Color Palette Generator",
+      "intro": "Choose a base color and instantly generate five harmonious palettes: analogous, complementary, triadic, split-complementary, and monochromatic."
     },
-    "skills": {
-        "title": "Favorite Tools & framework",
-        "languages": "Languages",
-        "frameworks": "Frameworks",
-        "tools": "Tools",
-        "pageIntro": "The languages, frameworks, and tools I work with day to day — each with a one-line note on what it's for."
+    "typographyPreview": {
+      "title": "Typography Preview",
+      "intro": "Adjust font family, size, weight, letter-spacing, and line-height to preview how your text will render."
     },
-    "tools": {
-        "title": "Tools",
-        "backToTools": "Back to Tools",
-        "pageIntro": "A small collection of browser-only tools. Nothing you type or generate is ever sent to a server — everything runs right where you are.",
-        "openTool": "Open tool",
-        "comingSoon": "Coming soon",
-        "items": {
-            "passwordGenerator":  { "title": "Password Generator",        "description": "Generate a random password by choosing length and character types. Runs entirely in your browser." },
-            "jsonFormatter":      { "title": "JSON Formatter / Diff",      "description": "Format and validate JSON. Compare two JSON objects and see a diff." },
-            "base64Url":          { "title": "Base64 / URL Encoder",       "description": "Encode and decode text or files using Base64 or URL encoding." },
-            "colorPalette":       { "title": "Color Palette Generator",    "description": "Pick one color and generate complementary, analogous, and triadic palettes." },
-            "typographyPreview":  { "title": "Typography Preview",         "description": "Adjust font, size, weight, and spacing to preview text rendering in real time." },
-            "markdownHtml":       { "title": "Markdown ↔ HTML Converter",  "description": "Write Markdown and see it rendered or converted to HTML in real time." },
-            "textCounter":        { "title": "Text Counter",               "description": "Count characters, words, lines, bytes, and reading time all at once." },
-            "memeGenerator":      { "title": "Meme Generator",             "description": "Upload an image, add top and bottom text, and download your meme." },
-            "yamlJson":           { "title": "YAML ↔ JSON Converter",      "description": "Convert between YAML and JSON. Useful for config file transformations." },
-            "imageColor":         { "title": "Image Color Analyzer",       "description": "Upload an image to extract its dominant colors with hex codes and percentages." },
-            "excuseGenerator":    { "title": "Excuse Generator",           "description": "Generates random excuses for various situations. Use at your own risk." },
-            "cookieClicker":      { "title": "Cookie Clicker",             "description": "Click cookies, buy upgrades, and automate production in this idle game." },
-            "typingSpeed":        { "title": "Typing Speed Test",          "description": "Measure your typing speed (WPM / CPM) and accuracy in English or Japanese." },
-            "yardle":             { "title": "Yardle",                     "description": "A Wordle clone — guess the 5-letter word in 6 tries. Yahari edition." },
-            "mouseMusic":         { "title": "Mouse Music",                "description": "Move your cursor to make music — X is pitch, Y is octave. Powered by Web Audio API." },
-            "noneAI":             { "title": "NoneAI Image Generator",     "description": "Algorithmic image generation with zero AI — just math and code." }
-        },
-        "passwordGenerator": {
-            "title": "Password Generator",
-            "intro": "Pick a length and the character types you want, and a password is generated using the Web Crypto API's secure randomness. Generation and copying happen entirely in your browser — nothing is ever sent to a server.",
-            "length": "Length",
-            "count": "Count",
-            "characterTypes": "Character types",
-            "charsets": {
-                "lowercase": "Lowercase (a-z)",
-                "uppercase": "Uppercase (A-Z)",
-                "numbers": "Numbers (0-9)",
-                "symbols": "Symbols (!@#...)"
-            },
-            "generate": "Generate",
-            "regenerate": "Regenerate",
-            "copy": "Copy",
-            "copied": "Copied",
-            "copyAll": "Copy all",
-            "strength": {
-                "weak": "Strength: Weak",
-                "medium": "Strength: Medium",
-                "strong": "Strength: Strong"
-            }
-        },
-        "jsonFormatter":     { "title": "JSON Formatter / Diff",      "intro": "Format and validate JSON with configurable indentation. In Diff mode, compare two JSON objects and highlight what changed." },
-        "base64Url":         { "title": "Base64 / URL Encoder",       "intro": "Encode or decode text using Base64 or URL (percent) encoding. File-to-Base64 conversion is also supported." },
-        "colorPalette":      { "title": "Color Palette Generator",    "intro": "Choose a base color and instantly generate five harmonious palettes: analogous, complementary, triadic, split-complementary, and monochromatic." },
-        "typographyPreview": { "title": "Typography Preview",         "intro": "Adjust font family, size, weight, letter-spacing, and line-height to preview how your text will render." },
-        "markdownHtml":      { "title": "Markdown ↔ HTML Converter",  "intro": "Write Markdown on the left and see it rendered as HTML on the right. Toggle to view the raw HTML source and copy it." },
-        "textCounter":       { "title": "Text Counter",               "intro": "Paste or type text to instantly get character count, word count, line count, byte size, and estimated reading time." },
-        "memeGenerator":     { "title": "Meme Generator",             "intro": "Upload any image, add top and bottom text with custom color and size, then download your meme as a PNG." },
-        "yamlJson":          { "title": "YAML ↔ JSON Converter",      "intro": "Convert between YAML and JSON. Handles common config file structures — objects, arrays, strings, numbers, booleans, and null." },
-        "imageColor":        { "title": "Image Color Analyzer",       "intro": "Upload an image to extract the dominant colors using pixel sampling and clustering. Copy any color code instantly." },
-        "excuseGenerator":   { "title": "Excuse Generator",           "intro": "Select a category and generate a random excuse for being late, forgetting homework, missing work, or anything else. Use responsibly." },
-        "cookieClicker":     { "title": "Cookie Clicker",             "intro": "Click the cookie to earn cookies, then buy upgrades to automate production. Progress is saved in your browser." },
-        "typingSpeed":       { "title": "Typing Speed Test",          "intro": "Type the passage as fast and accurately as you can in 60 seconds. Supports English (WPM) and Japanese (CPM) modes." },
-        "yardle":            { "title": "Yardle",                     "intro": "Guess the secret 5-letter word in 6 tries. Green means right place, yellow means wrong place, gray means not in the word." },
-        "mouseMusic":        { "title": "Mouse Music",                "intro": "Move your cursor over the canvas to play notes — X position controls pitch, Y position controls octave. Different scales available." },
-        "noneAI":            { "title": "NoneAI Image Generator",     "intro": "Generate beautiful patterns using pure algorithms — Mandelbrot set, Perlin-style noise, cellular automata, and more. Zero AI." }
+    "markdownHtml": {
+      "title": "Markdown ↔ HTML Converter",
+      "intro": "Write Markdown on the left and see it rendered as HTML on the right. Toggle to view the raw HTML source and copy it."
     },
-    "projects": {
-        "title": "Projects",
-        "viewProject": "View Project",
-        "pageIntro": "Projects I've built while learning along the way. From personal experiments to school tools, I follow my curiosity and build things.",
-        "items": {
-            "bluearchive": {
-                "title": "BlueArchive Unofficial API",
-                "description": "RESTful API providing Blue Archive game data. Access character info, stats, skill data and more."
-            },
-            "school": {
-                "title": "School SNS/LMS",
-                "description": "Social network and learning management system for schools. Supports communication between students and teachers."
-            },
-            "alt": {
-                "title": "Discord Bot \"ALT\"",
-                "description": "A Discord bot packed with a wide range of server-management essentials, plus a custom-built economy system."
-            }
-        }
+    "textCounter": {
+      "title": "Text Counter",
+      "intro": "Paste or type text to instantly get character count, word count, line count, byte size, and estimated reading time."
     },
-    "links": {
-        "title": "Mutual Links",
-        "description": "Introducing my friends' websites",
-        "request": "If you'd like a mutual link, please",
-        "contactLink": "contact me",
-        "requestEnd": "."
+    "memeGenerator": {
+      "title": "Meme Generator",
+      "intro": "Upload any image, add top and bottom text with custom color and size, then download your meme as a PNG."
     },
-    "contact": {
-        "title": "Contact",
-        "heading": "Your imagination can change the world",
-        "description": "New projects, technical consultations, or just a chat.\nFeel free to reach out.",
-        "open": "Open",
-        "responseTime": "Reply in 3-4 days",
-        "language": "Japanese / English",
-        "cta": "Contact via Form",
-        "ctaNote": "Or contact me directly via the links above",
-        "methods": {
-            "email": {
-                "description": "Feel free to email me for project consultations or work inquiries.",
-                "linkText": "Send Email →"
-            },
-            "github": {
-                "description": "Check out my open source projects and code works.",
-                "linkText": "Visit →"
-            },
-            "x": {
-                "description": "I share daily activities and tech-related information.",
-                "linkText": "Visit →"
-            }
-        },
-        "form": {
-            "name": "Name",
-            "namePlaceholder": "John Doe",
-            "email": "Email",
-            "emailPlaceholder": "example@email.com",
-            "type": "Inquiry Type",
-            "typeSelect": "Select an option",
-            "typeProject": "Project Consultation",
-            "typeCollaboration": "Collaboration",
-            "typeTechnical": "Technical Question",
-            "typeOther": "Other",
-            "subject": "Subject",
-            "subjectPlaceholder": "Subject of your inquiry",
-            "message": "Message",
-            "messagePlaceholder": "Please enter your message",
-            "submit": "Send",
-            "submitting": "Sending...",
-            "success": "Sent successfully! Thank you.",
-            "error": "Failed to send. Please try again.",
-            "validation": {
-                "nameRequired": "Please enter your name",
-                "emailRequired": "Please enter your email address",
-                "emailInvalid": "Please enter a valid email address",
-                "subjectRequired": "Please enter a subject",
-                "messageRequired": "Please enter a message",
-                "messageTooLong": "Message must be 5000 characters or fewer"
-            }
-        },
-        "otherMethods": "Other Methods",
-        "sendMessage": "Send a Message"
+    "yamlJson": {
+      "title": "YAML ↔ JSON Converter",
+      "intro": "Convert between YAML and JSON. Handles common config file structures — objects, arrays, strings, numbers, booleans, and null."
     },
-    "footer": {
-        "copyright": "© 2024 Yahari. All rights reserved.",
-        "cookieSettings": "Cookie Settings"
+    "imageColor": {
+      "title": "Image Color Analyzer",
+      "intro": "Upload an image to extract the dominant colors using pixel sampling and clustering. Copy any color code instantly."
     },
-    "theme": {
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
+    "excuseGenerator": {
+      "title": "Excuse Generator",
+      "intro": "Select a category and generate a random excuse for being late, forgetting homework, missing work, or anything else. Use responsibly."
     },
-    "cookie": {
-        "message": "This site uses cookies for a better user experience.",
-        "learnMore": "Learn More",
-        "accept": "Accept",
-        "decline": "Decline",
-        "settingsTitle": "Settings",
-        "currentStatus": "Current setting",
-        "settingsAccepted": "You accepted the use of cookies",
-        "settingsRejected": "You declined the use of cookies",
-        "status": {
-            "pending": "Not set",
-            "accepted": "Accepted",
-            "rejected": "Declined"
-        }
+    "cookieClicker": {
+      "title": "Cookie Clicker",
+      "intro": "Click the cookie to earn cookies, then buy upgrades to automate production. Progress is saved in your browser."
     },
-    "privacy": {
-        "title": "Privacy Policy",
-        "intro": "Yahari (hereinafter referred to as \"this site\") establishes the following privacy policy regarding the handling of user's personal information.",
-        "section1": {
-            "title": "1. Information We Collect",
-            "description": "This site may collect the following information:",
-            "items": [
-                "Name, email address, and inquiry content provided through the contact form",
-                "Access analysis data by Google Analytics (anonymized IP address, browser information, pages viewed, etc.)",
-                "Site usage through cookies"
-            ]
-        },
-        "section2": {
-            "title": "2. Use of Cookies",
-            "description": "This site uses cookies to improve user experience and for access analysis.",
-            "gaTitle": "Google Analytics",
-            "gaDescription": "This site uses Google Analytics, an access analysis tool by Google. Google Analytics uses cookies to collect data. This data is collected anonymously and does not identify individuals.",
-            "gaDisable": "You can refuse collection by disabling cookies in your browser settings. For more information, please see",
-            "gaLink": "Google's Policies and Terms",
-            "gaEnd": "."
-        },
-        "section3": {
-            "title": "3. Purpose of Information Use",
-            "description": "Collected information is used for the following purposes:",
-            "items": [
-                "Responding to inquiries",
-                "Site improvement and service enhancement",
-                "Access analysis"
-            ]
-        },
-        "section4": {
-            "title": "4. Disclosure to Third Parties",
-            "description": "This site will not provide personal information to third parties without user consent, except as required by law."
-        },
-        "section5": {
-            "title": "5. Security",
-            "description": "This site takes necessary and appropriate measures for the safe management of personal information, including prevention of leakage, loss, and damage."
-        },
-        "section6": {
-            "title": "6. Cloudflare Turnstile",
-            "description": "The contact form on this site uses Cloudflare Turnstile for spam prevention. This verifies that users are human. For more information, please see",
-            "link": "Cloudflare's Privacy Policy",
-            "end": "."
-        },
-        "section7": {
-            "title": "7. Changes to Privacy Policy",
-            "description": "This site may change this privacy policy as necessary. The revised privacy policy shall take effect from the time it is posted on this site."
-        },
-        "section8": {
-            "title": "8. Contact",
-            "description": "For inquiries regarding this privacy policy, please contact us through the",
-            "link": "Contact Page",
-            "end": "."
-        },
-        "effectiveDate": "Effective Date: December 2, 2024"
+    "typingSpeed": {
+      "title": "Typing Speed Test",
+      "intro": "Type the passage as fast and accurately as you can in 60 seconds. Supports English (WPM) and Japanese (CPM) modes."
     },
-    "error": {
-        "notFound": {
-            "title": "Page Not Found",
-            "description": "The page you're looking for doesn't exist or may have been moved. Please check the URL.",
-            "backHome": "Back to Home",
-            "contact": "Contact"
-        },
-        "serverError": {
-            "title": "Something went wrong",
-            "description": "Sorry, a temporary problem has occurred. Please try again in a few moments.",
-            "retry": "Try Again",
-            "backHome": "Back to Home"
-        },
-        "badRequest": {
-            "title": "Bad Request",
-            "description": "The server could not understand the request due to invalid syntax. Please check the URL and request content.",
-            "backHome": "Back to Home"
-        },
-        "teapot": {
-            "title": "I'm a teapot",
-            "description": "The server refuses to brew coffee because it is, permanently, a teapot.",
-            "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
-            "backHome": "Back to Home",
-            "learnMore": "Learn More"
-        }
+    "yardle": {
+      "title": "Yardle",
+      "intro": "Guess the secret 5-letter word in 6 tries. Green means right place, yellow means wrong place, gray means not in the word."
     },
-    "contributions": {
-        "label": "CONTRIBUTIONS",
-        "title": "GitHub Activity",
-        "totalContributions": "contributions in {year}",
-        "tooltip": {
-            "contributions": "contributions",
-            "noContributions": "No contributions"
-        },
-        "less": "Less",
-        "more": "More"
+    "mouseMusic": {
+      "title": "Mouse Music",
+      "intro": "Move your cursor over the canvas to play notes — X position controls pitch, Y position controls octave. Different scales available."
     },
-    "designSystem": {
-        "label": "DESIGN SYSTEM",
-        "title": "Design System",
-        "description": "An overview of the design tokens and UI primitives that make up this site — colors, typography, spacing, and components, all in one place.",
-        "sections": {
-            "colors": {
-                "title": "Colors",
-                "description": "A grayscale-based palette that adapts between light and dark mode."
-            },
-            "typography": {
-                "title": "Typography",
-                "description": "Fluid typography powered by clamp(), scaling smoothly with the viewport width."
-            },
-            "spacing": {
-                "title": "Spacing",
-                "description": "Section spacing tokens measured in vh, keeping a consistent rhythm relative to viewport height."
-            },
-            "buttons": {
-                "title": "Buttons",
-                "description": "Two systems: pill-shaped for primary actions, compact for secondary controls."
-            },
-            "cards": {
-                "title": "Cards",
-                "description": "Opaque cards that lift on hover."
-            },
-            "forms": {
-                "title": "Form Fields",
-                "description": "Minimal underline-only inputs that change color on focus."
-            },
-            "badges": {
-                "title": "Badges & Status",
-                "description": "Small badges and indicators for status display."
-            }
-        },
-        "sampleCard": {
-            "title": "Sample card",
-            "description": "Lifts up and gains a shadow on hover."
-        },
-        "sampleField": {
-            "label": "Sample field",
-            "placeholder": "Type something here",
-            "error": "This is a sample error message"
-        },
-        "badgeOpen": "Available",
-        "badgeProgress": "In progress"
+    "noneAI": {
+      "title": "NoneAI Image Generator",
+      "intro": "Generate beautiful patterns using pure algorithms — Mandelbrot set, Perlin-style noise, cellular automata, and more. Zero AI."
+    },
+    "httpStatus": {
+      "title": "HTTP Status Code Dictionary",
+      "intro": "Every HTTP status code from 1xx to 5xx, explained casually. Click a code to copy it."
+    },
+    "commitMessage": {
+      "title": "Commit Message Generator",
+      "intro": "Select a type, fill in the scope and description, and get a Conventional Commits message instantly. Toggle gitmoji on or off."
     }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "View Project",
+    "pageIntro": "Projects I've built while learning along the way. From personal experiments to school tools, I follow my curiosity and build things.",
+    "items": {
+      "bluearchive": {
+        "title": "BlueArchive Unofficial API",
+        "description": "RESTful API providing Blue Archive game data. Access character info, stats, skill data and more."
+      },
+      "school": {
+        "title": "School SNS/LMS",
+        "description": "Social network and learning management system for schools. Supports communication between students and teachers."
+      },
+      "alt": {
+        "title": "Discord Bot \"ALT\"",
+        "description": "A Discord bot packed with a wide range of server-management essentials, plus a custom-built economy system."
+      }
+    }
+  },
+  "links": {
+    "title": "Mutual Links",
+    "description": "Introducing my friends' websites",
+    "request": "If you'd like a mutual link, please",
+    "contactLink": "contact me",
+    "requestEnd": "."
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Your imagination can change the world",
+    "description": "New projects, technical consultations, or just a chat.\nFeel free to reach out.",
+    "open": "Open",
+    "responseTime": "Reply in 3-4 days",
+    "language": "Japanese / English",
+    "cta": "Contact via Form",
+    "ctaNote": "Or contact me directly via the links above",
+    "methods": {
+      "email": {
+        "description": "Feel free to email me for project consultations or work inquiries.",
+        "linkText": "Send Email →"
+      },
+      "github": {
+        "description": "Check out my open source projects and code works.",
+        "linkText": "Visit →"
+      },
+      "x": {
+        "description": "I share daily activities and tech-related information.",
+        "linkText": "Visit →"
+      }
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "example@email.com",
+      "type": "Inquiry Type",
+      "typeSelect": "Select an option",
+      "typeProject": "Project Consultation",
+      "typeCollaboration": "Collaboration",
+      "typeTechnical": "Technical Question",
+      "typeOther": "Other",
+      "subject": "Subject",
+      "subjectPlaceholder": "Subject of your inquiry",
+      "message": "Message",
+      "messagePlaceholder": "Please enter your message",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Sent successfully! Thank you.",
+      "error": "Failed to send. Please try again.",
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "Please enter a valid email address",
+        "subjectRequired": "Please enter a subject",
+        "messageRequired": "Please enter a message",
+        "messageTooLong": "Message must be 5000 characters or fewer"
+      }
+    },
+    "otherMethods": "Other Methods",
+    "sendMessage": "Send a Message"
+  },
+  "footer": {
+    "copyright": "© 2024 Yahari. All rights reserved.",
+    "cookieSettings": "Cookie Settings"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "cookie": {
+    "message": "This site uses cookies for a better user experience.",
+    "learnMore": "Learn More",
+    "accept": "Accept",
+    "decline": "Decline",
+    "settingsTitle": "Settings",
+    "currentStatus": "Current setting",
+    "settingsAccepted": "You accepted the use of cookies",
+    "settingsRejected": "You declined the use of cookies",
+    "status": {
+      "pending": "Not set",
+      "accepted": "Accepted",
+      "rejected": "Declined"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Yahari (hereinafter referred to as \"this site\") establishes the following privacy policy regarding the handling of user's personal information.",
+    "section1": {
+      "title": "1. Information We Collect",
+      "description": "This site may collect the following information:",
+      "items": [
+        "Name, email address, and inquiry content provided through the contact form",
+        "Access analysis data by Google Analytics (anonymized IP address, browser information, pages viewed, etc.)",
+        "Site usage through cookies"
+      ]
+    },
+    "section2": {
+      "title": "2. Use of Cookies",
+      "description": "This site uses cookies to improve user experience and for access analysis.",
+      "gaTitle": "Google Analytics",
+      "gaDescription": "This site uses Google Analytics, an access analysis tool by Google. Google Analytics uses cookies to collect data. This data is collected anonymously and does not identify individuals.",
+      "gaDisable": "You can refuse collection by disabling cookies in your browser settings. For more information, please see",
+      "gaLink": "Google's Policies and Terms",
+      "gaEnd": "."
+    },
+    "section3": {
+      "title": "3. Purpose of Information Use",
+      "description": "Collected information is used for the following purposes:",
+      "items": [
+        "Responding to inquiries",
+        "Site improvement and service enhancement",
+        "Access analysis"
+      ]
+    },
+    "section4": {
+      "title": "4. Disclosure to Third Parties",
+      "description": "This site will not provide personal information to third parties without user consent, except as required by law."
+    },
+    "section5": {
+      "title": "5. Security",
+      "description": "This site takes necessary and appropriate measures for the safe management of personal information, including prevention of leakage, loss, and damage."
+    },
+    "section6": {
+      "title": "6. Cloudflare Turnstile",
+      "description": "The contact form on this site uses Cloudflare Turnstile for spam prevention. This verifies that users are human. For more information, please see",
+      "link": "Cloudflare's Privacy Policy",
+      "end": "."
+    },
+    "section7": {
+      "title": "7. Changes to Privacy Policy",
+      "description": "This site may change this privacy policy as necessary. The revised privacy policy shall take effect from the time it is posted on this site."
+    },
+    "section8": {
+      "title": "8. Contact",
+      "description": "For inquiries regarding this privacy policy, please contact us through the",
+      "link": "Contact Page",
+      "end": "."
+    },
+    "effectiveDate": "Effective Date: December 2, 2024"
+  },
+  "error": {
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you're looking for doesn't exist or may have been moved. Please check the URL.",
+      "backHome": "Back to Home",
+      "contact": "Contact"
+    },
+    "serverError": {
+      "title": "Something went wrong",
+      "description": "Sorry, a temporary problem has occurred. Please try again in a few moments.",
+      "retry": "Try Again",
+      "backHome": "Back to Home"
+    },
+    "badRequest": {
+      "title": "Bad Request",
+      "description": "The server could not understand the request due to invalid syntax. Please check the URL and request content.",
+      "backHome": "Back to Home"
+    },
+    "teapot": {
+      "title": "I'm a teapot",
+      "description": "The server refuses to brew coffee because it is, permanently, a teapot.",
+      "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
+      "backHome": "Back to Home",
+      "learnMore": "Learn More"
+    }
+  },
+  "contributions": {
+    "label": "CONTRIBUTIONS",
+    "title": "GitHub Activity",
+    "totalContributions": "contributions in {year}",
+    "tooltip": {
+      "contributions": "contributions",
+      "noContributions": "No contributions"
+    },
+    "less": "Less",
+    "more": "More"
+  },
+  "designSystem": {
+    "label": "DESIGN SYSTEM",
+    "title": "Design System",
+    "description": "An overview of the design tokens and UI primitives that make up this site — colors, typography, spacing, and components, all in one place.",
+    "sections": {
+      "colors": {
+        "title": "Colors",
+        "description": "A grayscale-based palette that adapts between light and dark mode."
+      },
+      "typography": {
+        "title": "Typography",
+        "description": "Fluid typography powered by clamp(), scaling smoothly with the viewport width."
+      },
+      "spacing": {
+        "title": "Spacing",
+        "description": "Section spacing tokens measured in vh, keeping a consistent rhythm relative to viewport height."
+      },
+      "buttons": {
+        "title": "Buttons",
+        "description": "Two systems: pill-shaped for primary actions, compact for secondary controls."
+      },
+      "cards": {
+        "title": "Cards",
+        "description": "Opaque cards that lift on hover."
+      },
+      "forms": {
+        "title": "Form Fields",
+        "description": "Minimal underline-only inputs that change color on focus."
+      },
+      "badges": {
+        "title": "Badges & Status",
+        "description": "Small badges and indicators for status display."
+      }
+    },
+    "sampleCard": {
+      "title": "Sample card",
+      "description": "Lifts up and gains a shadow on hover."
+    },
+    "sampleField": {
+      "label": "Sample field",
+      "placeholder": "Type something here",
+      "error": "This is a sample error message"
+    },
+    "badgeOpen": "Available",
+    "badgeProgress": "In progress"
+  }
 }

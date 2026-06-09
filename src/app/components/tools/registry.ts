@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import {
     FiKey, FiTerminal, FiCode, FiDroplet, FiType, FiFileText,
     FiAlignLeft, FiImage, FiSliders, FiCamera, FiMessageSquare,
-    FiZap, FiActivity, FiGrid, FiMusic, FiCpu,
+    FiZap, FiActivity, FiGrid, FiMusic, FiCpu, FiBook, FiGitCommit,
 } from "react-icons/fi";
 
 export type ToolCategory = "dev" | "play";
@@ -25,6 +25,8 @@ export const toolEntries: ToolEntry[] = [
     { key: "textCounter",        href: "/tools/text-counter",        icon: FiAlignLeft,     category: "dev",  status: "available" },
     { key: "yamlJson",           href: "/tools/yaml-json",           icon: FiSliders,       category: "dev",  status: "available" },
     { key: "imageColor",         href: "/tools/image-color",         icon: FiCamera,        category: "dev",  status: "available" },
+    { key: "httpStatus",         href: "/tools/http-status",         icon: FiBook,          category: "dev",  status: "available" },
+    { key: "commitMessage",      href: "/tools/commit-message",      icon: FiGitCommit,     category: "dev",  status: "available" },
     { key: "memeGenerator",      href: "/tools/meme-generator",      icon: FiImage,         category: "play", status: "available" },
     { key: "excuseGenerator",    href: "/tools/excuse-generator",    icon: FiMessageSquare, category: "play", status: "available" },
     { key: "cookieClicker",      href: "/tools/cookie-clicker",      icon: FiZap,           category: "play", status: "available" },

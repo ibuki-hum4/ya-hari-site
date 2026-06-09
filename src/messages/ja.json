@@ -1,345 +1,454 @@
 {
-    "meta": {
-        "title": "やーはり | ポートフォリオ",
-        "description": "やーはりのポートフォリオサイト。"
+  "meta": {
+    "title": "やーはり | ポートフォリオ",
+    "description": "やーはりのポートフォリオサイト。"
+  },
+  "common": {
+    "viewMore": "もっと詳しく見る",
+    "backToHome": "ホームに戻る"
+  },
+  "header": {
+    "home": "ホーム",
+    "about": "自己紹介",
+    "skills": "スキル",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "links": "リンク",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "subtitle": "14歳 / 中学3年生 / 開発者",
+    "contact": "お問い合わせ"
+  },
+  "about": {
+    "title": "About",
+    "name": "やーはり",
+    "age": "14歳",
+    "school": "中学3年生",
+    "location": "日本",
+    "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。",
+    "now": "今は学校向けのSNS/LMSを開発しながら、インフラやKubernetesまわりの知識を広げています。気になる技術は、ひとまず触ってみる派です。"
+  },
+  "skills": {
+    "title": "Favorite Tools & framework",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "tools": "Tools",
+    "pageIntro": "ふだん触れている言語・フレームワーク・ツールたち。それぞれが「何のためにあるのか」を一言で添えました。"
+  },
+  "tools": {
+    "title": "Tools",
+    "backToTools": "Toolsに戻る",
+    "pageIntro": "ブラウザだけで完結する小さなツール集です。入力した内容や生成結果はサーバーへ送信されず、すべてその場で処理されます。",
+    "openTool": "ツールを開く",
+    "comingSoon": "準備中",
+    "items": {
+      "passwordGenerator": {
+        "title": "Password Generator",
+        "description": "長さと文字種を選ぶだけで、安全な乱数からパスワードを生成します。すべてブラウザ内で完結。"
+      },
+      "jsonFormatter": {
+        "title": "JSON Formatter / Diff",
+        "description": "JSONを整形・バリデーション。2つのJSONを比較してDiffも表示できます。"
+      },
+      "base64Url": {
+        "title": "Base64 / URL エンコーダー",
+        "description": "テキストやファイルをBase64・URLエンコード/デコードします。"
+      },
+      "colorPalette": {
+        "title": "カラーパレット生成器",
+        "description": "1色を選ぶだけで補色・類似色など調和のとれたパレットを生成します。"
+      },
+      "typographyPreview": {
+        "title": "タイポグラフィプレビュー",
+        "description": "フォント・サイズ・字間などをリアルタイムで確認できます。"
+      },
+      "markdownHtml": {
+        "title": "Markdown ↔ HTML 変換器",
+        "description": "Markdownをリアルタイムでレンダリング・HTMLに変換します。"
+      },
+      "textCounter": {
+        "title": "文字数・読了時間カウンター",
+        "description": "文字数・単語数・バイト数・読了時間を一括で計測します。"
+      },
+      "memeGenerator": {
+        "title": "Meme ジェネレーター",
+        "description": "画像に文字を乗せてMemeを作れます。ブラウザ上で完結。"
+      },
+      "yamlJson": {
+        "title": "YAML ↔ JSON 変換器",
+        "description": "YAMLとJSONを相互に変換します。設定ファイルの変換に。"
+      },
+      "imageColor": {
+        "title": "画像色解析",
+        "description": "画像から主要な色を自動抽出してカラーコードで表示します。"
+      },
+      "excuseGenerator": {
+        "title": "言い訳ジェネレータ",
+        "description": "状況に応じた言い訳をランダム生成します。使用は自己責任で。"
+      },
+      "cookieClicker": {
+        "title": "クッキークリッカー",
+        "description": "クリックでクッキーを増やしてアップグレードを買い続ける、あのゲーム。"
+      },
+      "typingSpeed": {
+        "title": "タイピング速度測定",
+        "description": "英語・日本語のタイピング速度（WPM/CPM）と正確性を測定します。"
+      },
+      "yardle": {
+        "title": "Yardle",
+        "description": "5文字の英単語を6回以内に当てるワードパズル。やーはり版のWordleクローン。"
+      },
+      "mouseMusic": {
+        "title": "マウス音楽生成",
+        "description": "カーソル位置が音程、速度が音量になる音楽ジェネレーター。"
+      },
+      "noneAI": {
+        "title": "NoneAI 画像生成",
+        "description": "AIを一切使わないアルゴリズム画像生成。数学だけで描くアート。"
+      },
+      "httpStatus": {
+        "title": "HTTP ステータスコード辞典",
+        "description": "全ステータスコードを一言で解説。番号・名前・説明でリアルタイム検索対応。"
+      },
+      "commitMessage": {
+        "title": "Commit Message Generator",
+        "description": "Conventional Commits 形式のコミットメッセージを素早く生成。gitmoji 対応。"
+      }
     },
-    "common": {
-        "viewMore": "もっと詳しく見る",
-        "backToHome": "ホームに戻る"
+    "passwordGenerator": {
+      "title": "Password Generator",
+      "intro": "長さと文字種を選ぶだけで、Web Crypto APIの安全な乱数からパスワードを生成します。生成・コピーはすべてブラウザ内で完結し、サーバーには一切送信されません。",
+      "length": "長さ",
+      "count": "生成数",
+      "characterTypes": "使用する文字種",
+      "charsets": {
+        "lowercase": "小文字 (a-z)",
+        "uppercase": "大文字 (A-Z)",
+        "numbers": "数字 (0-9)",
+        "symbols": "記号 (!@#...)"
+      },
+      "generate": "生成する",
+      "regenerate": "再生成する",
+      "copy": "コピー",
+      "copied": "コピーしました",
+      "copyAll": "すべてコピー",
+      "strength": {
+        "weak": "強度: 弱い",
+        "medium": "強度: ふつう",
+        "strong": "強度: 強い"
+      }
     },
-    "header": {
-        "home": "ホーム",
-        "about": "自己紹介",
-        "skills": "スキル",
-        "projects": "プロジェクト",
-        "blog": "ブログ",
-        "links": "リンク",
-        "contact": "お問い合わせ"
+    "jsonFormatter": {
+      "title": "JSON Formatter / Diff",
+      "intro": "JSONを整形・バリデーションします。Diffモードでは2つのJSONを比較して差分を表示します。"
     },
-    "hero": {
-        "subtitle": "14歳 / 中学3年生 / 開発者",
-        "contact": "お問い合わせ"
+    "base64Url": {
+      "title": "Base64 / URL エンコーダー",
+      "intro": "テキストやファイルをBase64エンコード/デコード、またはURLエンコード/デコードします。"
     },
-    "about": {
-        "title": "About",
-        "name": "やーはり",
-        "age": "14歳",
-        "school": "中学3年生",
-        "location": "日本",
-        "description": "プログラミングとテクノロジーが大好きな中学生です。Web開発を中心に、様々なプロジェクトに取り組んでいます。新しい技術を学ぶことが楽しくて、日々成長を目指しています。",
-        "now": "今は学校向けのSNS/LMSを開発しながら、インフラやKubernetesまわりの知識を広げています。気になる技術は、ひとまず触ってみる派です。"
+    "colorPalette": {
+      "title": "カラーパレット生成器",
+      "intro": "ベースカラーを1色選ぶと、補色・類似色・三色配色など5種類のパレットを自動生成します。"
     },
-    "skills": {
-        "title": "Favorite Tools & framework",
-        "languages": "Languages",
-        "frameworks": "Frameworks",
-        "tools": "Tools",
-        "pageIntro": "ふだん触れている言語・フレームワーク・ツールたち。それぞれが「何のためにあるのか」を一言で添えました。"
+    "typographyPreview": {
+      "title": "タイポグラフィプレビュー",
+      "intro": "フォントファミリー・サイズ・ウェイト・字間・行間をリアルタイムに調整してテキストのレンダリングを確認できます。"
     },
-    "tools": {
-        "title": "Tools",
-        "backToTools": "Toolsに戻る",
-        "pageIntro": "ブラウザだけで完結する小さなツール集です。入力した内容や生成結果はサーバーへ送信されず、すべてその場で処理されます。",
-        "openTool": "ツールを開く",
-        "comingSoon": "準備中",
-        "items": {
-            "passwordGenerator":  { "title": "Password Generator",        "description": "長さと文字種を選ぶだけで、安全な乱数からパスワードを生成します。すべてブラウザ内で完結。" },
-            "jsonFormatter":      { "title": "JSON Formatter / Diff",      "description": "JSONを整形・バリデーション。2つのJSONを比較してDiffも表示できます。" },
-            "base64Url":          { "title": "Base64 / URL エンコーダー",  "description": "テキストやファイルをBase64・URLエンコード/デコードします。" },
-            "colorPalette":       { "title": "カラーパレット生成器",        "description": "1色を選ぶだけで補色・類似色など調和のとれたパレットを生成します。" },
-            "typographyPreview":  { "title": "タイポグラフィプレビュー",    "description": "フォント・サイズ・字間などをリアルタイムで確認できます。" },
-            "markdownHtml":       { "title": "Markdown ↔ HTML 変換器",     "description": "Markdownをリアルタイムでレンダリング・HTMLに変換します。" },
-            "textCounter":        { "title": "文字数・読了時間カウンター",  "description": "文字数・単語数・バイト数・読了時間を一括で計測します。" },
-            "memeGenerator":      { "title": "Meme ジェネレーター",         "description": "画像に文字を乗せてMemeを作れます。ブラウザ上で完結。" },
-            "yamlJson":           { "title": "YAML ↔ JSON 変換器",         "description": "YAMLとJSONを相互に変換します。設定ファイルの変換に。" },
-            "imageColor":         { "title": "画像色解析",                  "description": "画像から主要な色を自動抽出してカラーコードで表示します。" },
-            "excuseGenerator":    { "title": "言い訳ジェネレータ",          "description": "状況に応じた言い訳をランダム生成します。使用は自己責任で。" },
-            "cookieClicker":      { "title": "クッキークリッカー",          "description": "クリックでクッキーを増やしてアップグレードを買い続ける、あのゲーム。" },
-            "typingSpeed":        { "title": "タイピング速度測定",          "description": "英語・日本語のタイピング速度（WPM/CPM）と正確性を測定します。" },
-            "yardle":             { "title": "Yardle",                     "description": "5文字の英単語を6回以内に当てるワードパズル。やーはり版のWordleクローン。" },
-            "mouseMusic":         { "title": "マウス音楽生成",              "description": "カーソル位置が音程、速度が音量になる音楽ジェネレーター。" },
-            "noneAI":             { "title": "NoneAI 画像生成",             "description": "AIを一切使わないアルゴリズム画像生成。数学だけで描くアート。" }
-        },
-        "passwordGenerator": {
-            "title": "Password Generator",
-            "intro": "長さと文字種を選ぶだけで、Web Crypto APIの安全な乱数からパスワードを生成します。生成・コピーはすべてブラウザ内で完結し、サーバーには一切送信されません。",
-            "length": "長さ",
-            "count": "生成数",
-            "characterTypes": "使用する文字種",
-            "charsets": {
-                "lowercase": "小文字 (a-z)",
-                "uppercase": "大文字 (A-Z)",
-                "numbers": "数字 (0-9)",
-                "symbols": "記号 (!@#...)"
-            },
-            "generate": "生成する",
-            "regenerate": "再生成する",
-            "copy": "コピー",
-            "copied": "コピーしました",
-            "copyAll": "すべてコピー",
-            "strength": {
-                "weak": "強度: 弱い",
-                "medium": "強度: ふつう",
-                "strong": "強度: 強い"
-            }
-        },
-        "jsonFormatter":     { "title": "JSON Formatter / Diff",      "intro": "JSONを整形・バリデーションします。Diffモードでは2つのJSONを比較して差分を表示します。" },
-        "base64Url":         { "title": "Base64 / URL エンコーダー",   "intro": "テキストやファイルをBase64エンコード/デコード、またはURLエンコード/デコードします。" },
-        "colorPalette":      { "title": "カラーパレット生成器",         "intro": "ベースカラーを1色選ぶと、補色・類似色・三色配色など5種類のパレットを自動生成します。" },
-        "typographyPreview": { "title": "タイポグラフィプレビュー",     "intro": "フォントファミリー・サイズ・ウェイト・字間・行間をリアルタイムに調整してテキストのレンダリングを確認できます。" },
-        "markdownHtml":      { "title": "Markdown ↔ HTML 変換器",      "intro": "Markdownをリアルタイムでレンダリング・HTMLソースに変換します。HTMLのコピーにも対応。" },
-        "textCounter":       { "title": "文字数・読了時間カウンター",   "intro": "文字数・単語数・行数・バイト数・読了時間（日本語/英語）を一括で計測します。" },
-        "memeGenerator":     { "title": "Meme ジェネレーター",          "intro": "画像をアップロードして上下にテキストを乗せるだけでMemeを作れます。すべてブラウザ内で完結。" },
-        "yamlJson":          { "title": "YAML ↔ JSON 変換器",          "intro": "YAMLとJSONを相互に変換します。一般的な設定ファイルの変換に対応した簡易パーサーを使用。" },
-        "imageColor":        { "title": "画像色解析",                   "intro": "画像をアップロードすると主要な色を自動抽出してカラーコードと割合で表示します。" },
-        "excuseGenerator":   { "title": "言い訳ジェネレータ",           "intro": "遅刻・宿題・仕事・日常など状況に合わせた言い訳をランダムに生成します。使用は自己責任で。" },
-        "cookieClicker":     { "title": "クッキークリッカー",           "intro": "クリックでクッキーを増やし、アップグレードを購入して自動化を進める放置系ゲームです。" },
-        "typingSpeed":       { "title": "タイピング速度測定",           "intro": "英語（WPM）・日本語（CPM）のタイピング速度と正確性を60秒で測定します。" },
-        "yardle":            { "title": "Yardle",                      "intro": "5文字の英単語を6回以内に当てるワードパズル。緑・黄・灰のヒントを手がかりに正解を探してください。" },
-        "mouseMusic":        { "title": "マウス音楽生成",               "intro": "マウスのX位置が音程、Y位置がオクターブになる即興音楽ジェネレーターです。Web Audio APIを使用。" },
-        "noneAI":            { "title": "NoneAI 画像生成",              "intro": "AIを一切使わないアルゴリズムベースの画像生成です。マンデルブロ集合・ノイズ・セルオートマトンなど。" }
+    "markdownHtml": {
+      "title": "Markdown ↔ HTML 変換器",
+      "intro": "Markdownをリアルタイムでレンダリング・HTMLソースに変換します。HTMLのコピーにも対応。"
     },
-    "projects": {
-        "title": "Projects",
-        "viewProject": "プロジェクトを見る",
-        "pageIntro": "技術を学びながら作ってきたプロジェクトたち。個人開発から学校向けのツールまで、興味の赴くままに手を動かしています。",
-        "items": {
-            "bluearchive": {
-                "title": "BlueArchive 非公式API",
-                "description": "ブルーアーカイブのゲームデータを提供するRESTful API。キャラクター情報、ステータス、スキルデータなどを取得可能。"
-            },
-            "school": {
-                "title": "学校向けSNS/LMS",
-                "description": "学校内で使用するソーシャルネットワーク・学習管理システム。生徒と教師のコミュニケーションを支援。"
-            },
-            "alt": {
-                "title": "Discord Bot「ALT」",
-                "description": "サーバー運営に役立つ様々な基本機能に加えて、独自の経済システムを実装したDiscord Bot。"
-            }
-        }
+    "textCounter": {
+      "title": "文字数・読了時間カウンター",
+      "intro": "文字数・単語数・行数・バイト数・読了時間（日本語/英語）を一括で計測します。"
     },
-    "links": {
-        "title": "相互リンク",
-        "description": "仲間たちのサイトをご紹介します",
-        "request": "相互リンクをご希望の方は",
-        "contactLink": "お問い合わせ",
-        "requestEnd": "からご連絡ください"
+    "memeGenerator": {
+      "title": "Meme ジェネレーター",
+      "intro": "画像をアップロードして上下にテキストを乗せるだけでMemeを作れます。すべてブラウザ内で完結。"
     },
-    "contact": {
-        "title": "Contact",
-        "heading": "その想像は世界を変える",
-        "description": "新しいプロジェクト、技術的な相談、ただの雑談でも。\nお気軽にご相談ください。",
-        "open": "オープン",
-        "responseTime": "3-4日で返信",
-        "language": "日本語",
-        "cta": "フォームで問い合わせる",
-        "ctaNote": "または上のリンクから直接連絡できます",
-        "methods": {
-            "email": {
-                "description": "プロジェクトのご相談、お仕事のご依頼はメールでお気軽にどうぞ。",
-                "linkText": "送信する →"
-            },
-            "github": {
-                "description": "オープンソースプロジェクトやコード作品をご覧いただけます。",
-                "linkText": "アクセスする →"
-            },
-            "x": {
-                "description": "日々の活動や技術に関する情報を発信しています。",
-                "linkText": "アクセスする →"
-            }
-        },
-        "form": {
-            "name": "お名前",
-            "namePlaceholder": "山田 太郎",
-            "email": "メールアドレス",
-            "emailPlaceholder": "example@email.com",
-            "type": "お問い合わせの種類",
-            "typeSelect": "選択してください",
-            "typeProject": "プロジェクトの相談",
-            "typeCollaboration": "コラボレーション",
-            "typeTechnical": "技術的な質問",
-            "typeOther": "その他",
-            "subject": "件名",
-            "subjectPlaceholder": "お問い合わせの件名",
-            "message": "メッセージ",
-            "messagePlaceholder": "お問い合わせ内容をご記入ください",
-            "submit": "送信する",
-            "submitting": "送信中...",
-            "success": "送信完了！ありがとうございます。",
-            "error": "送信に失敗しました。もう一度お試しください。",
-            "validation": {
-                "nameRequired": "お名前を入力してください",
-                "emailRequired": "メールアドレスを入力してください",
-                "emailInvalid": "正しいメールアドレスを入力してください",
-                "subjectRequired": "件名を入力してください",
-                "messageRequired": "メッセージを入力してください",
-                "messageTooLong": "メッセージは5000文字以内で入力してください"
-            }
-        },
-        "otherMethods": "その他の方法",
-        "sendMessage": "メッセージを送る"
+    "yamlJson": {
+      "title": "YAML ↔ JSON 変換器",
+      "intro": "YAMLとJSONを相互に変換します。一般的な設定ファイルの変換に対応した簡易パーサーを使用。"
     },
-    "footer": {
-        "copyright": "© 2024 やーはり. All rights reserved.",
-        "cookieSettings": "Cookie設定"
+    "imageColor": {
+      "title": "画像色解析",
+      "intro": "画像をアップロードすると主要な色を自動抽出してカラーコードと割合で表示します。"
     },
-    "theme": {
-        "light": "ライト",
-        "dark": "ダーク",
-        "system": "システム"
+    "excuseGenerator": {
+      "title": "言い訳ジェネレータ",
+      "intro": "遅刻・宿題・仕事・日常など状況に合わせた言い訳をランダムに生成します。使用は自己責任で。"
     },
-    "cookie": {
-        "message": "このサイトでは、より良いユーザー体験のためにCookieを使用しています。",
-        "learnMore": "詳細",
-        "accept": "同意する",
-        "decline": "拒否",
-        "settingsTitle": "設定",
-        "currentStatus": "現在の設定",
-        "settingsAccepted": "Cookieの利用に同意しました",
-        "settingsRejected": "Cookieの利用を拒否しました",
-        "status": {
-            "pending": "未設定",
-            "accepted": "同意済み",
-            "rejected": "拒否済み"
-        }
+    "cookieClicker": {
+      "title": "クッキークリッカー",
+      "intro": "クリックでクッキーを増やし、アップグレードを購入して自動化を進める放置系ゲームです。"
     },
-    "privacy": {
-        "title": "プライバシーポリシー",
-        "intro": "やーはり（以下「当サイト」といいます）は、ユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。",
-        "section1": {
-            "title": "1. 収集する情報",
-            "description": "当サイトでは、以下の情報を収集することがあります：",
-            "items": [
-                "お問い合わせフォームからご提供いただくお名前、メールアドレス、お問い合わせ内容",
-                "Google Analyticsによるアクセス解析データ（匿名化されたIPアドレス、ブラウザ情報、閲覧ページなど）",
-                "Cookieによるサイト利用状況"
-            ]
-        },
-        "section2": {
-            "title": "2. Cookieの使用について",
-            "description": "当サイトでは、ユーザー体験の向上およびアクセス解析のためにCookieを使用しています。",
-            "gaTitle": "Google Analytics",
-            "gaDescription": "当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を使用しています。Google Analyticsはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。",
-            "gaDisable": "Cookieを無効にすることで収集を拒否することができますので、お使いのブラウザの設定をご確認ください。詳しくは",
-            "gaLink": "Googleのポリシーと規約",
-            "gaEnd": "をご覧ください。"
-        },
-        "section3": {
-            "title": "3. 情報の利用目的",
-            "description": "収集した情報は、以下の目的で利用します：",
-            "items": [
-                "お問い合わせへの対応",
-                "サイトの改善およびサービス向上",
-                "アクセス状況の分析"
-            ]
-        },
-        "section4": {
-            "title": "4. 情報の第三者提供",
-            "description": "当サイトは、法令に基づく場合を除き、ユーザーの同意なく個人情報を第三者に提供することはありません。"
-        },
-        "section5": {
-            "title": "5. セキュリティ",
-            "description": "当サイトは、個人情報の漏洩、滅失、毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。"
-        },
-        "section6": {
-            "title": "6. Cloudflare Turnstile",
-            "description": "当サイトのお問い合わせフォームでは、スパム防止のためにCloudflare Turnstileを使用しています。これにより、ユーザーが人間であることを確認しています。詳しくは",
-            "link": "Cloudflareのプライバシーポリシー",
-            "end": "をご覧ください。"
-        },
-        "section7": {
-            "title": "7. プライバシーポリシーの変更",
-            "description": "当サイトは、必要に応じて本プライバシーポリシーを変更することがあります。変更後のプライバシーポリシーは、当サイトに掲載した時点から効力を生じるものとします。"
-        },
-        "section8": {
-            "title": "8. お問い合わせ",
-            "description": "本プライバシーポリシーに関するお問い合わせは、",
-            "link": "お問い合わせページ",
-            "end": "よりご連絡ください。"
-        },
-        "effectiveDate": "制定日：2024年12月2日"
+    "typingSpeed": {
+      "title": "タイピング速度測定",
+      "intro": "英語（WPM）・日本語（CPM）のタイピング速度と正確性を60秒で測定します。"
     },
-    "error": {
-        "notFound": {
-            "title": "ページが見つかりません",
-            "description": "お探しのページは存在しないか、移動した可能性があります。URLをご確認ください。",
-            "backHome": "ホームに戻る",
-            "contact": "お問い合わせ"
-        },
-        "serverError": {
-            "title": "予期せぬエラーが発生しました",
-            "description": "申し訳ございません。一時的な問題が発生しています。しばらくしてから再度お試しください。",
-            "retry": "もう一度試す",
-            "backHome": "ホームに戻る"
-        },
-        "badRequest": {
-            "title": "不正なリクエスト",
-            "description": "サーバーはリクエストの構文が不正であるため理解できません。URLやリクエスト内容をご確認ください。",
-            "backHome": "ホームに戻る"
-        },
-        "teapot": {
-            "title": "私はティーポットです",
-            "description": "このサーバーはティーポットなので、コーヒーを淹れることを拒否します。",
-            "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
-            "backHome": "ホームに戻る",
-            "learnMore": "詳しく見る"
-        }
+    "yardle": {
+      "title": "Yardle",
+      "intro": "5文字の英単語を6回以内に当てるワードパズル。緑・黄・灰のヒントを手がかりに正解を探してください。"
     },
-    "contributions": {
-        "label": "CONTRIBUTIONS",
-        "title": "GitHub Activity",
-        "totalContributions": "{year}年の contributions",
-        "tooltip": {
-            "contributions": "contributions",
-            "noContributions": "コントリビューションなし"
-        },
-        "less": "少ない",
-        "more": "多い"
+    "mouseMusic": {
+      "title": "マウス音楽生成",
+      "intro": "マウスのX位置が音程、Y位置がオクターブになる即興音楽ジェネレーターです。Web Audio APIを使用。"
     },
-    "designSystem": {
-        "label": "DESIGN SYSTEM",
-        "title": "Design System",
-        "description": "このサイトを構成しているデザイントークンとUIプリミティブの一覧です。配色・タイポグラフィ・余白・コンポーネントを一箇所にまとめています。",
-        "sections": {
-            "colors": {
-                "title": "Colors",
-                "description": "ライト/ダークモードで切り替わるグレースケース基調のカラートークン。"
-            },
-            "typography": {
-                "title": "Typography",
-                "description": "clamp() による流体タイポグラフィで、画面幅に応じて滑らかにスケールします。"
-            },
-            "spacing": {
-                "title": "Spacing",
-                "description": "vh単位のセクション余白トークンで、画面の高さに対して一定のリズムを保ちます。"
-            },
-            "buttons": {
-                "title": "Buttons",
-                "description": "主要導線用のピル型と、操作系コンパクトの2系統。"
-            },
-            "cards": {
-                "title": "Cards",
-                "description": "ホバーで浮き上がる、不透明な背景のカード。"
-            },
-            "forms": {
-                "title": "Form Fields",
-                "description": "下線のみのミニマルな入力欄。フォーカス時に下線色が変化します。"
-            },
-            "badges": {
-                "title": "Badges & Status",
-                "description": "ステータス表示用の小さなバッジとインジケーター。"
-            }
-        },
-        "sampleCard": {
-            "title": "サンプルカード",
-            "description": "ホバーすると浮き上がり、影が表示されます。"
-        },
-        "sampleField": {
-            "label": "サンプル入力欄",
-            "placeholder": "ここに入力してください",
-            "error": "これはエラーメッセージのサンプルです"
-        },
-        "badgeOpen": "対応可能",
-        "badgeProgress": "開発中"
+    "noneAI": {
+      "title": "NoneAI 画像生成",
+      "intro": "AIを一切使わないアルゴリズムベースの画像生成です。マンデルブロ集合・ノイズ・セルオートマトンなど。"
+    },
+    "httpStatus": {
+      "title": "HTTP ステータスコード辞典",
+      "intro": "1xx から 5xx まで、全ステータスコードをゆるく一言解説。コードをクリックするとコピーできます。"
+    },
+    "commitMessage": {
+      "title": "Commit Message Generator",
+      "intro": "プレフィックス選択・スコープ・説明を入力するだけで、Conventional Commits 形式のコミットメッセージが生成されます。gitmoji のトグルも可能。"
     }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "プロジェクトを見る",
+    "pageIntro": "技術を学びながら作ってきたプロジェクトたち。個人開発から学校向けのツールまで、興味の赴くままに手を動かしています。",
+    "items": {
+      "bluearchive": {
+        "title": "BlueArchive 非公式API",
+        "description": "ブルーアーカイブのゲームデータを提供するRESTful API。キャラクター情報、ステータス、スキルデータなどを取得可能。"
+      },
+      "school": {
+        "title": "学校向けSNS/LMS",
+        "description": "学校内で使用するソーシャルネットワーク・学習管理システム。生徒と教師のコミュニケーションを支援。"
+      },
+      "alt": {
+        "title": "Discord Bot「ALT」",
+        "description": "サーバー運営に役立つ様々な基本機能に加えて、独自の経済システムを実装したDiscord Bot。"
+      }
+    }
+  },
+  "links": {
+    "title": "相互リンク",
+    "description": "仲間たちのサイトをご紹介します",
+    "request": "相互リンクをご希望の方は",
+    "contactLink": "お問い合わせ",
+    "requestEnd": "からご連絡ください"
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "その想像は世界を変える",
+    "description": "新しいプロジェクト、技術的な相談、ただの雑談でも。\nお気軽にご相談ください。",
+    "open": "オープン",
+    "responseTime": "3-4日で返信",
+    "language": "日本語",
+    "cta": "フォームで問い合わせる",
+    "ctaNote": "または上のリンクから直接連絡できます",
+    "methods": {
+      "email": {
+        "description": "プロジェクトのご相談、お仕事のご依頼はメールでお気軽にどうぞ。",
+        "linkText": "送信する →"
+      },
+      "github": {
+        "description": "オープンソースプロジェクトやコード作品をご覧いただけます。",
+        "linkText": "アクセスする →"
+      },
+      "x": {
+        "description": "日々の活動や技術に関する情報を発信しています。",
+        "linkText": "アクセスする →"
+      }
+    },
+    "form": {
+      "name": "お名前",
+      "namePlaceholder": "山田 太郎",
+      "email": "メールアドレス",
+      "emailPlaceholder": "example@email.com",
+      "type": "お問い合わせの種類",
+      "typeSelect": "選択してください",
+      "typeProject": "プロジェクトの相談",
+      "typeCollaboration": "コラボレーション",
+      "typeTechnical": "技術的な質問",
+      "typeOther": "その他",
+      "subject": "件名",
+      "subjectPlaceholder": "お問い合わせの件名",
+      "message": "メッセージ",
+      "messagePlaceholder": "お問い合わせ内容をご記入ください",
+      "submit": "送信する",
+      "submitting": "送信中...",
+      "success": "送信完了！ありがとうございます。",
+      "error": "送信に失敗しました。もう一度お試しください。",
+      "validation": {
+        "nameRequired": "お名前を入力してください",
+        "emailRequired": "メールアドレスを入力してください",
+        "emailInvalid": "正しいメールアドレスを入力してください",
+        "subjectRequired": "件名を入力してください",
+        "messageRequired": "メッセージを入力してください",
+        "messageTooLong": "メッセージは5000文字以内で入力してください"
+      }
+    },
+    "otherMethods": "その他の方法",
+    "sendMessage": "メッセージを送る"
+  },
+  "footer": {
+    "copyright": "© 2024 やーはり. All rights reserved.",
+    "cookieSettings": "Cookie設定"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム"
+  },
+  "cookie": {
+    "message": "このサイトでは、より良いユーザー体験のためにCookieを使用しています。",
+    "learnMore": "詳細",
+    "accept": "同意する",
+    "decline": "拒否",
+    "settingsTitle": "設定",
+    "currentStatus": "現在の設定",
+    "settingsAccepted": "Cookieの利用に同意しました",
+    "settingsRejected": "Cookieの利用を拒否しました",
+    "status": {
+      "pending": "未設定",
+      "accepted": "同意済み",
+      "rejected": "拒否済み"
+    }
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "intro": "やーはり（以下「当サイト」といいます）は、ユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。",
+    "section1": {
+      "title": "1. 収集する情報",
+      "description": "当サイトでは、以下の情報を収集することがあります：",
+      "items": [
+        "お問い合わせフォームからご提供いただくお名前、メールアドレス、お問い合わせ内容",
+        "Google Analyticsによるアクセス解析データ（匿名化されたIPアドレス、ブラウザ情報、閲覧ページなど）",
+        "Cookieによるサイト利用状況"
+      ]
+    },
+    "section2": {
+      "title": "2. Cookieの使用について",
+      "description": "当サイトでは、ユーザー体験の向上およびアクセス解析のためにCookieを使用しています。",
+      "gaTitle": "Google Analytics",
+      "gaDescription": "当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を使用しています。Google Analyticsはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。",
+      "gaDisable": "Cookieを無効にすることで収集を拒否することができますので、お使いのブラウザの設定をご確認ください。詳しくは",
+      "gaLink": "Googleのポリシーと規約",
+      "gaEnd": "をご覧ください。"
+    },
+    "section3": {
+      "title": "3. 情報の利用目的",
+      "description": "収集した情報は、以下の目的で利用します：",
+      "items": [
+        "お問い合わせへの対応",
+        "サイトの改善およびサービス向上",
+        "アクセス状況の分析"
+      ]
+    },
+    "section4": {
+      "title": "4. 情報の第三者提供",
+      "description": "当サイトは、法令に基づく場合を除き、ユーザーの同意なく個人情報を第三者に提供することはありません。"
+    },
+    "section5": {
+      "title": "5. セキュリティ",
+      "description": "当サイトは、個人情報の漏洩、滅失、毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。"
+    },
+    "section6": {
+      "title": "6. Cloudflare Turnstile",
+      "description": "当サイトのお問い合わせフォームでは、スパム防止のためにCloudflare Turnstileを使用しています。これにより、ユーザーが人間であることを確認しています。詳しくは",
+      "link": "Cloudflareのプライバシーポリシー",
+      "end": "をご覧ください。"
+    },
+    "section7": {
+      "title": "7. プライバシーポリシーの変更",
+      "description": "当サイトは、必要に応じて本プライバシーポリシーを変更することがあります。変更後のプライバシーポリシーは、当サイトに掲載した時点から効力を生じるものとします。"
+    },
+    "section8": {
+      "title": "8. お問い合わせ",
+      "description": "本プライバシーポリシーに関するお問い合わせは、",
+      "link": "お問い合わせページ",
+      "end": "よりご連絡ください。"
+    },
+    "effectiveDate": "制定日：2024年12月2日"
+  },
+  "error": {
+    "notFound": {
+      "title": "ページが見つかりません",
+      "description": "お探しのページは存在しないか、移動した可能性があります。URLをご確認ください。",
+      "backHome": "ホームに戻る",
+      "contact": "お問い合わせ"
+    },
+    "serverError": {
+      "title": "予期せぬエラーが発生しました",
+      "description": "申し訳ございません。一時的な問題が発生しています。しばらくしてから再度お試しください。",
+      "retry": "もう一度試す",
+      "backHome": "ホームに戻る"
+    },
+    "badRequest": {
+      "title": "不正なリクエスト",
+      "description": "サーバーはリクエストの構文が不正であるため理解できません。URLやリクエスト内容をご確認ください。",
+      "backHome": "ホームに戻る"
+    },
+    "teapot": {
+      "title": "私はティーポットです",
+      "description": "このサーバーはティーポットなので、コーヒーを淹れることを拒否します。",
+      "rfc": "RFC 2324 - Hyper Text Coffee Pot Control Protocol",
+      "backHome": "ホームに戻る",
+      "learnMore": "詳しく見る"
+    }
+  },
+  "contributions": {
+    "label": "CONTRIBUTIONS",
+    "title": "GitHub Activity",
+    "totalContributions": "{year}年の contributions",
+    "tooltip": {
+      "contributions": "contributions",
+      "noContributions": "コントリビューションなし"
+    },
+    "less": "少ない",
+    "more": "多い"
+  },
+  "designSystem": {
+    "label": "DESIGN SYSTEM",
+    "title": "Design System",
+    "description": "このサイトを構成しているデザイントークンとUIプリミティブの一覧です。配色・タイポグラフィ・余白・コンポーネントを一箇所にまとめています。",
+    "sections": {
+      "colors": {
+        "title": "Colors",
+        "description": "ライト/ダークモードで切り替わるグレースケース基調のカラートークン。"
+      },
+      "typography": {
+        "title": "Typography",
+        "description": "clamp() による流体タイポグラフィで、画面幅に応じて滑らかにスケールします。"
+      },
+      "spacing": {
+        "title": "Spacing",
+        "description": "vh単位のセクション余白トークンで、画面の高さに対して一定のリズムを保ちます。"
+      },
+      "buttons": {
+        "title": "Buttons",
+        "description": "主要導線用のピル型と、操作系コンパクトの2系統。"
+      },
+      "cards": {
+        "title": "Cards",
+        "description": "ホバーで浮き上がる、不透明な背景のカード。"
+      },
+      "forms": {
+        "title": "Form Fields",
+        "description": "下線のみのミニマルな入力欄。フォーカス時に下線色が変化します。"
+      },
+      "badges": {
+        "title": "Badges & Status",
+        "description": "ステータス表示用の小さなバッジとインジケーター。"
+      }
+    },
+    "sampleCard": {
+      "title": "サンプルカード",
+      "description": "ホバーすると浮き上がり、影が表示されます。"
+    },
+    "sampleField": {
+      "label": "サンプル入力欄",
+      "placeholder": "ここに入力してください",
+      "error": "これはエラーメッセージのサンプルです"
+    },
+    "badgeOpen": "対応可能",
+    "badgeProgress": "開発中"
+  }
 }
