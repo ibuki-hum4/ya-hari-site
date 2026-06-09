@@ -1,7 +1,7 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { FiX } from "react-icons/fi";
 import { ReactNode } from "react";
 
 export const Dialog = DialogPrimitive.Root;
@@ -27,7 +27,7 @@ export function DialogContent({ children, className = "" }: DialogContentProps) 
                     className="absolute right-4 top-4 text-muted hover:opacity-70 transition-opacity"
                     aria-label="閉じる"
                 >
-                    <X size={20} />
+                    <FiX size={20} />
                 </DialogPrimitive.Close>
             </DialogPrimitive.Content>
         </DialogPrimitive.Portal>

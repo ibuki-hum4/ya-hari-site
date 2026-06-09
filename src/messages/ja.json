@@ -39,14 +39,26 @@
     "tools": {
         "title": "Tools",
         "backToTools": "Toolsに戻る",
-        "pageIntro": "ブラウザだけで完結する小さなツール集です。入力した内容や生成結果はサーバーへ送信されず、すべてその場で処理されます。今後も少しずつ追加していく予定です。",
+        "pageIntro": "ブラウザだけで完結する小さなツール集です。入力した内容や生成結果はサーバーへ送信されず、すべてその場で処理されます。",
         "openTool": "ツールを開く",
         "comingSoon": "準備中",
         "items": {
-            "passwordGenerator": {
-                "title": "Password Generator",
-                "description": "長さと文字種を選ぶだけで、安全な乱数からパスワードを生成します。すべてブラウザ内で完結し、外部には一切送信されません。"
-            }
+            "passwordGenerator":  { "title": "Password Generator",        "description": "長さと文字種を選ぶだけで、安全な乱数からパスワードを生成します。すべてブラウザ内で完結。" },
+            "jsonFormatter":      { "title": "JSON Formatter / Diff",      "description": "JSONを整形・バリデーション。2つのJSONを比較してDiffも表示できます。" },
+            "base64Url":          { "title": "Base64 / URL エンコーダー",  "description": "テキストやファイルをBase64・URLエンコード/デコードします。" },
+            "colorPalette":       { "title": "カラーパレット生成器",        "description": "1色を選ぶだけで補色・類似色など調和のとれたパレットを生成します。" },
+            "typographyPreview":  { "title": "タイポグラフィプレビュー",    "description": "フォント・サイズ・字間などをリアルタイムで確認できます。" },
+            "markdownHtml":       { "title": "Markdown ↔ HTML 変換器",     "description": "Markdownをリアルタイムでレンダリング・HTMLに変換します。" },
+            "textCounter":        { "title": "文字数・読了時間カウンター",  "description": "文字数・単語数・バイト数・読了時間を一括で計測します。" },
+            "memeGenerator":      { "title": "Meme ジェネレーター",         "description": "画像に文字を乗せてMemeを作れます。ブラウザ上で完結。" },
+            "yamlJson":           { "title": "YAML ↔ JSON 変換器",         "description": "YAMLとJSONを相互に変換します。設定ファイルの変換に。" },
+            "imageColor":         { "title": "画像色解析",                  "description": "画像から主要な色を自動抽出してカラーコードで表示します。" },
+            "excuseGenerator":    { "title": "言い訳ジェネレータ",          "description": "状況に応じた言い訳をランダム生成します。使用は自己責任で。" },
+            "cookieClicker":      { "title": "クッキークリッカー",          "description": "クリックでクッキーを増やしてアップグレードを買い続ける、あのゲーム。" },
+            "typingSpeed":        { "title": "タイピング速度測定",          "description": "英語・日本語のタイピング速度（WPM/CPM）と正確性を測定します。" },
+            "yardle":             { "title": "Yardle",                     "description": "5文字の英単語を6回以内に当てるワードパズル。やーはり版のWordleクローン。" },
+            "mouseMusic":         { "title": "マウス音楽生成",              "description": "カーソル位置が音程、速度が音量になる音楽ジェネレーター。" },
+            "noneAI":             { "title": "NoneAI 画像生成",             "description": "AIを一切使わないアルゴリズム画像生成。数学だけで描くアート。" }
         },
         "passwordGenerator": {
             "title": "Password Generator",
@@ -70,7 +82,22 @@
                 "medium": "強度: ふつう",
                 "strong": "強度: 強い"
             }
-        }
+        },
+        "jsonFormatter":     { "title": "JSON Formatter / Diff",      "intro": "JSONを整形・バリデーションします。Diffモードでは2つのJSONを比較して差分を表示します。" },
+        "base64Url":         { "title": "Base64 / URL エンコーダー",   "intro": "テキストやファイルをBase64エンコード/デコード、またはURLエンコード/デコードします。" },
+        "colorPalette":      { "title": "カラーパレット生成器",         "intro": "ベースカラーを1色選ぶと、補色・類似色・三色配色など5種類のパレットを自動生成します。" },
+        "typographyPreview": { "title": "タイポグラフィプレビュー",     "intro": "フォントファミリー・サイズ・ウェイト・字間・行間をリアルタイムに調整してテキストのレンダリングを確認できます。" },
+        "markdownHtml":      { "title": "Markdown ↔ HTML 変換器",      "intro": "Markdownをリアルタイムでレンダリング・HTMLソースに変換します。HTMLのコピーにも対応。" },
+        "textCounter":       { "title": "文字数・読了時間カウンター",   "intro": "文字数・単語数・行数・バイト数・読了時間（日本語/英語）を一括で計測します。" },
+        "memeGenerator":     { "title": "Meme ジェネレーター",          "intro": "画像をアップロードして上下にテキストを乗せるだけでMemeを作れます。すべてブラウザ内で完結。" },
+        "yamlJson":          { "title": "YAML ↔ JSON 変換器",          "intro": "YAMLとJSONを相互に変換します。一般的な設定ファイルの変換に対応した簡易パーサーを使用。" },
+        "imageColor":        { "title": "画像色解析",                   "intro": "画像をアップロードすると主要な色を自動抽出してカラーコードと割合で表示します。" },
+        "excuseGenerator":   { "title": "言い訳ジェネレータ",           "intro": "遅刻・宿題・仕事・日常など状況に合わせた言い訳をランダムに生成します。使用は自己責任で。" },
+        "cookieClicker":     { "title": "クッキークリッカー",           "intro": "クリックでクッキーを増やし、アップグレードを購入して自動化を進める放置系ゲームです。" },
+        "typingSpeed":       { "title": "タイピング速度測定",           "intro": "英語（WPM）・日本語（CPM）のタイピング速度と正確性を60秒で測定します。" },
+        "yardle":            { "title": "Yardle",                      "intro": "5文字の英単語を6回以内に当てるワードパズル。緑・黄・灰のヒントを手がかりに正解を探してください。" },
+        "mouseMusic":        { "title": "マウス音楽生成",               "intro": "マウスのX位置が音程、Y位置がオクターブになる即興音楽ジェネレーターです。Web Audio APIを使用。" },
+        "noneAI":            { "title": "NoneAI 画像生成",              "intro": "AIを一切使わないアルゴリズムベースの画像生成です。マンデルブロ集合・ノイズ・セルオートマトンなど。" }
     },
     "projects": {
         "title": "Projects",

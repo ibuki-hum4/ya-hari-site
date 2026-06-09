@@ -39,14 +39,26 @@
     "tools": {
         "title": "Tools",
         "backToTools": "Back to Tools",
-        "pageIntro": "A small collection of browser-only tools. Nothing you type or generate is ever sent to a server — everything runs right where you are. More will be added over time.",
+        "pageIntro": "A small collection of browser-only tools. Nothing you type or generate is ever sent to a server — everything runs right where you are.",
         "openTool": "Open tool",
         "comingSoon": "Coming soon",
         "items": {
-            "passwordGenerator": {
-                "title": "Password Generator",
-                "description": "Generate a random password by choosing a length and character types. Runs entirely in your browser — nothing is ever sent anywhere."
-            }
+            "passwordGenerator":  { "title": "Password Generator",        "description": "Generate a random password by choosing length and character types. Runs entirely in your browser." },
+            "jsonFormatter":      { "title": "JSON Formatter / Diff",      "description": "Format and validate JSON. Compare two JSON objects and see a diff." },
+            "base64Url":          { "title": "Base64 / URL Encoder",       "description": "Encode and decode text or files using Base64 or URL encoding." },
+            "colorPalette":       { "title": "Color Palette Generator",    "description": "Pick one color and generate complementary, analogous, and triadic palettes." },
+            "typographyPreview":  { "title": "Typography Preview",         "description": "Adjust font, size, weight, and spacing to preview text rendering in real time." },
+            "markdownHtml":       { "title": "Markdown ↔ HTML Converter",  "description": "Write Markdown and see it rendered or converted to HTML in real time." },
+            "textCounter":        { "title": "Text Counter",               "description": "Count characters, words, lines, bytes, and reading time all at once." },
+            "memeGenerator":      { "title": "Meme Generator",             "description": "Upload an image, add top and bottom text, and download your meme." },
+            "yamlJson":           { "title": "YAML ↔ JSON Converter",      "description": "Convert between YAML and JSON. Useful for config file transformations." },
+            "imageColor":         { "title": "Image Color Analyzer",       "description": "Upload an image to extract its dominant colors with hex codes and percentages." },
+            "excuseGenerator":    { "title": "Excuse Generator",           "description": "Generates random excuses for various situations. Use at your own risk." },
+            "cookieClicker":      { "title": "Cookie Clicker",             "description": "Click cookies, buy upgrades, and automate production in this idle game." },
+            "typingSpeed":        { "title": "Typing Speed Test",          "description": "Measure your typing speed (WPM / CPM) and accuracy in English or Japanese." },
+            "yardle":             { "title": "Yardle",                     "description": "A Wordle clone — guess the 5-letter word in 6 tries. Yahari edition." },
+            "mouseMusic":         { "title": "Mouse Music",                "description": "Move your cursor to make music — X is pitch, Y is octave. Powered by Web Audio API." },
+            "noneAI":             { "title": "NoneAI Image Generator",     "description": "Algorithmic image generation with zero AI — just math and code." }
         },
         "passwordGenerator": {
             "title": "Password Generator",
@@ -70,7 +82,22 @@
                 "medium": "Strength: Medium",
                 "strong": "Strength: Strong"
             }
-        }
+        },
+        "jsonFormatter":     { "title": "JSON Formatter / Diff",      "intro": "Format and validate JSON with configurable indentation. In Diff mode, compare two JSON objects and highlight what changed." },
+        "base64Url":         { "title": "Base64 / URL Encoder",       "intro": "Encode or decode text using Base64 or URL (percent) encoding. File-to-Base64 conversion is also supported." },
+        "colorPalette":      { "title": "Color Palette Generator",    "intro": "Choose a base color and instantly generate five harmonious palettes: analogous, complementary, triadic, split-complementary, and monochromatic." },
+        "typographyPreview": { "title": "Typography Preview",         "intro": "Adjust font family, size, weight, letter-spacing, and line-height to preview how your text will render." },
+        "markdownHtml":      { "title": "Markdown ↔ HTML Converter",  "intro": "Write Markdown on the left and see it rendered as HTML on the right. Toggle to view the raw HTML source and copy it." },
+        "textCounter":       { "title": "Text Counter",               "intro": "Paste or type text to instantly get character count, word count, line count, byte size, and estimated reading time." },
+        "memeGenerator":     { "title": "Meme Generator",             "intro": "Upload any image, add top and bottom text with custom color and size, then download your meme as a PNG." },
+        "yamlJson":          { "title": "YAML ↔ JSON Converter",      "intro": "Convert between YAML and JSON. Handles common config file structures — objects, arrays, strings, numbers, booleans, and null." },
+        "imageColor":        { "title": "Image Color Analyzer",       "intro": "Upload an image to extract the dominant colors using pixel sampling and clustering. Copy any color code instantly." },
+        "excuseGenerator":   { "title": "Excuse Generator",           "intro": "Select a category and generate a random excuse for being late, forgetting homework, missing work, or anything else. Use responsibly." },
+        "cookieClicker":     { "title": "Cookie Clicker",             "intro": "Click the cookie to earn cookies, then buy upgrades to automate production. Progress is saved in your browser." },
+        "typingSpeed":       { "title": "Typing Speed Test",          "intro": "Type the passage as fast and accurately as you can in 60 seconds. Supports English (WPM) and Japanese (CPM) modes." },
+        "yardle":            { "title": "Yardle",                     "intro": "Guess the secret 5-letter word in 6 tries. Green means right place, yellow means wrong place, gray means not in the word." },
+        "mouseMusic":        { "title": "Mouse Music",                "intro": "Move your cursor over the canvas to play notes — X position controls pitch, Y position controls octave. Different scales available." },
+        "noneAI":            { "title": "NoneAI Image Generator",     "intro": "Generate beautiful patterns using pure algorithms — Mandelbrot set, Perlin-style noise, cellular automata, and more. Zero AI." }
     },
     "projects": {
         "title": "Projects",

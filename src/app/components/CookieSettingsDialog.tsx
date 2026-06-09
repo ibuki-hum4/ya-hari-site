@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { Settings } from "lucide-react";
+import { FiSettings } from "react-icons/fi";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "./ui/dialog";
 import { primaryButtonClass, secondaryButtonClass } from "./ui/button";
 import { getCookieConsent, setCookieConsent, type ConsentStatus } from "../../lib/cookie-consent";
@@ -28,7 +28,7 @@ export default function CookieSettingsDialog() {
     return (
         <Dialog open={open} onOpenChange={handleOpenChange}>
             <DialogTrigger className="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
-                <Settings size={14} />
+                <FiSettings size={14} />
                 Cookie Settings
             </DialogTrigger>
             <DialogContent>
