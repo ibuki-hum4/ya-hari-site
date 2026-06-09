@@ -36,10 +36,10 @@ export default function ContactPage() {
         setTurnstileToken(token);
     }, []);
 
-    const updateField = (field: keyof typeof formData, value: string) => {
+    const updateField = useCallback((field: keyof typeof formData, value: string) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
         setFieldErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
-    };
+    }, []);
 
     const contactMethods = [
         {

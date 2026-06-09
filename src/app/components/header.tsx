@@ -50,29 +50,24 @@ export default function Header() {
 
   useEffect(() => {
     setIsVisible(true);
-
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // モバイルメニューが開いている時はスクロールを無効化
+  // モバイルメニューが開いている時: スクロール無効化 + Esc/リサイズで閉じる
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
 
-  // Escキーでメニューを閉じる、デスクトップ幅にリサイズされたら自動で閉じる
-  useEffect(() => {
     if (!isMobileMenuOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -85,6 +80,7 @@ export default function Header() {
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("resize", handleResize);
     return () => {
+      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
     };

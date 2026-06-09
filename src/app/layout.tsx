@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import localFont from "next/font/local";
 import { Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
@@ -9,6 +10,7 @@ import QueryProvider from "./components/QueryProvider";
 import ThreeBackground from "./components/three-background-loader";
 import AppToaster from "./components/AppToaster";
 import { LoadingOverlayProvider } from "./components/loading/overlay";
+import NavigationProgress from "./components/NavigationProgress";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -166,6 +168,9 @@ export default async function RootLayout({
             <ThemeProvider>
               <QueryProvider>
                 <LoadingOverlayProvider>
+                  <Suspense>
+                    <NavigationProgress />
+                  </Suspense>
                   <GoogleAnalytics />
                   {children}
                   <CookieConsent />

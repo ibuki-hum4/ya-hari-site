@@ -3,6 +3,7 @@
 import { IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
 import { memo } from "react";
+import { motion } from "motion/react";
 import { primaryButtonClass } from "./ui/button";
 import SplitTitle from "./ui/split-title";
 
@@ -10,7 +11,7 @@ const Hero = memo(function Hero() {
     const profileImage = "/icon.png";
 
     return (
-        <section className="min-h-screen flex items-center justify-center px-4 sm:px-8">
+        <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-8">
             <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-12">
                 {/* 左側: 名前・サブタイトル・ボタン */}
                 <div className="flex-1 flex flex-col items-center md:items-start gap-4 text-center md:text-left">
@@ -41,6 +42,24 @@ const Hero = memo(function Hero() {
                     </div>
                 </div>
             </div>
+
+            {/* スクロール促進インジケーター */}
+            <motion.div
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 0.8 }}
+                aria-hidden
+            >
+                <span className="text-[10px] tracking-[0.3em] text-muted uppercase select-none">Scroll</span>
+                <div className="relative w-px h-14 bg-line overflow-hidden">
+                    <motion.div
+                        className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-transparent via-muted to-transparent"
+                        animate={{ y: ["-100%", "200%"] }}
+                        transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.4 }}
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 });

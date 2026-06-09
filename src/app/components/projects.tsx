@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { FiExternalLink, FiGithub, FiArrowRight } from "react-icons/fi";
-import { FaDiscord } from "react-icons/fa";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Section from "./ui/section";
 import Card from "./ui/card";
 import Reveal from "./ui/reveal";
@@ -16,13 +13,12 @@ type Project = {
     links?: {
         demo?: string;
         github?: string;
-        invite?: string;
     };
 };
 
-export default function Projects() {
-    const t = useTranslations("projects");
-    const tc = useTranslations("common");
+export default async function Projects() {
+    const t = await getTranslations("projects");
+    const tc = await getTranslations("common");
 
     const projects: Project[] = [
         {
@@ -88,17 +84,6 @@ export default function Projects() {
                                     >
                                         <FiGithub size={18} />
                                         <span className="text-sm">GitHub</span>
-                                    </a>
-                                )}
-                                {project.links.invite && (
-                                    <a
-                                        href={project.links.invite}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1 text-muted hover:text-ink transition-colors"
-                                    >
-                                        <FaDiscord size={18} />
-                                        <span className="text-sm">Invite</span>
                                     </a>
                                 )}
                             </div>

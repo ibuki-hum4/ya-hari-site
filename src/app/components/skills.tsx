@@ -1,11 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
-import { useTranslations } from "next-intl";
-import Section from "./ui/section";
-import Reveal from "./ui/reveal";
-import SplitTitle from "./ui/split-title";
+import { getTranslations } from "next-intl/server";
 import {
     SiReact,
     SiNextdotjs,
@@ -18,23 +13,29 @@ import {
     SiGithub,
     SiFigma,
 } from "react-icons/si";
+import Section from "./ui/section";
+import Reveal from "./ui/reveal";
+import SplitTitle from "./ui/split-title";
 
-export default function Skills() {
-    const t = useTranslations("skills");
-    const tc = useTranslations("common");
+const favoriteIcons = [
+    { name: "React",        Icon: SiReact,        className: "text-sky-500" },
+    { name: "Next.js",      Icon: SiNextdotjs,    className: "text-gray-900 dark:text-white" },
+    { name: "Discord.js",   Icon: SiDiscord,      className: "text-indigo-500" },
+    { name: "Tailwind CSS", Icon: SiTailwindcss,  className: "text-sky-400" },
+    { name: "Node.js",      Icon: SiNodedotjs,    className: "text-green-600" },
+    { name: "Docker",       Icon: SiDocker,       className: "text-blue-500" },
+    { name: "Kubernetes",   Icon: SiKubernetes,   className: "text-blue-600" },
+    { name: "Git",          Icon: SiGit,          className: "text-orange-500" },
+    { name: "GitHub",       Icon: SiGithub,       className: "text-gray-900 dark:text-white" },
+    { name: "Figma",        Icon: SiFigma,        className: "text-pink-500" },
+];
 
-    const favoriteIcons = [
-        { name: "React", Icon: SiReact, className: "text-sky-500" },
-        { name: "Next.js", Icon: SiNextdotjs, className: "text-gray-900 dark:text-white" },
-        { name: "Discord.js", Icon: SiDiscord, className: "text-indigo-500" },
-        { name: "Tailwind CSS", Icon: SiTailwindcss, className: "text-sky-400" },
-        { name: "Node.js", Icon: SiNodedotjs, className: "text-green-600" },
-        { name: "Docker", Icon: SiDocker, className: "text-blue-500" },
-        { name: "Kubernetes", Icon: SiKubernetes, className: "text-blue-600" },
-        { name: "Git", Icon: SiGit, className: "text-orange-500" },
-        { name: "GitHub", Icon: SiGithub, className: "text-gray-900 dark:text-white" },
-        { name: "Figma", Icon: SiFigma, className: "text-pink-500" },
-    ];
+// マーキーをシームレスにループさせるため、アイコン列を複製して並べる
+const marqueeIcons = [...favoriteIcons, ...favoriteIcons];
+
+export default async function Skills() {
+    const t = await getTranslations("skills");
+    const tc = await getTranslations("common");
 
     return (
         <Section id="skills">
@@ -47,8 +48,7 @@ export default function Skills() {
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-6 sm:w-8 bg-gradient-to-l from-surface to-transparent backdrop-blur-sm" />
                 <div className="overflow-hidden">
                     <div className="flex w-max items-center gap-6 animate-marquee">
-                        {/* マーキーをシームレスにループさせるため、アイコン列を複製して並べる */}
-                        {[...favoriteIcons, ...favoriteIcons].map(({ name, Icon, className }, index) => (
+                        {marqueeIcons.map(({ name, Icon, className }, index) => (
                             <div
                                 key={`${name}-${index}`}
                                 className="flex flex-col items-center gap-2 min-w-[64px]"
@@ -72,19 +72,6 @@ export default function Skills() {
                     </Link>
                 </div>
             </Reveal>
-            <style jsx>{`
-                @keyframes marquee {
-                    0% {
-                        transform: translateX(0);
-                    }
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-                .animate-marquee {
-                    animation: marquee 12s linear infinite;
-                }
-            `}</style>
         </Section>
     );
 }

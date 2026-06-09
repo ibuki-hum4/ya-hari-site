@@ -1,17 +1,15 @@
-"use client";
-
 import { IoMailOutline, IoArrowForward } from "react-icons/io5";
 import { FiGithub, FiClock, FiGlobe } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Section from "./ui/section";
 import { cardClass } from "./ui/card";
 import { primaryButtonClass } from "./ui/button";
 import Reveal from "./ui/reveal";
 
-export default function ContactSection() {
-    const t = useTranslations("contact");
+export default async function ContactSection() {
+    const t = await getTranslations("contact");
 
     const contactMethods = [
         {

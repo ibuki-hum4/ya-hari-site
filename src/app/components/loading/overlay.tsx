@@ -84,6 +84,8 @@ export function LoadingOverlayProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const scheduleHideLoadingOverlay = useCallback(() => {
+        // 既存タイマーをリセットしてから新しいタイマーをセット（二重呼び出し時の早期消去を防ぐ）
+        if (hideTimer.current) clearTimeout(hideTimer.current);
         hideTimer.current = setTimeout(() => {
             setScreen(null);
             hideTimer.current = null;

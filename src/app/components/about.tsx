@@ -1,19 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { FiMusic, FiServer, FiArrowRight } from "react-icons/fi";
 import { IoGameControllerOutline } from "react-icons/io5";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Section from "./ui/section";
 import Card from "./ui/card";
 import Reveal from "./ui/reveal";
 import SplitTitle from "./ui/split-title";
 
-export default function About() {
-    const t = useTranslations("about");
-    const tc = useTranslations("common");
-    const hobbies = ["音楽", "ゲーム"];
-    const abilities = ["バリトンサックス", "ギター", "インフラ", "k8s"];
+const hobbies = ["音楽", "ゲーム"];
+const abilities = ["バリトンサックス", "ギター", "インフラ", "k8s"];
+
+export default async function About() {
+    const t = await getTranslations("about");
+    const tc = await getTranslations("common");
 
     return (
         <Section id="about">
