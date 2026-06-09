@@ -31,8 +31,23 @@ export default async function CommitMessagePage() {
     const t = await getTranslations("tools.commitMessage");
     const tt = await getTranslations("tools");
 
+    const softwareJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Commit Message Generator",
+        description: "Conventional Commits 形式のコミットメッセージをリアルタイム生成。type 選択・scope・description・gitmoji 対応。",
+        url: `${siteUrl}/tools/commit-message`,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web Browser",
+        isAccessibleForFree: true,
+        author: { "@type": "Person", "@id": `${siteUrl}/#person` },
+        offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+        featureList: ["Conventional Commits", "gitmoji", "BREAKING CHANGE", "Real-time preview", "Copy to clipboard"],
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

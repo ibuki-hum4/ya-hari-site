@@ -9,21 +9,23 @@ import Reveal from "../components/ui/reveal";
 import { compactButtonClass } from "../components/ui/button";
 import { IoLogoRss } from "react-icons/io5";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
+
 export const metadata = {
     title: "Blog",
-    description: "やーはりのブログ記事一覧。技術記事や日々の学びを発信しています。",
+    description: "やーはり（14歳の中学生エンジニア）の技術ブログ。Next.js・TypeScript・Kubernetes・Web開発・インフラなどに関する記事を日本語で発信しています。",
     alternates: {
         canonical: "/blog",
     },
     openGraph: {
         type: "website",
         title: "Blog | やーはり",
-        description: "やーはりのブログ記事一覧。技術記事や日々の学びを発信しています。",
+        description: "やーはりの技術ブログ。Next.js・TypeScript・Kubernetes・インフラに関する記事を発信。",
     },
     twitter: {
         card: "summary_large_image",
         title: "Blog | やーはり",
-        description: "やーはりのブログ記事一覧。技術記事や日々の学びを発信しています。",
+        description: "やーはりの技術ブログ。Next.js・TypeScript・Kubernetes・インフラに関する記事を発信。",
     },
 };
 
@@ -33,8 +35,31 @@ export const revalidate = 60;
 export default async function BlogPage() {
     const { contents: blogs, totalCount } = await withMinDuration(getBlogs({ limit: 12 }));
 
+    const blogJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": `${siteUrl}/blog`,
+        name: "やーはり Blog",
+        description: "やーはりの技術ブログ。Web開発・インフラ・個人開発に関する記事を発信。",
+        url: `${siteUrl}/blog`,
+        author: { "@type": "Person", "@id": `${siteUrl}/#person` },
+        publisher: { "@type": "Person", "@id": `${siteUrl}/#person` },
+        inLanguage: "ja",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+    };
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "ホーム", item: siteUrl },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+        ],
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

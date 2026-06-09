@@ -20,8 +20,8 @@ const nextConfig: NextConfig = {
         removeConsole: process.env.NODE_ENV === "production",
     },
     // 型チェック・lint はビルドから分離（bun run typecheck / bun run lint で別途実行）
+    // Next.js 16 では eslint キーが廃止 → next build は ESLint を実行しない
     typescript: { ignoreBuildErrors: true },
-    eslint:     { ignoreDuringBuilds: true },
     experimental: {
         // Turbopack の disk cache を有効化（デフォルト false → 毎回フルコンパイルになる）
         // 2回目以降のビルドが劇的に速くなる

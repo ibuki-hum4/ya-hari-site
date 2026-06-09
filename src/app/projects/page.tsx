@@ -63,8 +63,18 @@ export default async function ProjectsPage() {
     const t = await getTranslations("projects");
     const tc = await getTranslations("common");
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "ホーム", item: siteUrl },
+            { "@type": "ListItem", position: 2, name: "Projects", item: `${siteUrl}/projects` },
+        ],
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

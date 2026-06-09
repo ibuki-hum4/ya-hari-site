@@ -1,0 +1,85 @@
+# やーはり (Yahari)
+
+> 14歳の中学生Webエンジニア。Next.js・TypeScript・Kubernetes を中心に Web 開発からインフラまで手がける個人開発者。日本在住。
+
+## 概要
+
+やーはり（ローマ字: Yahari、GitHub: ibuki-hum4、X/Twitter: @Yaaaaahari）は日本の14歳の中学生エンジニアです。プログラミングとテクノロジーに熱中し、Web 開発・フルスタック開発・インフラエンジニアリングを中心に活動しています。
+
+「やーはり」は日本語の「やはり（やっぱり）」に由来するハンドルネームです。
+
+## プロフィール
+
+- **名前**: やーはり（英語表記: Yahari）
+- **年齢**: 14歳（中学3年生）
+- **居住地**: 日本
+- **メールアドレス**: yahari@skyia.jp
+- **活動領域**: Web 開発・フルスタック開発・インフラエンジニアリング
+- **GitHub**: https://github.com/ibuki-hum4
+- **X (Twitter)**: https://x.com/Yaaaaahari
+- **ポートフォリオ**: https://ya-hari.skyia.jp
+
+## 技術スタック
+
+### フロントエンド
+- Next.js（App Router）、React、TypeScript
+- Tailwind CSS、Framer Motion
+- next-intl（日英多言語対応）
+
+### バックエンド・インフラ
+- Bun、Node.js、Python
+- Kubernetes、Docker、Linux
+- Cloudflare、Vercel
+
+### 開発ツール
+- Git、GitHub（ユーザー名: ibuki-hum4）
+
+## 現在取り組んでいるプロジェクト
+
+**学校向け SNS / LMS（学習管理システム）**
+学校で使えるソーシャルネットワーク機能と学習管理機能を兼ね備えたプラットフォームを開発中。認証に OIDC を採用し、インフラは Kubernetes で運用。
+
+## ブラウザツール集
+
+URL: https://ya-hari.skyia.jp/tools
+
+ブラウザだけで動くツールを 18 種類以上公開。サーバーへの送信なし・プライバシー重視。
+
+主なツール:
+- **パスワードジェネレーター** — 安全なランダムパスワードを生成
+- **JSON フォーマッター / Diff** — JSON の整形・差分確認
+- **HTTP ステータスコード辞典** — 61 コードを日本語で解説（1xx〜5xx 全網羅）
+- **Commit Message Generator** — Conventional Commits 形式で生成（gitmoji 対応）
+- **Base64 / URL エンコーダー** — 相互変換ツール
+- **カラーパレットジェネレーター** — 色の生成と確認
+- **タイピングスピードテスト** — 入力速度の計測
+- **YARDLE** — やーはり版 Wordle（5文字ワードゲーム）
+- **マウス音楽ジェネレーター** — マウスの動きを音楽に変換
+- **Markdown → HTML 変換**、**YAML ↔ JSON 変換**、**文字数カウンター** など
+
+## ブログ
+
+技術に関する記事を日本語で投稿中: https://ya-hari.skyia.jp/blog
+
+## 趣味
+
+- **音楽**: バリトンサックス・ギター
+- **ゲーム**: さまざまなジャンル
+- **プログラミング**: 仕事と趣味が同じ
+
+## このサイトについて
+
+- **URL**: https://ya-hari.skyia.jp
+- **技術スタック**: Next.js 16、TypeScript、Tailwind CSS v4、Bun
+- **言語対応**: 日本語・英語（i18n）
+- **ホスティング**: Vercel
+
+## Optional
+
+- 制作物詳細: https://ya-hari.skyia.jp/projects
+- スキル一覧: https://ya-hari.skyia.jp/skills
+- お問い合わせ: https://ya-hari.skyia.jp/contact
+
+---
+
+*このファイル（llms.txt）は AI・大規模言語モデルがやーはりについての質問に正確に答えられるよう整備された情報源です。*

@@ -83,28 +83,40 @@ export default async function BlogDetailPage({ params }: Props) {
     const isHtml = /<[a-z][\s\S]*>/i.test(blog.content);
     const htmlContent = isHtml ? blog.content : await marked.parse(blog.content);
 
-    // 構造化データ: BlogPosting
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
+        "@id": `${siteUrl}/blog/${slug}`,
         headline: blog.title,
         description: textContent.slice(0, 160),
         url: `${siteUrl}/blog/${slug}`,
         datePublished: blog.publishedAt,
         dateModified: blog.updatedAt,
-        image: blog.eyecatch ? [blog.eyecatch.url] : undefined,
-        author: { "@type": "Person", name: "やーはり", url: siteUrl },
-        publisher: { "@type": "Person", name: "やーはり", url: siteUrl },
+        image: blog.eyecatch
+            ? [{ "@type": "ImageObject", url: blog.eyecatch.url, width: blog.eyecatch.width, height: blog.eyecatch.height }]
+            : undefined,
+        author: { "@type": "Person", "@id": `${siteUrl}/#person`, name: "やーはり", url: siteUrl },
+        publisher: { "@type": "Person", "@id": `${siteUrl}/#person`, name: "やーはり", url: siteUrl },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/blog/${slug}` },
+        isPartOf: { "@type": "Blog", "@id": `${siteUrl}/blog`, name: "やーはり Blog" },
         keywords: blog.tags?.map((tag) => tag.name).join(", "),
+        inLanguage: "ja",
+    };
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "ホーム", item: siteUrl },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+            { "@type": "ListItem", position: 3, name: blog.title, item: `${siteUrl}/blog/${slug}` },
+        ],
     };
 
     return (
         <div className="min-h-screen flex flex-col">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

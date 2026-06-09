@@ -13,7 +13,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
 export const metadata = {
     title: "About",
-    description: "やーはりのプロフィール。プログラミングとテクノロジーが大好きな中学生です。趣味や得意なことを紹介しています。",
+    description: "やーはりのプロフィール。14歳の中学生Webエンジニア。Next.js・TypeScript・Kubernetes を使ったWeb開発・インフラを中心に活動。バリトンサックス・ギターも弾く個人開発者。",
     alternates: {
         canonical: "/about",
     },
@@ -41,8 +41,18 @@ export default async function AboutPage() {
     const t = await getTranslations("about");
     const tc = await getTranslations("common");
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "ホーム", item: siteUrl },
+            { "@type": "ListItem", position: 2, name: "About", item: `${siteUrl}/about` },
+        ],
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

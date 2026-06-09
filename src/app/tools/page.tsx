@@ -7,12 +7,13 @@ import Section from "../components/ui/section";
 import Reveal from "../components/ui/reveal";
 import SplitTitle from "../components/ui/split-title";
 import ToolsGrid from "../components/tools/ToolsGrid";
+import { toolEntries } from "../components/tools/registry";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
 export const metadata = {
     title: "Tools",
-    description: "ブラウザだけで完結する小さなツール集。パスワード生成ツールなど、サーバーに何も送信しないユーティリティを公開しています。",
+    description: "ブラウザだけで動く18種類以上のツール集。パスワードジェネレーター・JSON フォーマッター・HTTP ステータスコード辞典・Commit Message Generator など、サーバーに何も送信しないプライバシー重視のユーティリティを無料公開。",
     alternates: {
         canonical: "/tools",
     },
@@ -35,8 +36,52 @@ export default async function ToolsPage() {
         getTranslations("common"),
     ]);
 
+    const toolNames: Record<string, string> = {
+        passwordGenerator: "Password Generator",
+        jsonFormatter: "JSON Formatter",
+        base64Url: "Base64 / URL Encoder",
+        colorPalette: "Color Palette Generator",
+        typographyPreview: "Typography Preview",
+        markdownHtml: "Markdown → HTML",
+        textCounter: "Text Counter",
+        yamlJson: "YAML ↔ JSON Converter",
+        imageColor: "Image Color Picker",
+        httpStatus: "HTTP Status Code Dictionary",
+        commitMessage: "Commit Message Generator",
+        memeGenerator: "Meme Generator",
+        excuseGenerator: "Excuse Generator",
+        cookieClicker: "Cookie Clicker",
+        typingSpeed: "Typing Speed Test",
+        yardle: "YARDLE",
+        mouseMusic: "Mouse Music Generator",
+        noneAI: "None AI Chat",
+    };
+    const itemListJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "やーはりのツール集",
+        description: "ブラウザだけで動くWebユーティリティツール集。サーバー送信なし・無料。",
+        url: `${siteUrl}/tools`,
+        numberOfItems: toolEntries.length,
+        itemListElement: toolEntries.map((tool, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+                "@type": "SoftwareApplication",
+                name: toolNames[tool.key] ?? tool.key,
+                url: `${siteUrl}${tool.href}`,
+                applicationCategory: tool.category === "dev" ? "DeveloperApplication" : "EntertainmentApplication",
+                operatingSystem: "Web Browser",
+                isAccessibleForFree: true,
+                author: { "@type": "Person", "@id": `${siteUrl}/#person` },
+                offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+            },
+        })),
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

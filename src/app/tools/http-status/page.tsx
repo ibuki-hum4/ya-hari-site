@@ -31,8 +31,23 @@ export default async function HttpStatusPage() {
     const t = await getTranslations("tools.httpStatus");
     const tt = await getTranslations("tools");
 
+    const softwareJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "HTTP Status Code Dictionary",
+        description: "1xx から 5xx まで全 61 の HTTP ステータスコードを日本語で解説。リアルタイム検索・カテゴリフィルター付き。",
+        url: `${siteUrl}/tools/http-status`,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web Browser",
+        isAccessibleForFree: true,
+        author: { "@type": "Person", "@id": `${siteUrl}/#person` },
+        offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+        featureList: ["61 status codes", "Japanese descriptions", "Real-time search", "Category filter"],
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }} />
             <Header />
 
             <main className="pt-20 flex-1">

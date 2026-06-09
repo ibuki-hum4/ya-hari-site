@@ -8,7 +8,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 // next-sitemap の自動検出（prerender-manifest）に乗らないため静的ページは明示的に列挙する
 const staticRoutes = [
     { loc: "/", priority: 1.0, changefreq: "weekly" },
+    { loc: "/about", priority: 0.8, changefreq: "monthly" },
     { loc: "/blog", priority: 0.9, changefreq: "daily" },
+    { loc: "/projects", priority: 0.8, changefreq: "monthly" },
+    { loc: "/skills", priority: 0.7, changefreq: "monthly" },
+    { loc: "/tools", priority: 0.8, changefreq: "weekly" },
     { loc: "/contact", priority: 0.7, changefreq: "monthly" },
     { loc: "/privacy", priority: 0.3, changefreq: "yearly" },
     { loc: "/design-systems", priority: 0.5, changefreq: "monthly" },
@@ -51,7 +55,18 @@ module.exports = {
     generateIndexSitemap: false,
     exclude: ["/api/*", "/400", "/500", "/teapot"],
     robotsTxtOptions: {
-        policies: [{ userAgent: "*", allow: "/" }],
+        policies: [
+            { userAgent: "*", allow: "/" },
+            // AI training crawlers — explicitly allowed for LLM training
+            { userAgent: "GPTBot", allow: "/" },
+            { userAgent: "ChatGPT-User", allow: "/" },
+            { userAgent: "ClaudeBot", allow: "/" },
+            { userAgent: "anthropic-ai", allow: "/" },
+            { userAgent: "PerplexityBot", allow: "/" },
+            { userAgent: "CCBot", allow: "/" },
+            { userAgent: "Googlebot-Extended", allow: "/" },
+        ],
+        additionalSitemaps: [],
     },
     additionalPaths: async (config) => {
         const blogPaths = await getBlogPaths(config);
