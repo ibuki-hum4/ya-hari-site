@@ -38,7 +38,7 @@ const EXIT_TRANSITIONS: ExitTransition[] = [
         transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
     {
-        rest: { y: "-100%" },
+        rest: { y: 0 },
         exit: { y: "-100%" },
         transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
     },
@@ -93,20 +93,22 @@ export function LoadingOverlayProvider({ children }: { children: ReactNode }) {
     return (
         <LoadingOverlayContext.Provider value={{ showLoadingOverlay, scheduleHideLoadingOverlay }}>
             {children}
-            <AnimatePresence>
-                {screen && (
-                    <motion.div
-                        key="loading-overlay"
-                        className="fixed inset-0 z-[10000] bg-surface"
-                        initial={false}
-                        animate={exitTransition.rest}
-                        exit={exitTransition.exit}
-                        transition={exitTransition.transition}
-                    >
-                        {screen}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <div className="fixed inset-0 z-[10000] overflow-hidden pointer-events-none">
+                <AnimatePresence>
+                    {screen && (
+                        <motion.div
+                            key="loading-overlay"
+                            className="absolute inset-0 bg-surface pointer-events-auto"
+                            initial={false}
+                            animate={exitTransition.rest}
+                            exit={exitTransition.exit}
+                            transition={exitTransition.transition}
+                        >
+                            {screen}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
         </LoadingOverlayContext.Provider>
     );
 }

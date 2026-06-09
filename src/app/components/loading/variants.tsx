@@ -252,7 +252,7 @@ function ConveyorLoading() {
                         className="inline-block animate-loading-conveyor"
                         style={{ animationDelay: `${i * 0.18}s` }}
                     >
-                        {char}
+                        {char} 
                     </span>
                 ))}
             </p>
