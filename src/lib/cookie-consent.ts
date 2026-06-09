@@ -19,10 +19,7 @@ export function setCookieConsent(status: "accepted" | "rejected") {
 
 declare global {
     interface Window {
-        gtag: (
-            command: string,
-            action: string,
-            params?: Record<string, string>
-        ) => void;
+        gtag: (...args: unknown[]) => void;
+        dataLayer: unknown[];
     }
 }
