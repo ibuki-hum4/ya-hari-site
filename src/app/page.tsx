@@ -34,13 +34,15 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Hero />
-      <About />
-      <Contributions />
-      <Projects />
-      <Skills />
-      <MutualLinks />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Contributions />
+        <Projects />
+        <Skills />
+        <MutualLinks />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

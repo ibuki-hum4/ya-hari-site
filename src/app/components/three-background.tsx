@@ -75,6 +75,9 @@ const ThreeBackground = memo(function ThreeBackground() {
     useEffect(() => {
         if (!canvasRef.current) return;
 
+        // OSの「視差効果を減らす」設定が有効な場合は、常時アニメーションする背景を表示しない
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
         let animationId: number;
         let renderer: WebGLRenderer | null = null;
 

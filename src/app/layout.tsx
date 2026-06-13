@@ -189,8 +189,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         {/* Priority Hints: 重要なリソースの優先読み込み */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* next/font/google はビルド時にセルフホストされるため fonts.googleapis.com / fonts.gstatic.com への preconnect は不要 */}
         <link rel="dns-prefetch" href="https://skillicons.dev" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {/* RSS フィード */}
@@ -198,8 +197,7 @@ export default async function RootLayout({
         {/* rel="me" — ソーシャルプロフィールとの紐付け（Google/AI の同一人物判定を補強） */}
         <link rel="me" href="https://github.com/ibuki-hum4" />
         <link rel="me" href="https://x.com/Yaaaaahari" />
-        {/* LCP改善: プロフィール画像のプリロード */}
-        <link rel="preload" as="image" href="/icon.png" fetchPriority="high" />
+        {/* LCPのプロフィール画像は hero.tsx の <Image priority> が next/image 用の preload を自動生成するため、ここでの手動 preload は不要（URLが一致せず未使用リソースになる） */}
         {/* Critical CSSのインライン化ヒント */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* 構造化データ: Person + WebSite */}
