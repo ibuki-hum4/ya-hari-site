@@ -79,7 +79,7 @@ export default function MutualLinks() {
           <a
             href={link.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className={`group flex items-center gap-4 p-3 md:p-4 ${cardClass} md:w-auto`}
           >
             {/* 画像エリア - 画像のアスペクト比を維持 */}

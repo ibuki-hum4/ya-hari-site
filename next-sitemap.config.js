@@ -16,6 +16,25 @@ const staticRoutes = [
     { loc: "/contact", priority: 0.7, changefreq: "monthly" },
     { loc: "/privacy", priority: 0.3, changefreq: "yearly" },
     { loc: "/design-systems", priority: 0.5, changefreq: "monthly" },
+    // /tools 配下の各ツールページ（クライアントコンポーネントを含み自動検出に乗らないため明示的に列挙）
+    { loc: "/tools/base64-url", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/color-palette", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/commit-message", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/cookie-clicker", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/excuse-generator", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/http-status", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/image-color", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/json-formatter", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/markdown-html", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/meme-generator", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/mouse-music", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/none-ai", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/password-generator", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/text-counter", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/typing-speed", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/typography-preview", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/yaml-json", priority: 0.6, changefreq: "monthly" },
+    { loc: "/tools/yardle", priority: 0.6, changefreq: "monthly" },
 ];
 
 async function getBlogPaths(config) {

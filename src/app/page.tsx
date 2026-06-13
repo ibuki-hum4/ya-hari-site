@@ -12,7 +12,7 @@ import Contributions from "./components/contributions";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
 export const metadata: Metadata = {
-  title: "やーはり | ポートフォリオ",
+  // title未指定 → layout.tsxのtitle.defaultをそのまま使用（templateは未適用のため "サイト名 | やーはり" の重複を回避）
   description: "プログラミングとテクノロジーが大好きな14歳の中学生エンジニア、やーはりのポートフォリオ。Next.js・TypeScript・Kubernetes などを使った制作物、技術ブログ、ブラウザで動くツールを公開しています。",
   alternates: { canonical: "/" },
   openGraph: {
