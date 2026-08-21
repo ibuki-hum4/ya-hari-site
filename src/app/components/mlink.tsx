@@ -25,6 +25,9 @@ const friendLinks: FriendLink[] = [
     url: "https://shihiro.com/",
     avatar: "/shihiro-banner.png",
   },
+  {
+    url: "https://profile.activetk.jp/"
+  },
   // 追加する場合はここに追加
 ];
 
