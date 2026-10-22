@@ -8,6 +8,7 @@ import Footer from "../components/footer";
 import Section from "../components/ui/section";
 import Reveal from "../components/ui/reveal";
 import SplitTitle from "../components/ui/split-title";
+import { projectEntries } from "@/data/projects";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
@@ -29,35 +30,6 @@ export const metadata = {
         description: "やーはりが手がけたプロジェクト一覧。",
     },
 };
-
-type ProjectEntry = {
-    key: "bluearchive" | "school" | "alt";
-    status: "completed" | "in-progress";
-    links?: {
-        demo?: string;
-        github?: string;
-        invite?: string;
-    };
-};
-
-const projectEntries: ProjectEntry[] = [
-    {
-        key: "bluearchive",
-        status: "completed",
-        links: {
-            demo: "https://bluearchive-api.skyia.jp/",
-            github: "https://github.com/ibuki-hum4/BlueArchiveAPI",
-        },
-    },
-    {
-        key: "school",
-        status: "in-progress",
-    },
-    {
-        key: "alt",
-        status: "completed",
-    },
-];
 
 export default async function ProjectsPage() {
     const t = await getTranslations("projects");

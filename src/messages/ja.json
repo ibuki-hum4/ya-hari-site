@@ -450,5 +450,86 @@
     },
     "badgeOpen": "対応可能",
     "badgeProgress": "開発中"
+  },
+  "playground": {
+    "label": "遊ぶ",
+    "terminal": "ターミナル",
+    "terminalShortcut": "` キーでも開けます",
+    "destroy": "壊す",
+    "blackout": "停電"
+  },
+  "terminal": {
+    "title": "ターミナル",
+    "close": "閉じる",
+    "inputLabel": "コマンドを入力",
+    "outputLabel": "ターミナルの出力",
+    "welcome": "ようこそ。このサイトの中身を、ファイルとして読んで回れます。\nhelp でコマンド一覧、ls でファイル一覧、tree で全体を表示します。",
+    "keys": {
+      "tab": "補完",
+      "prev": "前の履歴",
+      "next": "次の履歴",
+      "interrupt": "入力を破棄",
+      "clear": "画面をクリア"
+    },
+    "help": {
+      "intro": "使えるコマンド:",
+      "footer": "パイプ（|）でつなげられます。例: cat about.md | grep -i 音楽\nファイルは読み取り専用で、カレントディレクトリは ~ に固定です（cd はありません）。\n↑↓ で履歴、Tab で補完、Ctrl+L で画面クリア、Ctrl+C で入力を破棄、` か Esc で閉じます。",
+      "commands": {
+        "help": "このヘルプを表示する",
+        "ls": "ファイルの一覧（-l 詳細、-a 隠しファイルも）",
+        "cat": "ファイルの中身を表示する",
+        "grep": "一致する行を探す（-i 大小無視、-r 再帰、-n 行番号）",
+        "head": "先頭の N 行（既定 10）",
+        "tail": "末尾の N 行（既定 10）",
+        "wc": "行数・単語数・バイト数（-l 行数だけ）",
+        "tree": "ディレクトリをツリー表示する",
+        "echo": "文字列を表示する",
+        "pwd": "カレントディレクトリを表示する",
+        "whoami": "ユーザー名を表示する",
+        "date": "現在の日時を表示する",
+        "history": "コマンドの履歴",
+        "clear": "画面をクリアする"
+      }
+    },
+    "fs": {
+      "hobbies": "趣味",
+      "abilities": "できること",
+      "now": "いま取り組んでいること",
+      "status": "状態",
+      "completed": "公開中",
+      "inProgress": "開発中",
+      "form": "フォーム",
+      "blogLoading": "記事一覧を読み込み中です。少し待ってから、もう一度 ls blog してください。",
+      "blogError": "記事一覧を取得できませんでした。ブログはこちらから読めます。"
+    }
+  },
+  "destroy": {
+    "hint": "クリックで砕く・ドラッグで投げる",
+    "hintTouch": "タップで砕く・ドラッグで投げる",
+    "count": "{total}個中 {destroyed}個を破壊",
+    "heal": "直す",
+    "announce": "破壊モードです。Esc キーか「直す」ボタンで元に戻ります。",
+    "log": {
+      "detected": "⚠ 異常を検知",
+      "healing": "🔧 自己修復中...",
+      "done": "✅ 復旧完了"
+    },
+    "result": "{destroyed}個を破壊 → {seconds}秒で自己修復しました",
+    "nothing": "この画面には壊せるものがありませんでした"
+  },
+  "blackout": {
+    "lightsOn": "電気をつける",
+    "announce": "停電しました。カーソルの周りだけが見えます。Esc キーか「電気をつける」ボタンで戻ります。"
+  },
+  "reboot": {
+    "skip": "Esc でスキップ",
+    "announce": "これは演出です。再起動のあと、元のページに戻ります。Esc キーでスキップできます。"
+  },
+  "outage": {
+    "title": "Internal Server Error",
+    "countdown": "{seconds}秒後に自動で復旧します",
+    "recovering": "復旧中...",
+    "skip": "Esc でスキップ",
+    "announce": "これは演出です。5秒後に自動で元のページに戻ります。Esc キーでスキップできます。"
   }
 }

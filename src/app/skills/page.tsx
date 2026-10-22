@@ -16,11 +16,13 @@ import {
     SiRuby,
     SiTypescript,
 } from "react-icons/si";
+import type { IconType } from "react-icons";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Section from "../components/ui/section";
 import Reveal from "../components/ui/reveal";
 import SplitTitle from "../components/ui/split-title";
+import { skillEntries } from "@/data/skills";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
@@ -43,22 +45,23 @@ export const metadata = {
     },
 };
 
-const skillEntries = [
-    { name: "React", Icon: SiReact, className: "text-sky-500", ja: "UIライブラリ", en: "UI Library" },
-    { name: "Next.js", Icon: SiNextdotjs, className: "text-gray-900 dark:text-white", ja: "Reactフレームワーク", en: "React Framework" },
-    { name: "Discord.js", Icon: SiDiscord, className: "text-indigo-500", ja: "Discord Bot 用ライブラリ", en: "Discord Bot Library" },
-    { name: "Tailwind CSS", Icon: SiTailwindcss, className: "text-sky-400", ja: "ユーティリティファースト CSS", en: "Utility-first CSS" },
-    { name: "Node.js", Icon: SiNodedotjs, className: "text-green-600", ja: "JavaScript ランタイム", en: "JavaScript Runtime" },
-    { name: "Docker", Icon: SiDocker, className: "text-blue-500", ja: "コンテナ化プラットフォーム", en: "Containerization Platform" },
-    { name: "Kubernetes", Icon: SiKubernetes, className: "text-blue-600", ja: "コンテナオーケストレーション", en: "Container Orchestration" },
-    { name: "Git", Icon: SiGit, className: "text-orange-500", ja: "バージョン管理システム", en: "Version Control System" },
-    { name: "GitHub", Icon: SiGithub, className: "text-gray-900 dark:text-white", ja: "コードホスティングサービス", en: "Code Hosting Service" },
-    { name: "Figma", Icon: SiFigma, className: "text-pink-500", ja: "UI デザインツール", en: "UI Design Tool" },
-    { name: "Disgo", Icon: SiGo, className: "text-cyan-500", ja: "Go製の Discord Bot 用ライブラリ", en: "Go library for building Discord bots" },
-    { name: "Go", Icon: SiGo, className: "text-cyan-500", ja: "シンプルで高速なプログラミング言語", en: "Simple, fast programming language" },
-    { name: "Ruby", Icon: SiRuby, className: "text-red-600", ja: "書きやすく読みやすいプログラミング言語", en: "Easy to write and read programming language" },
-    { name: "TypeScript / JavaScript", Icon: SiTypescript, className: "text-blue-600", ja: "型を付けて書ける JavaScript と、そのベースとなる言語", en: "Typed superset of JavaScript, and the language it's built on" },
-];
+// skillEntries の name → アイコンと色
+const skillIcons: Record<string, { Icon: IconType; className: string }> = {
+    "React": { Icon: SiReact, className: "text-sky-500" },
+    "Next.js": { Icon: SiNextdotjs, className: "text-gray-900 dark:text-white" },
+    "Discord.js": { Icon: SiDiscord, className: "text-indigo-500" },
+    "Tailwind CSS": { Icon: SiTailwindcss, className: "text-sky-400" },
+    "Node.js": { Icon: SiNodedotjs, className: "text-green-600" },
+    "Docker": { Icon: SiDocker, className: "text-blue-500" },
+    "Kubernetes": { Icon: SiKubernetes, className: "text-blue-600" },
+    "Git": { Icon: SiGit, className: "text-orange-500" },
+    "GitHub": { Icon: SiGithub, className: "text-gray-900 dark:text-white" },
+    "Figma": { Icon: SiFigma, className: "text-pink-500" },
+    "Disgo": { Icon: SiGo, className: "text-cyan-500" },
+    "Go": { Icon: SiGo, className: "text-cyan-500" },
+    "Ruby": { Icon: SiRuby, className: "text-red-600" },
+    "TypeScript / JavaScript": { Icon: SiTypescript, className: "text-blue-600" },
+};
 
 export default async function SkillsPage() {
     const t = await getTranslations("skills");
@@ -106,8 +109,9 @@ export default async function SkillsPage() {
 
                     {/* ジグザグリスト: 1行ごとに左右の寄せを反転させる */}
                     <div className="divide-y divide-line border-y border-line">
-                        {skillEntries.map(({ name, Icon, className, ja, en }, index) => {
+                        {skillEntries.map(({ name, ja, en }, index) => {
                             const align = index % 2 === 0 ? "left" : "right";
+                            const { Icon, className } = skillIcons[name];
                             return (
                                 <Reveal key={name} delay={Math.min(index, 6) * 0.05}>
                                     <div

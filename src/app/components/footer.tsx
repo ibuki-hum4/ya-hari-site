@@ -2,6 +2,7 @@ import { FiAlignLeft, FiGrid, FiBox, FiShield, FiFileText, FiLayers } from "reac
 import { IoMailOutline } from "react-icons/io5";
 import CookieSettingsDialog from "./CookieSettingsDialog";
 import FooterViewCounter from "./FooterViewCounter";
+import PlaygroundButtons from "./playground/PlaygroundButtons";
 
 const navLinks = [
   { href: "/about",    label: "About",    icon: FiAlignLeft },
@@ -43,6 +44,9 @@ export default function Footer() {
             </a>
           ))}
         </nav>
+
+        {/* 遊ぶ（ターミナルなど） */}
+        <PlaygroundButtons />
 
         {/* メタ情報 */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-muted text-center sm:text-left">

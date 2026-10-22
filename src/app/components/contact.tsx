@@ -7,6 +7,7 @@ import Section from "./ui/section";
 import { cardClass } from "./ui/card";
 import { primaryButtonClass } from "./ui/button";
 import Reveal from "./ui/reveal";
+import { contacts } from "@/data/profile";
 
 export default async function ContactSection() {
     const t = await getTranslations("contact");
@@ -15,23 +16,23 @@ export default async function ContactSection() {
         {
             icon: <IoMailOutline size={28} />,
             title: "EMAIL",
-            subtitle: "yahari@skyia.jp",
+            subtitle: contacts.email,
             description: t("methods.email.description"),
-            link: "mailto:yahari@skyia.jp",
+            link: `mailto:${contacts.email}`,
         },
         {
             icon: <FiGithub size={28} />,
             title: "GITHUB",
-            subtitle: "@ibuki-hum4",
+            subtitle: contacts.github.handle,
             description: t("methods.github.description"),
-            link: "https://github.com/ibuki-hum4",
+            link: contacts.github.url,
         },
         {
             icon: <FaXTwitter size={28} />,
             title: "X",
-            subtitle: "@Yaaaaahari",
+            subtitle: contacts.x.handle,
             description: t("methods.x.description"),
-            link: "https://x.com/Yaaaaahari",
+            link: contacts.x.url,
         },
     ];
 

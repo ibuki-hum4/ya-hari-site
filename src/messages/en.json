@@ -450,5 +450,86 @@
     },
     "badgeOpen": "Available",
     "badgeProgress": "In progress"
+  },
+  "playground": {
+    "label": "Play",
+    "terminal": "Terminal",
+    "terminalShortcut": "Or press `",
+    "destroy": "Destroy",
+    "blackout": "Blackout"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "close": "Close",
+    "inputLabel": "Enter a command",
+    "outputLabel": "Terminal output",
+    "welcome": "Welcome. You can browse this site's content as files.\nType help for commands, ls to list files, or tree to see everything.",
+    "keys": {
+      "tab": "Complete",
+      "prev": "Previous command",
+      "next": "Next command",
+      "interrupt": "Discard input",
+      "clear": "Clear screen"
+    },
+    "help": {
+      "intro": "Available commands:",
+      "footer": "Commands can be chained with pipes (|). Example: cat about.md | grep -i music\nFiles are read-only, and the working directory is fixed at ~ (there is no cd).\n↑↓ for history, Tab to complete, Ctrl+L to clear, Ctrl+C to discard input, ` or Esc to close.",
+      "commands": {
+        "help": "Show this help",
+        "ls": "List files (-l long format, -a include hidden)",
+        "cat": "Print file contents",
+        "grep": "Search for matching lines (-i ignore case, -r recursive, -n line numbers)",
+        "head": "First N lines (default 10)",
+        "tail": "Last N lines (default 10)",
+        "wc": "Count lines, words and bytes (-l lines only)",
+        "tree": "Show directories as a tree",
+        "echo": "Print text",
+        "pwd": "Print the working directory",
+        "whoami": "Print the user name",
+        "date": "Print the current date and time",
+        "history": "Show command history",
+        "clear": "Clear the screen"
+      }
+    },
+    "fs": {
+      "hobbies": "Hobbies",
+      "abilities": "Abilities",
+      "now": "What I'm up to",
+      "status": "Status",
+      "completed": "Released",
+      "inProgress": "In progress",
+      "form": "Form",
+      "blogLoading": "Loading the post list. Wait a moment and run ls blog again.",
+      "blogError": "Couldn't load the post list. You can read the blog here."
+    }
+  },
+  "destroy": {
+    "hint": "Click to smash · drag to throw",
+    "hintTouch": "Tap to smash · drag to throw",
+    "count": "{destroyed} of {total} destroyed",
+    "heal": "Fix it",
+    "announce": "Destroy mode. Press Esc or the Fix it button to restore the page.",
+    "log": {
+      "detected": "⚠ Anomaly detected",
+      "healing": "🔧 Self-healing...",
+      "done": "✅ Recovered"
+    },
+    "result": "Destroyed {destroyed} → self-healed in {seconds}s",
+    "nothing": "Nothing on this screen could be destroyed"
+  },
+  "blackout": {
+    "lightsOn": "Turn the lights on",
+    "announce": "Blackout. Only the area around your cursor is visible. Press Esc or the Turn the lights on button to restore."
+  },
+  "reboot": {
+    "skip": "Esc to skip",
+    "announce": "This is a demo. After the reboot, the page comes back. Press Esc to skip."
+  },
+  "outage": {
+    "title": "Internal Server Error",
+    "countdown": "Recovering automatically in {seconds}s",
+    "recovering": "Recovering...",
+    "skip": "Esc to skip",
+    "announce": "This is a demo. The page will recover automatically in 5 seconds. Press Esc to skip."
   }
 }

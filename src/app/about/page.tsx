@@ -3,11 +3,13 @@ import { getTranslations } from "next-intl/server";
 import { IoArrowBack, IoGameControllerOutline, IoLocationOutline } from "react-icons/io5";
 import { FiMusic, FiCalendar, FiBookOpen, FiGithub, FiArrowRight } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Section from "../components/ui/section";
 import Reveal from "../components/ui/reveal";
 import SplitTitle from "../components/ui/split-title";
+import { hobbies as hobbyLabels, abilities, contacts } from "@/data/profile";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ya-hari.skyia.jp";
 
@@ -30,12 +32,13 @@ export const metadata = {
     },
 };
 
-const hobbies = [
-    { label: "音楽", icon: FiMusic },
-    { label: "ゲーム", icon: IoGameControllerOutline },
-];
+// profile.ts の hobbies → アイコン
+const hobbyIcons: Record<(typeof hobbyLabels)[number], IconType> = {
+    "音楽": FiMusic,
+    "ゲーム": IoGameControllerOutline,
+};
 
-const abilities = ["バリトンサックス", "ギター", "インフラ", "k8s"];
+const hobbies = hobbyLabels.map((label) => ({ label, icon: hobbyIcons[label] }));
 
 export default async function AboutPage() {
     const t = await getTranslations("about");
@@ -175,22 +178,22 @@ export default async function AboutPage() {
                                 <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-5">Find me online</h2>
                                 <div className="flex flex-wrap gap-3">
                                     <a
-                                        href="https://github.com/ibuki-hum4"
+                                        href={contacts.github.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted hover:text-ink hover:border-ink rounded-full text-sm transition-colors"
                                     >
                                         <FiGithub size={16} />
-                                        @ibuki-hum4
+                                        {contacts.github.handle}
                                     </a>
                                     <a
-                                        href="https://x.com/Yaaaaahari"
+                                        href={contacts.x.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted hover:text-ink hover:border-ink rounded-full text-sm transition-colors"
                                     >
                                         <FaXTwitter size={16} />
-                                        @Yaaaaahari
+                                        {contacts.x.handle}
                                     </a>
                                 </div>
                             </div>

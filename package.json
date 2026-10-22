@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "bun --bun next start",
     "lint": "eslint",
-    "typecheck": "bunx tsc --noEmit"
+    "typecheck": "bunx tsc --noEmit",
+    "test": "bun test"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.16",
@@ -17,6 +18,7 @@
     "@types/three": "^0.181.0",
     "@upstash/redis": "^1.35.7",
     "marked": "^17.0.1",
+    "matter-js": "0.20.0",
     "microcms-js-sdk": "^3.2.0",
     "motion": "^12.40.0",
     "next": "16.4.1",
@@ -32,6 +34,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "@types/bun": "^1.4.3",
+    "@types/matter-js": "0.20.2",
     "@types/node": "^20.19.25",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",

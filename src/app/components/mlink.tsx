@@ -7,33 +7,9 @@ import { useTranslations } from "next-intl";
 import Section from "./ui/section";
 import { cardClass } from "./ui/card";
 import Reveal from "./ui/reveal";
-
-type FriendLink = {
-  name?: string; // サイト名（省略でサイトから自動取得）
-  description?: string; // 説明（省略でサイトから自動取得）
-  url: string;
-  avatar?: string;
-};
-
-const friendLinks: FriendLink[] = [
-  {
-    url: "https://www.yuito-it.jp",
-    avatar: "/yuitopia.gif",
-    // name, description省略 → サイトから自動取得
-  },
-  {
-    url: "https://shihiro.com/",
-    avatar: "/shihiro-banner.png",
-  },
-  {
-    url: "https://profile.activetk.jp/"
-  },
-  // 追加する場合はここに追加
-];
+import { friendLinks, ogpQueryKey, type FriendLink, type OGPData } from "@/data/links";
 
 type LinkWithOGP = FriendLink & { fetchedName?: string; fetchedDescription?: string };
-
-type OGPData = { title?: string; description?: string };
 
 export default function MutualLinks() {
   const t = useTranslations("links");
@@ -41,7 +17,7 @@ export default function MutualLinks() {
   // 名前/説明が省略されているリンクだけOGPを取得し、ページ間遷移時はキャッシュを再利用する
   const ogpQueries = useQueries({
     queries: friendLinks.map((link) => ({
-      queryKey: ["ogp", link.url],
+      queryKey: ogpQueryKey(link.url),
       queryFn: async (): Promise<OGPData> => {
         const res = await fetch(`/api/ogp?url=${encodeURIComponent(link.url)}`);
         if (!res.ok) throw new Error("Failed to fetch OGP");

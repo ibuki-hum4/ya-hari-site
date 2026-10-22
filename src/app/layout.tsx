@@ -11,6 +11,7 @@ import ThreeBackground from "./components/three-background-loader";
 import AppToaster from "./components/AppToaster";
 import { LoadingOverlayProvider } from "./components/loading/overlay";
 import NavigationProgress from "./components/NavigationProgress";
+import Playground from "./components/playground/Playground";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -223,7 +224,8 @@ export default async function RootLayout({
         className={`${lineSeedJP.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased bg-surface text-ink transition-colors`}
       >
         <ThreeBackground />
-        <div className="relative z-10">
+        {/* data-page-root: 破壊モードがページ全体を隠して複製を壊すときの目印 */}
+        <div className="relative z-10" data-page-root>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider>
               <QueryProvider>
@@ -235,6 +237,7 @@ export default async function RootLayout({
                   {children}
                   <CookieConsent />
                   <AppToaster />
+                  <Playground />
                 </LoadingOverlayProvider>
               </QueryProvider>
             </ThemeProvider>
